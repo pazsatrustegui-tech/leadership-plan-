@@ -1,0 +1,626 @@
+<title>Prácticas Verano 2027</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky tab bar over a single 1100px column; ledger-like tables for companies, cards only for actions */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --ink:#16213A; --muted:#5B6478; --line:#DDE1E8;
+  --accent:#2D55C8; --accent-soft:#E7EDFB; --amber:#A8650B; --amber-soft:#FBF0DD;
+  --good:#1F7A4D; --good-soft:#E2F3EA; --bad:#B03A3A; --bad-soft:#F8E4E4;
+  --display:"Instrument Sans",system-ui,sans-serif; --body:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1420; --surface:#171E2D; --ink:#E6EAF2; --muted:#9AA3B6; --line:#2A3347;
+  --accent:#7D9CF0; --accent-soft:#1F2B4A; --amber:#E2A84A; --amber-soft:#3A2C14;
+  --good:#5CC48D; --good-soft:#163326; --bad:#EE8080; --bad-soft:#3B1C1C; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1420; --surface:#171E2D; --ink:#E6EAF2; --muted:#9AA3B6; --line:#2A3347;
+  --accent:#7D9CF0; --accent-soft:#1F2B4A; --amber:#E2A84A; --amber-soft:#3A2C14;
+  --good:#5CC48D; --good-soft:#163326; --bad:#EE8080; --bad-soft:#3B1C1C; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55}
+.wrap{max-width:1100px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+header.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--body);font-weight:400;font-size:12px;color:var(--muted)}
+nav{display:flex;gap:4px;overflow-x:auto;flex:1;min-width:0}
+nav a{font-weight:500;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:999px;white-space:nowrap;font-size:14px}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+nav a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main .wrap{padding-block:28px 64px;display:grid;gap:28px}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.01em;text-wrap:balance;margin:0}
+h1{font-size:28px} h2{font-size:21px} h3{font-size:16px}
+p{margin:0} .muted{color:var(--muted)} .small{font-size:13px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+section.view{display:grid;gap:24px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:grid;gap:12px;min-width:0;align-content:start}
+.stages{display:flex;flex-wrap:wrap;gap:8px}
+.stage{display:flex;flex-direction:column;padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);min-width:110px;flex:1}
+.stage b{font-family:var(--display);font-size:26px;font-variant-numeric:tabular-nums}
+.stage span{font-size:12px;color:var(--muted)}
+.list{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.list li{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line);align-items:baseline}
+.list li:first-child{border-top:0}
+.date{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.date.soon{color:var(--amber);font-weight:500}
+.date.past{color:var(--bad)}
+.timeline{display:grid;gap:0;margin:0;padding:0;list-style:none;border-left:2px solid var(--line);margin-left:6px}
+.timeline li{position:relative;padding:0 0 14px 18px}
+.timeline li::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2px solid var(--line)}
+.timeline li.now::before{background:var(--accent);border-color:var(--accent)}
+.timeline .when{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:999px;white-space:nowrap}
+.p-Investigando{background:var(--line);color:var(--ink)}
+.p-Contactado{background:var(--accent-soft);color:var(--accent)}
+.p-Aplicado{background:var(--amber-soft);color:var(--amber)}
+.p-Entrevista{background:var(--amber-soft);color:var(--amber);outline:1px solid var(--amber)}
+.p-Oferta{background:var(--good-soft);color:var(--good)}
+.p-Descartado{background:var(--bad-soft);color:var(--bad)}
+.prio{font-family:var(--mono);font-size:12px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:5px 12px;border-radius:999px;font-size:13px;cursor:pointer;font-family:var(--body)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+button.btn{font-family:var(--body);font-weight:600;font-size:14px;border-radius:8px;padding:8px 14px;cursor:pointer;border:1px solid var(--accent);background:var(--accent);color:#fff}
+:root[data-theme="dark"] button.btn{color:#0F1420}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) button.btn{color:#0F1420}}
+button.ghost{background:transparent;color:var(--accent)}
+button.danger{background:transparent;color:var(--bad);border-color:var(--bad)}
+button.btn:disabled{opacity:.5;cursor:default}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:7px;padding:7px 10px;width:100%;min-width:0}
+textarea{resize:vertical;line-height:1.5}
+label{display:grid;gap:4px;font-size:13px;font-weight:500;color:var(--muted)}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.form .full{grid-column:1/-1}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:14px}
+th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+tr.row{cursor:pointer} tr.row:hover td{background:var(--bg)}
+td .name{font-weight:600}
+td .sub{font-size:12px;color:var(--muted)}
+tr.detail td{background:var(--bg)}
+.why{font-size:13px;color:var(--muted);max-width:42ch}
+a{color:var(--accent)}
+.links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.notice{border:1px solid var(--line);border-left:4px solid var(--amber);background:var(--amber-soft);border-radius:8px;padding:12px 14px;font-size:14px}
+.notice.info{border-left-color:var(--accent);background:var(--accent-soft)}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.out{font-family:var(--body);min-height:280px;background:var(--surface)}
+.count{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.count.over{color:var(--bad);font-weight:600}
+.check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.check li{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start}
+.check input{width:18px;height:18px;margin-top:3px;accent-color:var(--accent)}
+.fix{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.fix li{display:grid;gap:6px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.fix li:last-child{border-bottom:0;padding-bottom:0}
+.before,.after{font-family:var(--mono);font-size:12.5px;padding:8px 10px;border-radius:6px;white-space:pre-wrap;overflow-wrap:anywhere}
+.before{background:var(--bad-soft)} .after{background:var(--good-soft)}
+.src{display:grid;gap:0;list-style:none;padding:0;margin:0}
+.src li{padding:10px 0;border-top:1px solid var(--line);display:grid;gap:2px}
+.src li:first-child{border-top:0}
+.src .freq{font-family:var(--mono);font-size:11px;color:var(--amber);text-transform:uppercase;letter-spacing:.05em}
+.weeks{counter-reset:w;display:grid;gap:12px;list-style:none;padding:0;margin:0}
+.weeks li{counter-increment:w;display:grid;grid-template-columns:44px 1fr;gap:12px}
+.weeks li::before{content:"S" counter(w);font-family:var(--mono);font-weight:500;color:var(--accent);font-size:14px;padding-top:1px}
+.letter{white-space:pre-wrap;font-size:14.5px;line-height:1.65;max-width:68ch}
+.toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:8px;font-size:14px;z-index:20}
+@media (prefers-reduced-motion:no-preference){.panel{transition:border-color .2s}}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Prácticas Verano 2027<small>Paz · Derecho + ADE · UC3M</small></div>
+    <nav id="nav" aria-label="Secciones">
+      <a href="#panel">Panel</a>
+      <a href="#empresas">Empresas</a>
+      <a href="#redactar">Redactar</a>
+      <a href="#cv">CV y carta</a>
+      <a href="#aprender">Aprender</a>
+    </nav>
+  </div>
+</header>
+
+<main><div class="wrap">
+
+<!-- PANEL -->
+<section class="view" id="v-panel">
+  <div style="display:grid;gap:6px">
+    <p class="eyebrow">Objetivo</p>
+    <h1>Prácticas de junio y julio de 2027</h1>
+    <p class="muted">Madrid, Barcelona o el extranjero. Bancos y despachos para tener nombre, y startups para descubrir qué te gusta.</p>
+  </div>
+  <div id="storeNote" class="notice info" hidden></div>
+  <div class="stages" id="stages"></div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Próximas acciones</h2>
+      <p class="small muted">Lo que tiene fecha en los próximos 14 días o ya está pasado.</p>
+      <ul class="list" id="actions"></ul>
+    </div>
+    <div class="panel">
+      <h2>Plazos de candidatura</h2>
+      <p class="small muted">Ordenados por fecha. Los plazos sin fecha confirmada no aparecen aquí: revísalos en la ficha.</p>
+      <ul class="list" id="deadlines"></ul>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Calendario de la temporada</h2>
+      <ol class="timeline" id="season">
+        <li data-m="2026-11"><div class="when">Nov – dic 2026</div><b>Grandes: despachos, Big4, banca.</b> <span class="muted">Son los primeros en cerrar. Aplica ya a Pérez-Llorca, Freshfields, EY Legal/Fiscal y J.P. Morgan.</span></li>
+        <li data-m="2027-01"><div class="when">Ene – feb 2027</div><b>Entrevistas y networking.</b> <span class="muted">Vuelves de Oporto. Cafés con antiguos alumnos UC3M, entrevistas en remoto o presenciales.</span></li>
+        <li data-m="2027-03"><div class="when">Feb – abr 2027</div><b>Startups.</b> <span class="muted">Abren prácticas de verano con 1–3 meses de antelación. Mensajes directos a fundadores y equipos de operaciones.</span></li>
+        <li data-m="2027-05"><div class="when">Mayo 2027</div><b>Solicitud del Prácticum UC3M para 5º.</b> <span class="muted">En 2026 fue del 11 al 18 de mayo. Antes de empezar en verano, pide validación si quieres que cuenten como curriculares.</span></li>
+        <li data-m="2027-06"><div class="when">Jun – jul 2027</div><b>Prácticas.</b> <span class="muted">Convenio con la UC3M firmado antes de empezar.</span></li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h2>Tus prácticas en la UC3M</h2>
+      <ul class="check" style="font-size:14px">
+        <li><span class="pill p-Contactado">5º</span><span><b>Prácticum de Derecho obligatorio</b>, segundo cuatrimestre. 9 ECTS según la ficha 2025/26 (otra página dice 225 h / 6 ECTS).</span></li>
+        <li><span class="pill p-Investigando">ADE</span><span><b>Prácticas de ADE optativas</b>: mínimo 450 h (18 ECTS). Dos meses de verano no llegan.</span></li>
+        <li><span class="pill p-Aplicado">Verano</span><span><b>Extracurriculares</b>: 110 ECTS aprobados, matrícula activa y convenio de la empresa con la UC3M.</span></li>
+        <li><span class="pill p-Oferta">Idea</span><span>Si las prácticas de verano son jurídicas y las validas <b>antes de empezar</b>, podrían contar como Prácticum y liberarte el segundo cuatrimestre de 5º. Confírmalo con la Secretaría.</span></li>
+      </ul>
+      <p class="small"><a href="https://www.uc3m.es/ss/Satellite/SecretariaVirtual/en/TextoMixta/1371319429346/Practicum_Derecho_y_Doble_Grado_Derecho-ADE" target="_blank" rel="noopener">Prácticum Derecho-ADE</a> · <a href="https://www.uc3m.es/ss/Satellite/SecretariaVirtual/es/TextoMixta/1371210942487/Practicas_extracurriculares" target="_blank" rel="noopener">Extracurriculares</a> · <a href="#redactar" data-kind="uc3m" class="jump">Redactar correo a la Secretaría</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- EMPRESAS -->
+<section class="view" id="v-empresas" hidden>
+  <div style="display:grid;gap:6px">
+    <h1>Empresas objetivo</h1>
+    <p class="muted">Pulsa una fila para ver por qué encaja, los enlaces de LinkedIn y para apuntar contactos y próximos pasos. Los plazos marcados como “verificar” vienen de agregadores: confírmalos en la web de la empresa.</p>
+  </div>
+  <div class="toolbar" id="typeFilter"></div>
+  <div class="toolbar">
+    <label style="flex:1;min-width:180px"><span class="sr">Buscar</span><input id="q" type="search" placeholder="Buscar empresa, ciudad, área…"></label>
+    <label style="min-width:160px">Estado<select id="fState"><option value="">Todos</option></select></label>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Empresa</th><th>Tipo</th><th>Plazo</th><th>Prioridad</th><th>Estado</th><th>Próximo paso</th></tr></thead>
+      <tbody id="rows"><tr><td colspan="6" class="empty">Cargando tu lista de empresas…</td></tr></tbody>
+    </table>
+  </div>
+  <div class="panel">
+    <h2>Añadir empresa</h2>
+    <form class="form" id="addForm">
+      <label>Nombre<input id="a-nombre" required></label>
+      <label>Tipo<select id="a-tipo"></select></label>
+      <label>Ciudad<input id="a-ciudad" placeholder="Madrid"></label>
+      <label>Plazo<input id="a-plazo" type="date"></label>
+      <label class="full">Programa o puesto<input id="a-programa" placeholder="Summer internship M&A, prácticas de verano…"></label>
+      <label class="full">Enlace a la oferta<input id="a-link" type="url" placeholder="https://"></label>
+      <div class="full"><button class="btn" type="submit">Añadir a la lista</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- REDACTAR -->
+<section class="view" id="v-redactar" hidden>
+  <div style="display:grid;gap:6px">
+    <h1>Redactar cartas y mensajes</h1>
+    <p class="muted">Elige empresa y tipo de texto. “Escribir con Claude” lo adapta a la empresa con tu perfil y tus notas; “Plantilla” rellena un modelo al momento. Revisa siempre el resultado antes de enviarlo.</p>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <form class="form" id="genForm">
+        <label class="full">Empresa<select id="g-emp"></select></label>
+        <label>Texto<select id="g-kind">
+          <option value="carta">Carta de presentación</option>
+          <option value="invit">Invitación de LinkedIn (300 caracteres)</option>
+          <option value="rrhh">Mensaje a RRHH / talent</option>
+          <option value="director">Mensaje a un director o fundador</option>
+          <option value="alumni">Mensaje a un antiguo alumno UC3M</option>
+          <option value="seguimiento">Seguimiento (sin respuesta)</option>
+          <option value="gracias">Agradecimiento tras entrevista</option>
+          <option value="uc3m">Correo a la Secretaría UC3M</option>
+        </select></label>
+        <label>Idioma<select id="g-lang"><option value="es">Español</option><option value="en">Inglés</option><option value="fr">Francés</option></select></label>
+        <label class="full">Destinatario (opcional)<input id="g-to" placeholder="Nombre y cargo, p. ej. Laura Gómez, Talent Acquisition"></label>
+        <label class="full">Lo que sabes de la empresa o la persona<textarea id="g-notes" rows="4" placeholder="Una noticia reciente, un proyecto, algo en común con la persona… Cuanto más concreto, mejor queda."></textarea></label>
+        <div class="full toolbar">
+          <button class="btn" type="submit" id="g-ai">Escribir con Claude</button>
+          <button class="btn ghost" type="button" id="g-tpl">Plantilla</button>
+          <span class="small muted" id="g-status"></span>
+        </div>
+      </form>
+    </div>
+    <div class="panel">
+      <div class="toolbar" style="justify-content:space-between"><h2>Resultado</h2><span class="count" id="g-count"></span></div>
+      <textarea id="g-out" class="out" rows="16" placeholder="Aquí aparecerá el texto. Puedes editarlo antes de copiarlo."></textarea>
+      <div class="toolbar"><button class="btn" type="button" id="g-copy">Copiar</button><button class="btn ghost" type="button" id="g-log">Marcar como contactada hoy</button></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Cómo escribir por LinkedIn sin parecer spam</h2>
+    <ul class="check" style="font-size:14px">
+      <li><span class="pill p-Contactado">1</span><span><b>Busca a antiguos alumnos de la UC3M</b> en la empresa (enlace “Alumni UC3M” en cada ficha). Responden mucho más que RRHH.</span></li>
+      <li><span class="pill p-Contactado">2</span><span><b>Invitación corta</b> (máx. 300 caracteres): quién eres, por qué esa persona, una pregunta concreta. Nada de adjuntar CV en el primer mensaje.</span></li>
+      <li><span class="pill p-Contactado">3</span><span><b>Pide 15 minutos de conversación</b>, no un puesto. El puesto sale de la conversación.</span></li>
+      <li><span class="pill p-Contactado">4</span><span><b>Seguimiento a los 7–10 días</b> si no contestan, una sola vez. Apunta la fecha en la ficha y aparecerá en el Panel.</span></li>
+      <li><span class="pill p-Contactado">5</span><span><b>Ritmo realista</b>: 5 invitaciones y 2 candidaturas a la semana valen más que 40 mensajes en un día.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CV -->
+<section class="view" id="v-cv" hidden>
+  <div style="display:grid;gap:6px">
+    <h1>Tu CV y tu carta</h1>
+    <p class="muted">Revisión de los documentos de noviembre de 2026. Ordenado de más a menos impacto.</p>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>CV: cambios prioritarios</h2>
+      <ol class="fix">
+        <li><b>1. Describe las prácticas en PKF Attest.</b><span class="small muted">Es tu experiencia más valiosa y ahora mismo es una sola línea sin contenido. Súbela al principio de la experiencia y añade 2–3 viñetas con verbo + tarea + resultado.</span>
+          <div class="before">PKF Attest — Intern in Legal and Fiscal Department</div>
+          <div class="after">PKF Attest · Legal & Tax Intern · Madrid · Jun–Jul 2026
+• Drafted and reviewed [contracts / corporate documents] for [X] clients
+• Supported tax filings (e.g. Corporate Income Tax, VAT) and research on [topic]
+• Prepared memos summarising case law and regulation for senior associates</div>
+          <span class="small muted">Cambia los corchetes por lo que hiciste de verdad. Si no recuerdas cifras, usa ejemplos concretos.</span></li>
+        <li><b>2. Un solo idioma en todo el CV.</b><span class="small muted">En la versión inglesa aparecen “Nota media”, “Francés” e “Inglés”. Y “Lyçée” se escribe “Lycée”.</span>
+          <div class="before">Francés: Fluent/ Diplôme National du Brevet (DNB)/ Lyçée Français de Madrid</div>
+          <div class="after">French: Bilingual — fully schooled in the French system (Lycée Français de Madrid, 2008–2020); Diplôme National du Brevet</div>
+          <span class="small muted">Sí tienes un título: el DNB. “Bilingual” más 12 años en el sistema francés convence más que cualquier certificado.</span></li>
+        <li><b>3. Cambia el perfil por uno concreto.</b><span class="small muted">Los adjetivos (empathetic, enthusiastic…) no diferencian. Di quién eres, qué has hecho y qué buscas.</span>
+          <div class="after">4th-year Law & Business Administration student at UC3M (GPA 7.21/10, Community of Madrid Excellence Scholarship). Legal & tax internship at PKF Attest; exchanges at Texas A&M and Católica Porto. Trilingual (ES/EN/FR). Seeking a summer 2027 internship in [M&A / strategy & operations / corporate law].</div>
+          <span class="small muted">Adapta la última frase a cada empresa.</span></li>
+        <li><b>4. Limpia la formación.</b><span class="small muted">Quita 4º ESO en Jesús y María. Escribe la EvAU como “13.51/14”. Pon la beca de excelencia junto a la UC3M. Fechas en un único formato: “Sep 2026 – Jan 2027”.</span></li>
+        <li><b>5. Una línea de logro en cada trabajo.</b><span class="small muted">Fotógrafa freelance es casi un pequeño negocio propio, y a las startups les encanta. Ejemplo: “Freelance event photographer — 20+ private events; client acquisition, pricing and invoicing”. Tutora: número de alumnos y materias.</span></li>
+        <li><b>6. Habilidades técnicas.</b><span class="small muted">Indica nivel de Excel (fórmulas, tablas dinámicas). En banca valoran un curso corto de modelización financiera (CFI tiene cursos gratuitos); en startups, Notion, herramientas de IA o SQL básico.</span></li>
+        <li><b>7. Voluntariado en una línea cada uno</b> y dos versiones del CV: inglés para banca, Big4 y startups internacionales; español para despachos.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h2>Carta: qué cambiar</h2>
+      <ul class="check" style="font-size:14px">
+        <li><span class="pill p-Descartado">Falta</span><span><b>No mencionas PKF Attest.</b> Es tu prueba más fuerte de que ya sabes trabajar en un entorno profesional.</span></li>
+        <li><span class="pill p-Descartado">Falta</span><span><b>Nada específico de la empresa.</b> Los “…” se rellenan con un motivo real: una operación, una ronda, un producto.</span></li>
+        <li><span class="pill p-Aplicado">Mejorar</span><span><b>El inicio</b> (“Mi interés actual está enfocado al aprendizaje, simple y llanamente”) suena a disculpa. Empieza por quién eres y qué pides.</span></li>
+        <li><span class="pill p-Aplicado">Mejorar</span><span><b>Demasiados adjetivos sobre ti</b> y pocos hechos. Cambia “soy ambiciosa y responsable” por algo que lo demuestre.</span></li>
+        <li><span class="pill p-Oferta">Mantener</span><span>Tu voz es buena: lo de “preguntona”, el Liceo Francés, la lectura semanal, la ambición con valores. Lo conservamos, pero más corto.</span></li>
+      </ul>
+      <p class="small muted">Debajo tienes una carta base reescrita, de una página y con huecos para cada empresa. “Redactar → Carta de presentación” la usa como punto de partida.</p>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="toolbar" style="justify-content:space-between"><h2>Carta base reescrita</h2><button class="btn ghost" type="button" id="copyBase">Copiar</button></div>
+    <div class="letter" id="baseLetter"></div>
+  </div>
+</section>
+
+<!-- APRENDER -->
+<section class="view" id="v-aprender" hidden>
+  <div style="display:grid;gap:6px">
+    <h1>Entender el mercado</h1>
+    <p class="muted">Una rutina para saber qué empresas están de moda y poder hablar de mercados en una entrevista, más una ruta de seis semanas para aprender lo básico de finanzas.</p>
+  </div>
+  <div class="grid2">
+    <div class="panel">
+      <h2>Rutina semanal</h2>
+      <ul class="check" id="routine"></ul>
+      <p class="small muted">Se reinicia cada lunes. Se guarda solo en este navegador.</p>
+    </div>
+    <div class="panel">
+      <h2>Ruta de 6 semanas</h2>
+      <ol class="weeks">
+        <li><span><b>Leer unas cuentas.</b> Balance, cuenta de resultados y flujos de caja de una empresa del IBEX (empieza por Inditex). <a href="https://www.investopedia.com/terms/f/financial-statements.asp" target="_blank" rel="noopener">Investopedia</a></span></li>
+        <li><span><b>Valorar una empresa.</b> Múltiplos (EV/EBITDA, PER) y la idea del DCF. <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener">Damodaran (NYU), gratis</a></span></li>
+        <li><span><b>Bolsa y tipos.</b> Qué mueve el IBEX 35, qué decide el BCE y por qué afecta a bancos y startups. <a href="https://www.ecb.europa.eu/home/html/index.es.html" target="_blank" rel="noopener">BCE</a></span></li>
+        <li><span><b>M&A y capital riesgo.</b> Cómo es una operación, de la due diligence al cierre: aquí tu parte de Derecho es una ventaja. <a href="https://corporatefinanceinstitute.com/resources/valuation/mergers-acquisitions-ma-process/" target="_blank" rel="noopener">CFI</a></span></li>
+        <li><span><b>Startups y venture capital.</b> Seed, Serie A–D, valoración y dilución. Analiza una ronda española reciente (Factorial, Multiverse).</span></li>
+        <li><span><b>Ensayar la entrevista.</b> “Cuéntame una operación o una empresa que sigas”: prepara dos, una grande y una startup, con datos.</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>Fuentes</h2>
+    <ul class="src">
+      <li><span class="freq">Diario · 10 min</span><a href="https://www.expansion.com" target="_blank" rel="noopener"><b>Expansión</b></a><span class="small muted">Portada y sección de mercados. Operaciones corporativas y nombramientos en España.</span></li>
+      <li><span class="freq">Diario · 5 min</span><a href="https://cincodias.elpais.com" target="_blank" rel="noopener"><b>Cinco Días</b></a><span class="small muted">Alternativa o complemento a Expansión; buena cobertura de startups y rondas.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://elreferente.es" target="_blank" rel="noopener"><b>El Referente</b></a><span class="small muted">Ecosistema emprendedor español: rondas, inversores y startups que contratan.</span></li>
+      <li><span class="freq">Trimestral</span><a href="https://www.bankinter.com/www2/blog/observatorio-startups" target="_blank" rel="noopener"><b>Observatorio de Startups de Bankinter</b></a><span class="small muted">Resumen de las rondas del trimestre en España. De aquí salen las startups de la lista.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://sifted.eu" target="_blank" rel="noopener"><b>Sifted</b></a><span class="small muted">Startups europeas (del Financial Times). Útil si te planteas ir fuera.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://www.lesechos.fr" target="_blank" rel="noopener"><b>Les Echos</b></a><span class="small muted">Prensa económica francesa: aprovecha tu francés para seguir empresas francesas con presencia en España.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://www.economist.com" target="_blank" rel="noopener"><b>The Economist</b></a> · <a href="https://www.ft.com" target="_blank" rel="noopener"><b>Financial Times</b></a><span class="small muted">Contexto internacional. Pregunta en la UC3M si tienes acceso gratuito como estudiante.</span></li>
+      <li><span class="freq">Podcast</span><a href="https://www.bloomberg.com/oddlots" target="_blank" rel="noopener"><b>Odd Lots (Bloomberg)</b></a> · <a href="https://www.acquired.fm" target="_blank" rel="noopener"><b>Acquired</b></a><span class="small muted">Mercados explicados con calma; historias completas de grandes empresas.</span></li>
+    </ul>
+  </div>
+</section>
+
+</div></main>
+
+<script>
+(function(){
+"use strict";
+const STAGES=["Investigando","Contactado","Aplicado","Entrevista","Oferta","Descartado"];
+const TYPES=["Banca e inversión","Big4 y consultoría","Despacho","Startup","Empresa francesa"];
+const PRIO={Alta:"●●●",Media:"●●○",Baja:"●○○"};
+const PROFILE=`Paz Satrústegui Sañudo. 4º curso del Doble Grado en Derecho y Administración de Empresas, Universidad Carlos III de Madrid (nota media 7,21; Beca de Excelencia de la Comunidad de Madrid 2023-24; EvAU 13,51/14; Bachillerato 9,89 en Fomento Fundación).
+Prácticas: PKF Attest, departamento legal y fiscal, Madrid, junio-julio 2026.
+Intercambios: Texas A&M University (ago-dic 2025); Erasmus+ en la Universidad Católica Portuguesa, Oporto (sep 2026-ene 2027, está allí ahora).
+Idiomas: español nativo; francés bilingüe (escolarizada en el Lycée Français de Madrid 2008-2020, Diplôme National du Brevet); inglés C1 (Cambridge Advanced, 2022).
+Otros: profesora particular de francés, español e historia (2025-hoy); fotógrafa freelance de eventos (2023-hoy); dependienta en Lester; staff en IFEMA. Voluntariado en Tanzania (2022), Fundación Proyecto Persona y Misioneras de la Caridad.
+Excel, PowerPoint, Gretl. Lee mucho, escribe, fotografía, deportes (natación, golf, pádel, pickleball).
+Busca prácticas para junio y julio de 2027 en Madrid, Barcelona o el extranjero. Todavía explora qué sector le gusta: banca de inversión, despachos, consultoría y startups en crecimiento.
+Personalidad, en sus palabras: curiosa y muy "preguntona", observadora, analítica y de síntesis (sistema francés), le gusta salir de su zona de confort, ambición con valores (constancia, humildad).`;
+const BASE=`Estimado/a [nombre]:
+
+Me llamo Paz Satrústegui y estoy en cuarto del Doble Grado en Derecho y Administración de Empresas en la Universidad Carlos III de Madrid. Les escribo para solicitar unas prácticas en [empresa] durante junio y julio de 2027. [Motivo concreto: una operación, una ronda, un producto o un área de la empresa que te interese, y por qué.]
+
+Este verano hice mis primeras prácticas en el departamento legal y fiscal de PKF Attest, donde [dos tareas concretas]. Trabajar con clientes y plazos reales me confirmó que aprendo más rápido cuando tengo responsabilidad desde el primer día, y me dejó con ganas de ver de cerca [el área que te interesa en esta empresa].
+
+Me formé en el Liceo Francés de Madrid, de donde vienen mi francés bilingüe y una forma de trabajar basada en el análisis y la síntesis. Desde entonces he buscado salir de mi zona de confort: estudié un semestre en Texas A&M y ahora estoy de Erasmus en la Universidad Católica Portuguesa de Oporto. Me adapto rápido a equipos nuevos y trabajo con soltura en español, inglés y francés. Mi familia dice que siempre he sido muy preguntona, y en un equipo eso se traduce en entender bien el porqué de las cosas antes de hacerlas.
+
+En [empresa] me gustaría aprender [qué quieres aprender]. A cambio puedo aportar una formación que une lo jurídico y lo empresarial, rigor con los detalles y mucha capacidad de trabajo: compagino la carrera con clases particulares y con encargos como fotógrafa de eventos.
+
+Hasta finales de enero estoy en Oporto, así que puedo hacer cualquier entrevista en remoto. Muchas gracias por su tiempo; quedo a su disposición para ampliar cualquier información.
+
+Un saludo,
+
+Paz Satrústegui Sañudo`;
+const ROUTINE=[
+  ["d","Cada día: 10 minutos de Expansión o Cinco Días. Apunta una noticia que te llame la atención."],
+  ["l","Lunes: lee El Referente y apunta una ronda o startup nueva en la lista de empresas."],
+  ["x","Miércoles: 5 invitaciones de LinkedIn (antiguos alumnos UC3M primero)."],
+  ["j","Jueves: 2 candidaturas con carta adaptada."],
+  ["v","Viernes: seguimientos pendientes del Panel y un episodio de podcast."],
+  ["s","Fin de semana: una semana de la ruta de aprendizaje."]
+];
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^https:\/\//.test(String(u||""))?String(u):"";
+function toast(t){const el=document.createElement("div");el.className="toast";el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2200)}
+const today=()=>{const d=new Date();d.setHours(0,0,0,0);return d};
+const parseD=s=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(String(s||"")))return null;const d=new Date(s+"T00:00:00");return isNaN(d)?null:d};
+const fmtD=s=>{const d=parseD(s);return d?d.toLocaleDateString("es-ES",{day:"2-digit",month:"short"}):"—"};
+const isoToday=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const dateCls=s=>{const d=parseD(s);if(!d)return"";const diff=(d-today())/864e5;return diff<0?"past":diff<=14?"soon":""};
+
+/* ---------- storage: db capability, with a local fallback ---------- */
+let empresas=[];let db=null;let coll=null;let mode="loading";
+const LS="practicas2027-local";
+function lsGet(){try{return JSON.parse(localStorage.getItem(LS)||"[]")}catch(e){return[]}}
+function lsSet(){try{localStorage.setItem(LS,JSON.stringify(empresas))}catch(e){}}
+async function saveDoc(id,data){
+  const i=empresas.findIndex(e=>e.id===id);
+  if(i>=0)empresas[i]={...empresas[i],...data};
+  if(mode==="db"){try{await coll.doc(id).update(data)}catch(e){toast("No se pudo guardar: "+(e&&e.message||"error"))}}
+  else lsSet();
+  renderAll();
+}
+async function addDoc(data){
+  if(mode==="db"){try{await coll.add(data)}catch(e){toast("No se pudo añadir: "+(e&&e.message||"error"))}}
+  else{empresas.push({id:"l"+Date.now(),...data});lsSet();renderAll()}
+}
+async function delDoc(id){
+  if(mode==="db"){try{await coll.doc(id).delete()}catch(e){toast("No se pudo borrar")}}
+  else{empresas=empresas.filter(e=>e.id!==id);lsSet();renderAll()}
+}
+function fallback(reason){
+  if(mode!=="loading")return;
+  mode="local";empresas=lsGet();
+  const n=$("#storeNote");n.hidden=false;
+  n.textContent="Ahora mismo los cambios se guardan solo en este navegador ("+reason+"). Abre el panel en claude.ai con tu sesión iniciada para que se guarden en tu cuenta y yo pueda leerlos.";
+  renderAll();
+}
+const timer=setTimeout(()=>fallback("sin conexión con el almacén"),10000);
+(async()=>{
+  try{
+    db=window.claude&&window.claude.use?await window.claude.use("db"):null;
+    if(!db){clearTimeout(timer);fallback("almacén no disponible");return}
+    coll=db.collection("empresas");
+    coll.onSnapshot(snap=>{
+      clearTimeout(timer);mode="db";$("#storeNote").hidden=true;
+      empresas=snap.docs.map(d=>({id:d.id,...d.data()}));renderAll();
+    },err=>{clearTimeout(timer);fallback(err&&err.code||"error")});
+  }catch(e){clearTimeout(timer);fallback("error")}
+})();
+
+/* ---------- routing ---------- */
+const VIEWS=["panel","empresas","redactar","cv","aprender"];
+function route(){
+  const h=(location.hash||"#panel").slice(1);const v=VIEWS.includes(h)?h:"panel";
+  VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
+  document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+
+/* ---------- panel ---------- */
+function renderPanel(){
+  const counts=Object.fromEntries(STAGES.map(s=>[s,0]));empresas.forEach(e=>{if(counts[e.estado]!=null)counts[e.estado]++});
+  $("#stages").innerHTML=STAGES.map(s=>`<div class="stage"><b>${counts[s]}</b><span>${s}</span></div>`).join("");
+  const lim=new Date(today().getTime()+14*864e5);
+  const acts=empresas.filter(e=>e.proximoPaso&&parseD(e.fechaAccion)&&parseD(e.fechaAccion)<=lim&&!["Oferta","Descartado"].includes(e.estado)).sort((a,b)=>a.fechaAccion.localeCompare(b.fechaAccion));
+  $("#actions").innerHTML=acts.length?acts.map(e=>`<li><span class="date ${dateCls(e.fechaAccion)}">${fmtD(e.fechaAccion)}</span><span><b>${esc(e.nombre)}</b> · ${esc(e.proximoPaso)}</span></li>`).join(""):`<li style="grid-template-columns:1fr"><span class="muted small">${mode==="loading"?"Cargando…":"Nada pendiente. Pon un próximo paso con fecha en cualquier empresa y aparecerá aquí."}</span></li>`;
+  const dl=empresas.filter(e=>parseD(e.plazo)&&!["Oferta","Descartado","Aplicado","Entrevista"].includes(e.estado)).sort((a,b)=>a.plazo.localeCompare(b.plazo)).slice(0,8);
+  $("#deadlines").innerHTML=dl.length?dl.map(e=>`<li><span class="date ${dateCls(e.plazo)}">${fmtD(e.plazo)}</span><span><b>${esc(e.nombre)}</b> · ${esc(e.programa||"")}</span></li>`).join(""):`<li style="grid-template-columns:1fr"><span class="muted small">${mode==="loading"?"Cargando…":"Sin plazos con fecha confirmada."}</span></li>`;
+  const ym=isoToday().slice(0,7);let cur=null;
+  document.querySelectorAll("#season li").forEach(li=>{if(li.dataset.m<=ym)cur=li;li.classList.remove("now")});if(cur)cur.classList.add("now");
+}
+
+/* ---------- empresas ---------- */
+let fType="";let openId=null;
+$("#typeFilter").innerHTML=["Todas",...TYPES].map(t=>`<button type="button" class="chip" data-t="${t==="Todas"?"":esc(t)}" aria-pressed="${t==="Todas"}">${esc(t)}</button>`).join("");
+$("#typeFilter").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;fType=b.dataset.t;document.querySelectorAll("#typeFilter .chip").forEach(c=>c.setAttribute("aria-pressed",c===b));renderRows()});
+$("#fState").insertAdjacentHTML("beforeend",STAGES.map(s=>`<option>${s}</option>`).join(""));
+$("#fState").addEventListener("change",renderRows);$("#q").addEventListener("input",renderRows);
+$("#a-tipo").innerHTML=TYPES.map(t=>`<option>${esc(t)}</option>`).join("");
+const prioRank={Alta:0,Media:1,Baja:2};
+function renderRows(){
+  const q=$("#q").value.trim().toLowerCase();const st=$("#fState").value;
+  const list=empresas.filter(e=>(!fType||e.tipo===fType)&&(!st||e.estado===st)&&(!q||[e.nombre,e.ciudad,e.programa,e.tipo,e.porque].join(" ").toLowerCase().includes(q)))
+    .sort((a,b)=>(prioRank[a.prioridad]??3)-(prioRank[b.prioridad]??3)||String(a.nombre).localeCompare(String(b.nombre)));
+  if(!list.length){$("#rows").innerHTML=`<tr><td colspan="6" class="empty">${mode==="loading"?"Cargando tu lista de empresas…":empresas.length?"Ninguna empresa con estos filtros.":"Tu lista está vacía. Añade la primera empresa con el formulario de abajo."}</td></tr>`;return}
+  $("#rows").innerHTML=list.map(e=>{
+    const plazo=parseD(e.plazo)?`<span class="date ${dateCls(e.plazo)}">${fmtD(e.plazo)}</span>`:"";
+    const row=`<tr class="row" data-id="${esc(e.id)}" tabindex="0" aria-expanded="${openId===e.id}">
+      <td><div class="name">${esc(e.nombre)}</div><div class="sub">${esc(e.programa||"")}${e.ciudad?" · "+esc(e.ciudad):""}</div></td>
+      <td class="small">${esc(e.tipo||"")}</td>
+      <td>${plazo}<div class="sub">${esc(e.plazoTexto||"")}</div></td>
+      <td><span class="prio" title="${esc(e.prioridad||"")}">${PRIO[e.prioridad]||""}</span> <span class="sub">${esc(e.prioridad||"")}</span></td>
+      <td><select data-f="estado" data-id="${esc(e.id)}" aria-label="Estado de ${esc(e.nombre)}">${STAGES.map(s=>`<option ${s===e.estado?"selected":""}>${s}</option>`).join("")}</select></td>
+      <td class="small">${esc(e.proximoPaso||"")}${parseD(e.fechaAccion)?` <span class="date ${dateCls(e.fechaAccion)}">${fmtD(e.fechaAccion)}</span>`:""}</td></tr>`;
+    if(openId!==e.id)return row;
+    const n=encodeURIComponent(e.nombre||"");
+    const link=safeUrl(e.link);
+    return row+`<tr class="detail"><td colspan="6"><div class="grid2">
+      <div style="display:grid;gap:10px;min-width:0">
+        <p class="why"><b>Por qué encaja:</b> ${esc(e.porque||"—")}</p>
+        <div class="links">
+          ${link?`<a href="${esc(link)}" target="_blank" rel="noopener">Oferta / web de empleo</a>`:""}
+          <a href="https://www.linkedin.com/school/universidad-carlos-iii-de-madrid/people/?keywords=${n}" target="_blank" rel="noopener">Alumni UC3M</a>
+          <a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent((e.nombre||"")+" talent acquisition")}" target="_blank" rel="noopener">RRHH en LinkedIn</a>
+          <a href="https://www.linkedin.com/search/results/people/?keywords=${encodeURIComponent((e.nombre||"")+" "+(e.tipo==="Startup"?"founder":"director"))}" target="_blank" rel="noopener">${e.tipo==="Startup"?"Fundadores":"Directores"}</a>
+          <a href="https://news.google.com/search?q=${n}&hl=es&gl=ES&ceid=ES:es" target="_blank" rel="noopener">Noticias</a>
+        </div>
+        <div class="toolbar"><a class="btn jump" href="#redactar" data-emp="${esc(e.id)}" style="text-decoration:none;font-weight:600;font-size:14px;border-radius:8px;padding:8px 14px;background:var(--accent);color:var(--surface)">Redactar para ${esc(e.nombre)}</a>
+        <button class="btn danger" type="button" data-del="${esc(e.id)}">Quitar</button></div>
+      </div>
+      <form class="form" data-edit="${esc(e.id)}">
+        <label>Prioridad<select id="e-prio">${["Alta","Media","Baja"].map(p=>`<option ${p===e.prioridad?"selected":""}>${p}</option>`).join("")}</select></label>
+        <label>Plazo<input id="e-plazo" type="date" value="${esc(parseD(e.plazo)?e.plazo:"")}"></label>
+        <label class="full">Contacto (nombre, cargo, cómo)<input id="e-contacto" value="${esc(e.contacto||"")}"></label>
+        <label>Próximo paso<input id="e-paso" value="${esc(e.proximoPaso||"")}"></label>
+        <label>Fecha del paso<input id="e-fecha" type="date" value="${esc(parseD(e.fechaAccion)?e.fechaAccion:"")}"></label>
+        <label class="full">Notas<textarea id="e-notas" rows="3">${esc(e.notas||"")}</textarea></label>
+        <div class="full"><button class="btn" type="submit">Guardar</button></div>
+      </form></div></td></tr>`;
+  }).join("");
+}
+$("#rows").addEventListener("click",e=>{
+  if(e.target.closest("select,input,textarea,button,a,form"))return;
+  const tr=e.target.closest("tr.row");if(!tr)return;openId=openId===tr.dataset.id?null:tr.dataset.id;renderRows();
+});
+$("#rows").addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("tr.row")){openId=openId===e.target.dataset.id?null:e.target.dataset.id;renderRows()}});
+$("#rows").addEventListener("change",e=>{const s=e.target.closest("select[data-f=estado]");if(s)saveDoc(s.dataset.id,{estado:s.value})});
+$("#rows").addEventListener("submit",e=>{
+  const f=e.target.closest("form[data-edit]");if(!f)return;e.preventDefault();
+  saveDoc(f.dataset.edit,{prioridad:f.querySelector("#e-prio").value,plazo:f.querySelector("#e-plazo").value,contacto:f.querySelector("#e-contacto").value.trim(),proximoPaso:f.querySelector("#e-paso").value.trim(),fechaAccion:f.querySelector("#e-fecha").value,notas:f.querySelector("#e-notas").value.trim()}).then(()=>toast("Guardado"));
+});
+let pendingDel=null;
+$("#rows").addEventListener("click",e=>{
+  const b=e.target.closest("[data-del]");if(!b)return;
+  if(pendingDel===b.dataset.del){delDoc(b.dataset.del);openId=null;pendingDel=null;toast("Empresa quitada");return}
+  pendingDel=b.dataset.del;b.textContent="Pulsa otra vez para quitar";setTimeout(()=>{pendingDel=null},4000);
+});
+$("#addForm").addEventListener("submit",e=>{
+  e.preventDefault();const nombre=$("#a-nombre").value.trim();if(!nombre)return;
+  addDoc({nombre,tipo:$("#a-tipo").value,ciudad:$("#a-ciudad").value.trim(),plazo:$("#a-plazo").value,plazoTexto:"",programa:$("#a-programa").value.trim(),link:$("#a-link").value.trim(),estado:"Investigando",prioridad:"Media",porque:"",contacto:"",notas:"",proximoPaso:"Investigar y buscar contacto",fechaAccion:isoToday(),creado:isoToday()});
+  e.target.reset();toast("Añadida: "+nombre);
+});
+
+/* ---------- redactar ---------- */
+function renderEmpSelect(){
+  const sel=$("#g-emp");const cur=sel.value;
+  sel.innerHTML=`<option value="">— Sin empresa concreta —</option>`+[...empresas].sort((a,b)=>String(a.nombre).localeCompare(String(b.nombre))).map(e=>`<option value="${esc(e.id)}">${esc(e.nombre)}</option>`).join("");
+  if(cur&&empresas.some(e=>e.id===cur))sel.value=cur;
+}
+document.addEventListener("click",e=>{
+  const j=e.target.closest(".jump");if(!j)return;
+  if(j.dataset.emp){renderEmpSelect();$("#g-emp").value=j.dataset.emp}
+  if(j.dataset.kind)$("#g-kind").value=j.dataset.kind;
+  updateCount();
+});
+const KIND_LABEL={carta:"carta de presentación (máximo una página, unas 300-350 palabras)",invit:"nota de invitación de LinkedIn (MÁXIMO 300 caracteres incluidos espacios, sin saludo largo)",rrhh:"mensaje de LinkedIn a una persona de RRHH/talent (máximo 120 palabras)",director:"mensaje de LinkedIn a un director, socio o fundador pidiendo 15 minutos de conversación (máximo 110 palabras)",alumni:"mensaje de LinkedIn a un antiguo alumno de la UC3M que trabaja allí, pidiendo 15 minutos para preguntarle por su experiencia (máximo 100 palabras)",seguimiento:"mensaje breve de seguimiento tras 7-10 días sin respuesta (máximo 60 palabras), amable y sin reproches",gracias:"mensaje de agradecimiento tras una entrevista (máximo 100 palabras), mencionando algo concreto de la conversación",uc3m:"correo formal a la Secretaría de la Facultad de Ciencias Sociales y Jurídicas de la UC3M (ella está en 4º del Doble Grado Derecho-ADE) preguntando: 1) si puede hacer el Prácticum de Derecho en verano antes de 5º con una empresa que encuentre ella y validándolo antes de empezar; 2) cuántos créditos y horas tiene el Prácticum en su plan; 3) si se le pueden reconocer las prácticas de junio-julio 2026 en PKF Attest; 4) si unas prácticas extracurriculares de verano necesitan convenio y qué plazos hay"};
+const LANG={es:"español",en:"inglés",fr:"francés"};
+function getEmp(){return empresas.find(e=>e.id===$("#g-emp").value)||null}
+function tpl(){
+  const e=getEmp();const k=$("#g-kind").value;const to=$("#g-to").value.trim();
+  const N=e?e.nombre:"[empresa]";const area=e&&e.programa?e.programa:"[área]";
+  const first=to?to.split(/[ ,]/)[0]:"";
+  const T={
+    carta:BASE.replaceAll("[empresa]",N).replace("[nombre]",to||"Sr./Sra."),
+    invit:`Hola${first?" "+first:""}, soy Paz, estudiante de 4º de Derecho y ADE en la UC3M. Me interesa mucho ${N} y me encantaría conocer tu experiencia allí. ¿Te importa que conectemos?`,
+    rrhh:`Hola${first?" "+first:""}:\n\nSoy Paz Satrústegui, estudiante de 4º del Doble Grado en Derecho y ADE en la UC3M. Este verano hice prácticas en el área legal y fiscal de PKF Attest y estoy buscando prácticas para junio y julio de 2027.\n\nMe interesa especialmente ${N} por [motivo concreto]. ¿Sabes si tenéis previsto un programa de verano en ${area} o a quién podría escribir?\n\nHablo español, inglés (C1) y francés bilingüe. Muchas gracias de antemano.\n\nUn saludo,\nPaz`,
+    director:`Hola${first?" "+first:""}:\n\nSoy Paz, estudiante de 4º de Derecho y ADE en la UC3M. He seguido [noticia u operación reciente] de ${N} y me ha despertado mucha curiosidad por cómo trabajáis en ${area}.\n\nEstoy explorando dónde hacer mis prácticas de verano de 2027 y me ayudaría mucho escuchar tu experiencia. ¿Tendrías 15 minutos para una llamada en las próximas semanas?\n\nGracias,\nPaz`,
+    alumni:`Hola${first?" "+first:""}:\n\nSoy Paz, también de la Carlos III (estoy en 4º de Derecho y ADE). He visto que trabajas en ${N} y me encantaría saber cómo llegaste allí y qué tal es el día a día.\n\nEstoy decidiendo dónde hacer prácticas este verano. ¿Te vendría bien una llamada de 15 minutos?\n\n¡Gracias!\nPaz`,
+    seguimiento:`Hola${first?" "+first:""}, te escribo de nuevo por si se perdió mi mensaje anterior. Sigo muy interesada en ${N} y en sus prácticas de verano. Si no eres la persona adecuada, te agradecería mucho que me indicaras a quién dirigirme. ¡Gracias!\nPaz`,
+    gracias:`Hola${first?" "+first:""}:\n\nMuchas gracias por el tiempo de hoy. Me quedo con [algo concreto de la conversación], que me ha hecho tener todavía más ganas de incorporarme a ${N} este verano.\n\nQuedo a tu disposición para cualquier cosa que necesites.\n\nUn saludo,\nPaz Satrústegui`,
+    uc3m:`Asunto: Consulta sobre prácticas – Doble Grado Derecho-ADE (4º curso)\n\nEstimados/as:\n\nSoy Paz Satrústegui Sañudo, estudiante de 4º del Doble Grado en Derecho y Administración de Empresas (campus de Getafe), actualmente de Erasmus en la Universidad Católica Portuguesa. Les escribo para plantear algunas dudas sobre las prácticas:\n\n1. ¿Puedo realizar el Prácticum de Derecho durante el verano de 2027 (junio-julio), antes de empezar 5º, en una entidad que encuentre yo, si lo valido antes de empezar?\n2. ¿Cuántos créditos y horas tiene el Prácticum en mi plan de estudios?\n3. En junio y julio de 2026 hice prácticas en el departamento legal y fiscal de PKF Attest. ¿Existe alguna posibilidad de reconocerlas?\n4. Si las prácticas de verano fueran extracurriculares, ¿qué trámites y plazos debo tener en cuenta para el convenio con la empresa?\n\nMuchas gracias por su ayuda.\n\nUn saludo,\nPaz Satrústegui Sañudo\n[NIA]`
+  };
+  return T[k];
+}
+function setOut(t){$("#g-out").value=t;updateCount()}
+function updateCount(){
+  const k=$("#g-kind").value;const n=$("#g-out").value.length;const c=$("#g-count");
+  if(k==="invit"){c.textContent=n+" / 300 caracteres";c.classList.toggle("over",n>300)}
+  else{c.textContent=$("#g-out").value.trim()?$("#g-out").value.trim().split(/\s+/).length+" palabras":"";c.classList.remove("over")}
+}
+$("#g-out").addEventListener("input",updateCount);$("#g-kind").addEventListener("change",updateCount);
+$("#g-tpl").addEventListener("click",()=>{
+  if($("#g-lang").value!=="es")$("#g-status").textContent="Las plantillas están en español; para inglés o francés usa “Escribir con Claude”.";else $("#g-status").textContent="";
+  setOut(tpl());
+});
+let sample=null;let ctrl=null;
+(async()=>{try{sample=window.claude&&window.claude.use?await window.claude.use("sample"):null}catch(e){sample=null}
+  if(!sample){$("#g-ai").hidden=true;$("#g-status").textContent="Generación con Claude no disponible aquí: usa la plantilla."}})();
+$("#genForm").addEventListener("submit",async ev=>{
+  ev.preventDefault();if(!sample)return;
+  const e=getEmp();const k=$("#g-kind").value;const lang=$("#g-lang").value;
+  const emp=e?`Empresa: ${e.nombre}\nTipo: ${e.tipo}\nCiudad: ${e.ciudad||""}\nPrograma/área: ${e.programa||""}\nPor qué encaja con ella: ${e.porque||""}\nNotas suyas: ${e.notas||""}`:"Sin empresa concreta.";
+  const prompt=`Eres un asesor de carreras muy bueno, especializado en prácticas en España (banca, despachos, consultoría y startups). Escribe un/una ${KIND_LABEL[k]} en ${LANG[lang]} para esta estudiante. Escribe en primera persona como ella, con un tono natural, cercano y profesional, sin frases hechas ni adjetivos vacíos, y con hechos concretos de su perfil que encajen con la empresa. No inventes datos sobre ella ni sobre la empresa: si falta un dato, deja un hueco entre corchetes, por ejemplo [tarea concreta en PKF]. Devuelve solo el texto final, sin comentarios.
+
+PERFIL
+${PROFILE}
+
+EMPRESA
+${emp}
+
+DESTINATARIO: ${$("#g-to").value.trim()||"desconocido (usa un saludo genérico adecuado)"}
+LO QUE ELLA SABE DE LA EMPRESA O LA PERSONA: ${$("#g-notes").value.trim()||"nada concreto"}
+${k==="carta"?"\nUsa como base de estructura y voz esta carta suya, adaptándola:\n"+BASE:""}`;
+  if(ctrl)ctrl.abort();ctrl=new AbortController();
+  $("#g-ai").disabled=true;$("#g-status").textContent="Escribiendo…";setOut("");
+  try{
+    const r=await sample(prompt,{signal:ctrl.signal,modelTier:"default",cache:false,onText:({text})=>{setOut(text)}});
+    setOut(r.text);$("#g-status").textContent=r.truncated?"El texto se ha cortado: pide uno más corto.":"Listo. Revísalo y rellena los corchetes.";
+  }catch(err){
+    const c=err&&err.code;
+    if(c==="not_granted"){$("#g-ai").hidden=true;$("#g-status").textContent="Sin permiso para usar Claude: usa la plantilla."}
+    else if(c==="rate_limited"){$("#g-status").textContent="Demasiadas peticiones seguidas. Espera un minuto."}
+    else if(err&&err.name!=="AbortError"){$("#g-status").textContent="No se pudo generar. Prueba otra vez o usa la plantilla."}
+  }finally{$("#g-ai").disabled=false}
+});
+$("#g-copy").addEventListener("click",()=>copy($("#g-out").value,$("#g-out")));
+$("#g-log").addEventListener("click",()=>{
+  const e=getEmp();if(!e){toast("Elige primero una empresa");return}
+  const d=new Date(today().getTime()+8*864e5);const iso=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  const kind=$("#g-kind").value;
+  saveDoc(e.id,{estado:["Investigando"].includes(e.estado)?(kind==="carta"?"Aplicado":"Contactado"):e.estado,ultimoContacto:isoToday(),proximoPaso:"Seguimiento si no hay respuesta",fechaAccion:iso,notas:((e.notas?e.notas+"\n":"")+isoToday()+": "+$("#g-kind").selectedOptions[0].textContent+($("#g-to").value.trim()?" a "+$("#g-to").value.trim():"")).trim()}).then(()=>toast("Apuntado. Seguimiento en 8 días"));
+});
+function copy(text,el){
+  if(!text)return;
+  try{navigator.clipboard.writeText(text).then(()=>toast("Copiado"),()=>{sel(el)})}catch(e){sel(el)}
+  function sel(x){if(x&&x.select){x.select()}else if(x){const r=document.createRange();r.selectNodeContents(x);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("Selecciona y copia con Ctrl/Cmd+C")}
+}
+
+/* ---------- cv ---------- */
+$("#baseLetter").textContent=BASE;
+$("#copyBase").addEventListener("click",()=>copy(BASE,$("#baseLetter")));
+
+/* ---------- routine (per-viewer, weekly reset) ---------- */
+function weekKey(){const d=today();const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return"rutina-"+d.toISOString().slice(0,10)}
+let done={};try{done=JSON.parse(localStorage.getItem(weekKey())||"{}")}catch(e){done={}}
+$("#routine").innerHTML=ROUTINE.map(([k,t])=>`<li><input type="checkbox" id="r-${k}" ${done[k]?"checked":""}><label for="r-${k}" style="font-size:14px;font-weight:400;color:var(--ink)">${esc(t)}</label></li>`).join("");
+$("#routine").addEventListener("change",e=>{const k=e.target.id.slice(2);done[k]=e.target.checked;try{localStorage.setItem(weekKey(),JSON.stringify(done))}catch(x){}});
+
+function renderAll(){renderPanel();renderRows();renderEmpSelect()}
+renderAll();
+})();
+</script>
