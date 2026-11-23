@@ -1,0 +1,1265 @@
+<title>Leadership &amp; Motivation Study Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: study handbook — sticky contents rail on wide screens, one reading column, coloured "card types" encode the role of each block (definition, example, trap, plan). */
+:root{
+  --bg:#f6f7fa; --surface:#ffffff; --surface-2:#eef1f7; --ink:#18213a; --muted:#56607a; --line:#d8dde8;
+  --navy:#1c3466; --navy-soft:#e3e9f5; --accent:#d9661a; --accent-soft:#fcebdc;
+  --good:#1f7a55; --good-soft:#e2f3ea; --warn:#a8431b; --warn-soft:#fbe6dc; --plan:#5a3fa0; --plan-soft:#ece7f8;
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1524; --surface:#161e31; --surface-2:#1c2640; --ink:#e7ebf3; --muted:#a3adc4; --line:#2d3958;
+  --navy:#9db5ea; --navy-soft:#1f2c4b; --accent:#f08b45; --accent-soft:#3a2617;
+  --good:#6fcf9f; --good-soft:#15301f; --warn:#f29a76; --warn-soft:#3a1f16; --plan:#bba6f2; --plan-soft:#28213f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1524; --surface:#161e31; --surface-2:#1c2640; --ink:#e7ebf3; --muted:#a3adc4; --line:#2d3958;
+  --navy:#9db5ea; --navy-soft:#1f2c4b; --accent:#f08b45; --accent-soft:#3a2617;
+  --good:#6fcf9f; --good-soft:#15301f; --warn:#f29a76; --warn-soft:#3a1f16; --plan:#bba6f2; --plan-soft:#28213f; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+a{color:var(--navy)}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:1fr;gap:40px}
+@media (min-width:1040px){.wrap{grid-template-columns:250px minmax(0,1fr)}}
+header.top{padding-block:48px 28px;border-bottom:1px solid var(--line);margin-bottom:8px}
+header.top .wrap{display:block}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;line-height:1.2;color:var(--ink)}
+h1{font-size:clamp(2rem,5vw,3.1rem);margin:.3em 0 .3em;font-weight:800;letter-spacing:-.01em}
+h1 span{color:var(--navy)}
+.lede{max-width:70ch;color:var(--muted);font-size:1.08rem;margin:0}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-family:var(--f-mono);font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--muted)}
+nav.toc{position:relative}
+@media (min-width:1040px){nav.toc .inner{position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px);max-height:calc(100vh - 40px);overflow:auto;padding-right:6px}}
+nav.toc details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+nav.toc summary{font-family:var(--f-display);font-weight:700;cursor:pointer}
+nav.toc ol{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:2px}
+nav.toc li a{display:block;text-decoration:none;color:var(--ink);font-size:14.5px;padding:4px 8px;border-radius:6px}
+nav.toc li a:hover,nav.toc li a:focus-visible{background:var(--navy-soft);outline:none}
+nav.toc li.sub a{padding-left:22px;color:var(--muted);font-size:14px}
+nav.toc .grp{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:12px 8px 2px}
+main{min-width:0;padding-bottom:80px}
+section.part{padding-top:8px;margin-bottom:56px}
+section.part>h2{font-size:clamp(1.55rem,3.2vw,2.1rem);margin:0 0 6px;padding-top:16px;border-top:3px solid var(--navy)}
+.part-q{font-style:italic;color:var(--muted);margin:0 0 18px}
+h3{font-size:1.28rem;margin:34px 0 10px}
+h4{font-size:1.05rem;margin:22px 0 6px;color:var(--navy)}
+p{max-width:75ch;margin:0 0 12px}
+ul,ol{max-width:75ch;padding-left:1.3em;margin:0 0 12px}
+li{margin-bottom:4px}
+strong{font-weight:700}
+.tag{display:inline-block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:4px;background:var(--navy-soft);color:var(--navy);margin-right:6px;vertical-align:2px}
+/* role blocks */
+.box{border:1px solid var(--line);border-radius:10px;padding:14px 18px;margin:14px 0;background:var(--surface);max-width:80ch}
+.box>.lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.def{border-left:4px solid var(--navy)} .def>.lbl{color:var(--navy)}
+.ex{background:var(--good-soft);border-color:transparent} .ex>.lbl{color:var(--good)}
+.trap{background:var(--warn-soft);border-color:transparent} .trap>.lbl{color:var(--warn)}
+.plan{background:var(--plan-soft);border-color:transparent} .plan>.lbl{color:var(--plan)}
+.ws{background:var(--accent-soft);border-color:transparent} .ws>.lbl{color:var(--accent)}
+.key{background:var(--surface-2);border-color:transparent}
+.key ol{margin:0}
+/* tables */
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-family:var(--f-display);font-weight:700;font-size:13.5px;background:var(--surface-2);color:var(--ink)}
+tr:last-child td{border-bottom:0}
+td.k{font-weight:700;white-space:nowrap}
+/* comparison */
+.vs{display:grid;grid-template-columns:1fr;gap:10px;margin:14px 0}
+@media (min-width:640px){.vs{grid-template-columns:1fr 1fr}.vs.three{grid-template-columns:repeat(3,1fr)}}
+.vs>div{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.vs h5{font-family:var(--f-display);font-size:1rem;margin:0 0 6px;color:var(--navy)}
+.vs p,.vs ul{font-size:15.5px;margin-bottom:6px}
+/* diagrams */
+figure.dg{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow-x:auto}
+figure.dg figcaption{font-size:13.5px;color:var(--muted);margin-top:10px}
+svg text{font-family:var(--f-body)}
+.s-ink{fill:var(--ink)} .s-muted{fill:var(--muted)} .s-navy{fill:var(--navy)} .s-acc{fill:var(--accent)} .s-surf{fill:var(--surface)} .s-soft{fill:var(--navy-soft)} .s-accsoft{fill:var(--accent-soft)} .s-plansoft{fill:var(--plan-soft)} .s-goodsoft{fill:var(--good-soft)}
+.st-line{stroke:var(--line)} .st-navy{stroke:var(--navy)} .st-acc{stroke:var(--accent)} .st-muted{stroke:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.flow>.step{flex:1 1 140px;min-width:0;background:var(--navy-soft);border-radius:8px;padding:10px 12px;font-size:14.5px}
+.flow>.step b{display:block;font-family:var(--f-display);color:var(--navy);margin-bottom:2px}
+.flow>.arrow{align-self:center;color:var(--accent);font-weight:700}
+.grid2x2{display:grid;grid-template-columns:auto 1fr 1fr;grid-template-rows:auto auto auto;gap:6px;min-width:460px;font-size:14.5px}
+.grid2x2 .cell{border-radius:8px;padding:10px 12px;min-height:86px}
+.grid2x2 .ax{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center}
+.grid2x2 .ax.v{writing-mode:vertical-rl;transform:rotate(180deg)}
+.c-good{background:var(--good-soft)} .c-warn{background:var(--warn-soft)} .c-soft{background:var(--surface-2)} .c-navy{background:var(--navy-soft)} .c-acc{background:var(--accent-soft)} .c-plan{background:var(--plan-soft)}
+.cell b{display:block;font-family:var(--f-display)}
+.bars{display:grid;gap:6px;font-size:14.5px}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:10px;align-items:center}
+.bar .track{height:14px;border-radius:7px;background:var(--surface-2);overflow:hidden}
+.bar .fill{height:100%;border-radius:7px;background:var(--navy)}
+.bar .fill.neg{background:var(--accent)}
+.pyr{display:grid;justify-items:center;gap:4px;font-size:14.5px}
+.pyr>div{text-align:center;padding:7px 10px;border-radius:6px;background:var(--navy-soft);color:var(--ink);max-width:100%}
+.cont{display:grid;grid-template-columns:repeat(6,minmax(96px,1fr));gap:4px;min-width:620px;font-size:13.5px}
+.cont>div{padding:8px;border-radius:6px;text-align:center}
+.cont .h{font-family:var(--f-display);font-weight:700;display:block;margin-bottom:2px}
+.pill{display:inline-block;font-size:12.5px;padding:1px 8px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);margin:2px 2px 2px 0}
+.cols{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:720px){.cols{grid-template-columns:repeat(3,1fr)}.cols.two{grid-template-columns:1fr 1fr}}
+.cols>div{min-width:0}
+.mono{font-family:var(--f-mono);font-size:.86em}
+.small{font-size:14.5px;color:var(--muted)}
+hr.soft{border:0;border-top:1px dashed var(--line);margin:28px 0}
+.update{border:1px dashed var(--accent);border-radius:10px;padding:10px 14px;margin:10px 0 18px;font-size:15px;background:var(--surface)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+section[id],h3[id]{scroll-margin-top:16px}
+@media print{
+  nav.toc{display:none} .wrap{display:block;max-width:none} body{font-size:11pt;background:#fff}
+  section.part{break-before:page} section.part:first-of-type{break-before:auto}
+  .box,figure.dg,.tw,.vs>div,.grid2x2,.cont{break-inside:avoid}
+  .tw,figure.dg{overflow:visible} table{min-width:0}
+  h3,h4{break-after:avoid}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Leadership and Motivation · 33001002 · Católica Porto Business School · 2026/27</div>
+      <h1>Leadership &amp; Motivation <span>Study Guide</span></h1>
+      <p class="lede">The lecture guides (L1–L8) developed in full with the mandatory bibliography, connected to the workshops, and pointed at one deliverable: your Leadership Plan (35% of the grade, submitted 30 November). The Leadership Efficacy Model (LEM) is the spine of the whole course, so it comes first.</p>
+      <div class="meta-row">
+        <span class="chip">Lectures L1–L10</span><span class="chip">Workshops W2–W9</span><span class="chip">LEM · Pro●Leader</span><span class="chip">Leadership Plan · 35%</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<nav class="toc" aria-label="Contents"><div class="inner"><details open><summary>Contents</summary><ol>
+  <li class="grp">Start here</li>
+  <li><a href="#start">0 · How the course fits together</a></li>
+  <li class="grp">The framework</li>
+  <li><a href="#lem">1 · The Leadership Efficacy Model</a></li>
+  <li class="sub"><a href="#lem-def">Leadership and efficacy</a></li>
+  <li class="sub"><a href="#lem-cycles">Leadership cycles</a></li>
+  <li class="sub"><a href="#lem-styles">Leadership styles</a></li>
+  <li class="sub"><a href="#lem-ante">Antecedent factors</a></li>
+  <li class="sub"><a href="#lem-hyp">The four hypotheses</a></li>
+  <li class="sub"><a href="#lem-tasks">Five leadership tasks</a></li>
+  <li class="grp">Lectures</li>
+  <li><a href="#l1">L1 · Foundations I</a></li>
+  <li><a href="#l2">L2 · Foundations II: theories</a></li>
+  <li><a href="#l3">L3 · Ethics and diversity</a></li>
+  <li><a href="#l4">L4 · Team development</a></li>
+  <li><a href="#l5">L5 · Communication and conflict</a></li>
+  <li><a href="#l6">L6 · Criteria and judgement</a></li>
+  <li><a href="#l7">L7 · Levels of execution</a></li>
+  <li><a href="#l8">L8 · Motivation II</a></li>
+  <li><a href="#l9">L9 · Followers and context</a></li>
+  <li><a href="#l10">L10 · Strategy, culture, change</a></li>
+  <li class="grp">Practice</li>
+  <li><a href="#ws">Workshops → business lessons</a></li>
+  <li><a href="#vs">Concepts that get confused</a></li>
+  <li class="grp">Deliverable</li>
+  <li><a href="#plan">The Leadership Plan</a></li>
+  <li class="sub"><a href="#plan-template">Official template</a></li>
+  <li class="sub"><a href="#plan-how">Section by section</a></li>
+  <li class="sub"><a href="#plan-example">Worked example</a></li>
+  <li class="sub"><a href="#plan-check">Quality checklist</a></li>
+  <li><a href="#sheet">One-page revision sheet</a></li>
+</ol></details></div></nav>
+
+<main>
+
+<!-- ============ 0 START ============ -->
+<section class="part" id="start">
+  <h2>0 · How the course fits together</h2>
+  <p class="part-q">Central question of the semester: what explains leadership effectiveness?</p>
+
+  <p>The course has three layers that feed each other:</p>
+  <div class="cols">
+    <div class="box def"><span class="lbl">Lectures (L)</span><p>Theory and evidence. Every lecture guide states its <strong>"Relation to LEM dimension"</strong>: each topic is a piece of the same model.</p></div>
+    <div class="box ws"><span class="lbl">Workshops (W)</span><p>Skills training through simple games (ropes, towers, cards). Each game is a small model of a business situation: delegation, feedback, listening, cooperation.</p></div>
+    <div class="box plan"><span class="lbl">Leadership Plan</span><p>Built progressively in lectures (the sheets you filled in at the end of each class). It forces you to apply theory to <em>your</em> leadership situation.</p></div>
+  </div>
+
+  <h3>Assessment (continuous)</h3>
+  <div class="tw"><table>
+    <tr><th>Component</th><th>Weight</th><th>What it rewards</th></tr>
+    <tr><td class="k">Participation (P)</td><td>25%</td><td>Contribution in workshops: reflections, involvement. Tasks not submitted in class = participation not recorded.</td></tr>
+    <tr><td class="k">Quizzes (Q)</td><td>20%</td><td>Average of your three best quiz scores (given in lectures).</td></tr>
+    <tr><td class="k">Leadership Plan (LP)</td><td>35%</td><td>Your own leadership philosophy turned into practice and criteria, adjusted to followers and context. Submission: 30/11.</td></tr>
+    <tr><td class="k">Practical case (PC)</td><td>20%</td><td>In-class case (30/11): applying leadership and motivation concepts to a complex organisational situation.</td></tr>
+  </table></div>
+  <p class="small">Attendance of at least 80% of lectures + workshops is required to stay in continuous assessment. Exam: 16/01/2027 (resit 01/02/2027).</p>
+
+  <h3>Course map: every lecture is a piece of the LEM</h3>
+  <div class="tw"><table>
+    <tr><th>Lecture</th><th>Central question</th><th>LEM dimension</th><th>What it gives your plan</th></tr>
+    <tr><td class="k">L1 Foundations I</td><td>What is leadership and why does it matter?</td><td>Overview</td><td>Definition of leadership as influence; motivation as the goal</td></tr>
+    <tr><td class="k">L2 Foundations II</td><td>How has research explained effectiveness?</td><td>Overview + cycles</td><td>The theories behind the 9 LEM behaviours</td></tr>
+    <tr><td class="k">L3 Ethics &amp; diversity</td><td>Can leadership be effective without ethical legitimacy?</td><td>Cycles</td><td>Ethical philosophy; biases to watch; inclusion</td></tr>
+    <tr><td class="k">L4 Team development</td><td>How do you turn a group into a high-performing team?</td><td>Antecedents (followers, context)</td><td>First draft of the plan (12-week merged team)</td></tr>
+    <tr><td class="k">L5 Communication &amp; conflict</td><td>Can conflict support performance and relationships?</td><td>Antecedents + styles</td><td>How you communicate and handle disagreement</td></tr>
+    <tr><td class="k">L6 Criteria</td><td>How do you define meaningful criteria?</td><td>Cycles (criteria)</td><td>Good indicators: aligned, clear, specific, measurable</td></tr>
+    <tr><td class="k">L7 Levels of execution</td><td>Where and how should you intervene?</td><td>Antecedents + styles + cycles</td><td>Relational / contextual / hierarchical actions</td></tr>
+    <tr><td class="k">L8 Motivation II</td><td>How do you create conditions for good motivation?</td><td>Antecedents (psychological favourability)</td><td>Autonomy, competence, relatedness in your practice</td></tr>
+    <tr><td class="k">L9 Followers &amp; context</td><td>Who do I lead, and where?</td><td>Antecedents</td><td>Adjusting the plan (Section 4 of the template)</td></tr>
+    <tr><td class="k">L10 Strategy, culture, change</td><td>How does leadership connect to the organisation?</td><td>Situation</td><td>Organisational fit of the plan; integration</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ 1 LEM ============ -->
+<section class="part" id="lem">
+  <h2>1 · The Leadership Efficacy Model (LEM)</h2>
+  <p class="part-q">Gomes (2014, 2020); Gomes &amp; Morais (2025). The integrative framework used throughout the course, and the structure of the Leadership Plan.</p>
+
+  <h3 id="lem-def">1.1 Leadership and leadership efficacy</h3>
+  <div class="box def"><span class="lbl">Definition · Northouse (2022)</span><p>Leadership is <strong>"a process whereby an individual influences a group of individuals to achieve a common goal."</strong> Four elements: it is a <em>process</em> (not a trait), it involves <em>influence</em>, it happens in <em>groups</em>, and it is about <em>common goals</em>.</p></div>
+  <div class="box def"><span class="lbl">Definition · Gomes (2023, 2024), used in Pro●Leader</span><p>Leadership is <strong>a process of influence exerted on others, sustained on common and positive ideals, that leads everyone involved to a better situation than the one before the leader's influence.</strong> This definition builds the <em>consequences</em> into leadership. Three things must happen at the same time:</p>
+  <ol><li>influence on others (individuals, teams, organisations, communities);</li><li>common and positive ideals shared by everyone involved;</li><li>a better scenario than the one before.</li></ol></div>
+  <p><strong>Leadership efficacy</strong> is the impact and consequences of leadership, measured at the individual, group or organisational level (Kaiser et al., 2008). The LEM distinguishes two kinds of outcomes:</p>
+  <div class="vs">
+    <div><h5>Subjective outcomes (implicit impact)</h5><p>Commitment, loyalty, satisfaction with the leader, trust, cohesion, wellbeing. Psychological, relational and social effects.</p></div>
+    <div><h5>Objective outcomes (explicit impact)</h5><p>Achievement of goals, performance, productivity, profit, income. Behavioural effects: what people actually do and achieve.</p></div>
+  </div>
+  <div class="box trap"><span class="lbl">Common confusion</span><p>Under this definition, a manager who hits targets by burning people out is not fully "effective": the situation is not better for everyone involved. Results alone are not leadership efficacy. This is why L3 asks whether leadership can be effective without ethical legitimacy.</p></div>
+
+  <h3>The model at a glance</h3>
+  <p>The LEM proposes that leadership efficacy depends on three sets of factors. Gomes gives each one a body metaphor:</p>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">1 · Leadership cycles · the "brain"</span><p>What the leader <strong>believes</strong> (philosophy), <strong>does</strong> (practice) and <strong>evaluates</strong> (criteria). The <em>why</em>, the <em>how</em> and the <em>how much</em>.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--accent)">2 · Leadership styles · the "heart"</span><p>The <strong>9 concrete behaviours</strong> the leader uses to bring the cycles to life: transformational, transactional, decision-making.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--good)">3 · Antecedent factors · the "arms and legs"</span><p>Characteristics of the <strong>leader</strong>, the <strong>team members</strong> and the <strong>situation</strong>. They increase or decrease the potential of the plan.</p></div>
+  </div>
+
+  <figure class="dg" aria-label="Diagram of the Leadership Efficacy Model">
+    <svg viewBox="0 0 900 430" width="100%" style="min-width:640px" role="img" aria-labelledby="lemt">
+      <title id="lemt">Leadership Efficacy Model: antecedent factors moderate the leadership cycles, which are expressed through leadership styles and produce leadership efficacy.</title>
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="s-acc"/></marker></defs>
+      <!-- antecedents -->
+      <rect x="10" y="20" width="200" height="390" rx="12" class="s-goodsoft"/>
+      <text x="110" y="48" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">Antecedent factors</text>
+      <text x="110" y="66" text-anchor="middle" class="s-muted" font-size="12">moderate efficacy (H3)</text>
+      <rect x="26" y="84" width="168" height="64" rx="8" class="s-surf"/><text x="110" y="108" text-anchor="middle" class="s-ink" font-weight="700" font-size="13.5">Leader</text><text x="110" y="128" text-anchor="middle" class="s-muted" font-size="11.5">goals, values, personality,</text><text x="110" y="142" text-anchor="middle" class="s-muted" font-size="11.5">psychological resources</text>
+      <rect x="26" y="160" width="168" height="64" rx="8" class="s-surf"/><text x="110" y="184" text-anchor="middle" class="s-ink" font-weight="700" font-size="13.5">Team members</text><text x="110" y="204" text-anchor="middle" class="s-muted" font-size="11.5">competence, motivation,</text><text x="110" y="218" text-anchor="middle" class="s-muted" font-size="11.5">values, maturity</text>
+      <rect x="26" y="236" width="168" height="64" rx="8" class="s-surf"/><text x="110" y="260" text-anchor="middle" class="s-ink" font-weight="700" font-size="13.5">Situation</text><text x="110" y="280" text-anchor="middle" class="s-muted" font-size="11.5">power, resources, culture,</text><text x="110" y="294" text-anchor="middle" class="s-muted" font-size="11.5">organisational goals</text>
+      <text x="110" y="330" text-anchor="middle" class="s-ink" font-size="12" font-weight="700">Favourability:</text>
+      <text x="110" y="348" text-anchor="middle" class="s-muted" font-size="12">technical · psychological</text>
+      <text x="110" y="364" text-anchor="middle" class="s-muted" font-size="12">· situational</text>
+      <!-- cycles -->
+      <rect x="250" y="20" width="400" height="250" rx="12" class="s-soft"/>
+      <text x="450" y="46" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">Leadership cycles (H1: congruence)</text>
+      <text x="270" y="78" class="s-muted" font-size="12" font-weight="700">CONCEPTUAL</text>
+      <text x="270" y="190" class="s-muted" font-size="12" font-weight="700">PRACTICAL</text>
+      <g font-size="12.5" text-anchor="middle">
+        <rect x="270" y="88" width="110" height="52" rx="8" class="s-surf"/><text x="325" y="110" class="s-ink" font-weight="700">Philosophy</text><text x="325" y="127" class="s-muted" font-size="11">what I believe</text>
+        <rect x="395" y="88" width="110" height="52" rx="8" class="s-surf"/><text x="450" y="110" class="s-ink" font-weight="700">Practice</text><text x="450" y="127" class="s-muted" font-size="11">what I plan to do</text>
+        <rect x="520" y="88" width="110" height="52" rx="8" class="s-surf"/><text x="575" y="110" class="s-ink" font-weight="700">Criteria</text><text x="575" y="127" class="s-muted" font-size="11">how I'll evaluate</text>
+        <rect x="270" y="200" width="110" height="52" rx="8" class="s-surf"/><text x="325" y="222" class="s-ink" font-weight="700">Philosophy</text><text x="325" y="239" class="s-muted" font-size="11">as transmitted</text>
+        <rect x="395" y="200" width="110" height="52" rx="8" class="s-surf"/><text x="450" y="222" class="s-ink" font-weight="700">In practice</text><text x="450" y="239" class="s-muted" font-size="11">what I actually do</text>
+        <rect x="520" y="200" width="110" height="52" rx="8" class="s-surf"/><text x="575" y="222" class="s-ink" font-weight="700">Criteria</text><text x="575" y="239" class="s-muted" font-size="11">as applied</text>
+      </g>
+      <g class="st-acc" stroke-width="2" fill="none">
+        <line x1="380" y1="114" x2="393" y2="114" marker-end="url(#ar)"/><line x1="505" y1="114" x2="518" y2="114" marker-end="url(#ar)"/>
+        <line x1="380" y1="226" x2="393" y2="226" marker-end="url(#ar)"/><line x1="505" y1="226" x2="518" y2="226" marker-end="url(#ar)"/>
+        <path d="M630 160 C 655 160, 655 160, 630 160" />
+        <line x1="450" y1="142" x2="450" y2="196" stroke-dasharray="4 4" marker-start="url(#ar)" marker-end="url(#ar)"/>
+      </g>
+      <text x="458" y="174" class="s-acc" font-size="11.5" font-weight="700">feedback loop</text>
+      <!-- styles -->
+      <rect x="250" y="290" width="400" height="120" rx="12" class="s-accsoft"/>
+      <text x="450" y="316" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">Leadership styles (H2: optimal profile)</text>
+      <text x="450" y="342" text-anchor="middle" class="s-ink" font-size="12.5"><tspan font-weight="700">Transformational:</tspan> vision · inspiration · instruction · individualisation · support</text>
+      <text x="450" y="364" text-anchor="middle" class="s-ink" font-size="12.5"><tspan font-weight="700">Transactional:</tspan> positive feedback · (negative feedback)</text>
+      <text x="450" y="386" text-anchor="middle" class="s-ink" font-size="12.5"><tspan font-weight="700">Decision-making:</tspan> active management · (passive management)</text>
+      <!-- efficacy -->
+      <rect x="690" y="120" width="200" height="190" rx="12" class="s-plansoft"/>
+      <text x="790" y="150" text-anchor="middle" class="s-ink" font-weight="700" font-size="15">Leadership efficacy</text>
+      <text x="790" y="184" text-anchor="middle" class="s-ink" font-size="12.5" font-weight="700">Subjective</text>
+      <text x="790" y="202" text-anchor="middle" class="s-muted" font-size="11.5">commitment, satisfaction, trust</text>
+      <text x="790" y="236" text-anchor="middle" class="s-ink" font-size="12.5" font-weight="700">Objective</text>
+      <text x="790" y="254" text-anchor="middle" class="s-muted" font-size="11.5">goals, performance, profit</text>
+      <text x="790" y="290" text-anchor="middle" class="s-acc" font-size="11.5" font-weight="700">H4: all three combined</text>
+      <g class="st-acc" stroke-width="2.2" fill="none">
+        <line x1="212" y1="215" x2="246" y2="215" marker-end="url(#ar)"/>
+        <line x1="652" y1="150" x2="686" y2="190" marker-end="url(#ar)"/>
+        <line x1="652" y1="350" x2="686" y2="260" marker-end="url(#ar)"/>
+        <line x1="450" y1="288" x2="450" y2="272" marker-end="url(#ar)"/>
+      </g>
+    </svg>
+    <figcaption>Simplified from Gomes (2020), Figure 1. The cycles are the content of your plan; the styles are how you deliver it; the antecedent factors decide how much of its potential is realised.</figcaption>
+  </figure>
+
+  <h3 id="lem-cycles">1.2 Leadership cycles: philosophy → practice → criteria</h3>
+  <p>The cycle is a <strong>triphasic relation</strong> (the model was first called the "Triphasic Model of Leadership Efficacy"): three linked phases, in a fixed logical order.</p>
+  <div class="tw"><table>
+    <tr><th>Phase</th><th>Definition (Gomes, 2020)</th><th>Question it answers</th><th>Plan-template question</th></tr>
+    <tr><td class="k">Philosophy</td><td>Values, beliefs, assumptions, attitudes, principles and priorities assumed by the leader, which influence both practice and criteria.</td><td><em>Why</em> do I lead? What do I stand for?</td><td>What is your leadership philosophy? Your most important ideas and goals? Are they important to your team?</td></tr>
+    <tr><td class="k">Practice</td><td>Specific, observable behaviours the leader adopts to fulfil the philosophy.</td><td><em>How</em> do I turn ideas into action?</td><td>What is your leadership approach? Are your actions important to your team?</td></tr>
+    <tr><td class="k">Criteria</td><td>Personal and professional indicators that help the leader monitor whether philosophy and practice are being fulfilled.</td><td><em>How much</em> change am I producing? How will I know?</td><td>What are your criteria/indicators? Are they important to your team?</td></tr>
+  </table></div>
+
+  <h4>Two levels of the cycle</h4>
+  <div class="vs">
+    <div><h5>Conceptual cycle</h5><p>How the leader <em>intends</em> to lead: the plan on paper. Philosophy, practice and criteria as designed, ideally after listening to the team.</p></div>
+    <div><h5>Practical cycle</h5><p>How the leader <em>actually</em> leads in a real situation: philosophy as transmitted, leadership "in practice" (behaviours perceived by the leader and desired by members), criteria as applied.</p></div>
+  </div>
+  <p>The <strong>feedback loop</strong> connects the two: when reality shows a mismatch, the leader adjusts the plan. Example from the bibliography: the All Blacks coaches valued shared responsibility and autonomy, but adjusted their approach after critical incidents such as poor results and binge-drinking episodes (Hodge et al., 2014). Criteria are what make that adjustment possible: without indicators the leader cannot tell whether to keep or change course.</p>
+
+  <div class="box ex"><span class="lbl">Example from Gomes (2020), translated to business</span>
+  <p><strong>Philosophy:</strong> "The team comes first. Individuals close deals; teams build accounts."<br>
+  <strong>Practice:</strong> set shared goals for each account squad and for the whole sales team; weekly squad meeting to review and recommit.<br>
+  <strong>Criteria:</strong> squads receive a weekly dashboard of shared-goal progress; in the Friday meeting goals are adjusted for the next week.<br>
+  <strong>Congruence check (practical cycle):</strong> the leader feels people took up the message; members say "we understood the idea, we are known as a team that stands together." Philosophy, practice and criteria line up, so the cycle is congruent.</p></div>
+
+  <h4>Writing a good philosophy (Gomes, 2020)</h4>
+  <p>The philosophy does not need to be complex. It should be:</p>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Positive</span><p>A stimulating, challenging mission for everyone involved (not only for the leader or the company).</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Specific</span><p>Concrete and understandable by every member. "Simple but not simplistic."</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Personal vocation + ethical</span><p>Reflects what the leader genuinely believes and is enthusiastic about, and is acceptable within the ethical and social norms of the context.</p></div>
+  </div>
+  <p>Gomes also uses four philosophical lenses to build it:</p>
+  <div class="tw"><table>
+    <tr><th>Lens</th><th>Question</th><th>In a business leadership philosophy</th></tr>
+    <tr><td class="k">Ontology</td><td>What does it mean to be a leader?</td><td>"For me, leading means developing people's potential, not just delivering this quarter."</td></tr>
+    <tr><td class="k">Axiology</td><td>Which values do I assume?</td><td>A positive, simple vision that transcends individual interests: "We grow together and nobody wins alone."</td></tr>
+    <tr><td class="k">Ethics</td><td>What is morally acceptable?</td><td>"Results never justify misleading clients or each other."</td></tr>
+    <tr><td class="k">Phenomenology</td><td>How do I experience leading?</td><td>Personal enthusiasm and optimism about the mission: "I love seeing a junior become autonomous."</td></tr>
+  </table></div>
+
+  <h4>Three ways leaders build a philosophy (only one is recommended)</h4>
+  <div class="vs three">
+    <div><h5>Ideological process ✔</h5><p>Philosophy → practice → criteria. Starts from reflected values. The recommended, linear route.</p></div>
+    <div><h5>Experimental process</h5><p>Practice → philosophy. "Practice makes the leader": trial and error, repeating what worked in the past without reflecting on principles.</p></div>
+    <div><h5>Results-oriented process</h5><p>Criteria → philosophy. "If it works, don't fix it": good leadership is whatever produced results this time.</p></div>
+  </div>
+  <div class="box trap"><span class="lbl">Why this matters for the plan</span><p>Gomes et al. (2018) interviewed ten elite coaches: full matches between philosophy, practice and criteria appeared in only <strong>21%</strong> of cases. Even very successful leaders struggle to connect what they believe with what they do and measure. A plan that shows explicit, traceable links between the three phases is exactly what the model values.</p></div>
+
+  <h3 id="lem-styles">1.3 Leadership styles: the nine behaviours</h3>
+  <p>Styles are specific behaviours used to achieve a leadership goal. The LEM groups nine behaviours into three domains (Gomes &amp; Resende, 2014; measured with the Multidimensional Scale of Leadership).</p>
+  <div class="tw"><table>
+    <tr><th>Domain</th><th>Behaviour</th><th>Definition</th><th>How to do it well (Pro●Leader, Fig. 3)</th><th>Business example</th></tr>
+    <tr><td class="k" rowspan="5">Transformational<br><span class="small">changes attitudes, beliefs and values until the vision is internalised</span></td><td class="k">Vision</td><td>Enthusiastic, optimistic picture of followers' future</td><td>Positive, specific, personal vocation, ethical</td><td>"In 12 months we will be the team other departments ask for help."</td></tr>
+    <tr><td class="k">Inspiration</td><td>Positive expectations and behaviours that promote success and continuous effort</td><td>Personal example; optimism and desire for success</td><td>The manager is first to adopt the new CRM and shares their own learning curve.</td></tr>
+    <tr><td class="k">Instruction</td><td>Positively teaching technical skills</td><td>Positive sequence: reinforce effort → correct the error positively → encourage confidence</td><td>"Good structure in the report. Next time lead with the recommendation. You'll get this quickly."</td></tr>
+    <tr><td class="k">Individualisation</td><td>Considering each person's needs and expectations</td><td>Personalised work: adapt the mission to desires, needs, expectations</td><td>Giving the analyst who wants client exposure the next client presentation.</td></tr>
+    <tr><td class="k">Support</td><td>Personal concern for wellbeing; relationships based on mutual trust</td><td>"Open door" policy; informal activities that build trust</td><td>Monthly 1:1 that also covers workload and life outside work.</td></tr>
+    <tr><td class="k" rowspan="2">Transactional<br><span class="small">exchange: tasks and goals for material or psychological compensation</span></td><td class="k">Positive feedback</td><td>Reinforcing and recognising good performance and effort</td><td>Measurable (targets the actions you want to increase) and adequate (fits the person's needs)</td><td>Naming in the team meeting exactly what someone did that saved the client deadline.</td></tr>
+    <tr><td class="k">Negative feedback</td><td>Punishment to manage inadequate behaviour or performance</td><td>Last resort, only when behaviour deliberately deviates from what was agreed</td><td>A formal warning after repeated breach of the agreed client-data protocol.</td></tr>
+    <tr><td class="k" rowspan="2">Decision-making<br><span class="small">how power and authority are managed</span></td><td class="k">Active management</td><td>Taking responsibility for decisions, either decentralised (involving followers) or centralised (deciding alone)</td><td>Negotiate with members of high technical and psychological maturity; persuade those of low maturity</td><td>Co-designing the new shift rota with the team, then the manager decides and communicates.</td></tr>
+    <tr><td class="k">Passive management</td><td>Avoiding or delaying decisions needed to solve important problems</td><td>Avoid when important and urgent matters affect the team. Not trained in Pro●Leader.</td><td>Letting a conflict between two senior staff drag on for months "to see if it resolves itself".</td></tr>
+  </table></div>
+
+  <h4>Optimal vs. suboptimal leadership profile (H2)</h4>
+  <p>The novelty of the LEM is that styles should be <strong>combined</strong> into an optimal profile, not used one at a time.</p>
+  <figure class="dg"><div class="bars" aria-label="Optimal leadership profile: recommended frequency of each behaviour">
+    <div class="bar"><span>Vision · Inspiration</span><div class="track"><div class="fill" style="width:92%"></div></div></div>
+    <div class="bar"><span>Instruction · Individualisation · Support</span><div class="track"><div class="fill" style="width:90%"></div></div></div>
+    <div class="bar"><span>Positive feedback</span><div class="track"><div class="fill" style="width:80%"></div></div></div>
+    <div class="bar"><span>Active mgmt · decentralised</span><div class="track"><div class="fill" style="width:72%"></div></div></div>
+    <div class="bar"><span>Active mgmt · centralised</span><div class="track"><div class="fill" style="width:38%"></div></div></div>
+    <div class="bar"><span>Negative feedback</span><div class="track"><div class="fill neg" style="width:14%"></div></div></div>
+    <div class="bar"><span>Passive management</span><div class="track"><div class="fill neg" style="width:4%"></div></div></div>
+  </div><figcaption>Illustrative, not measured data: the optimal profile uses transformational behaviours most, then positive feedback and decentralised active management, and keeps negative feedback and passive management to a minimum. The suboptimal profile is the reverse: little transformational leadership, more negative than positive feedback, centralised or passive decisions.</figcaption></figure>
+  <p><strong>Evidence behind it:</strong> transformational leadership shows the strongest overall relation with effectiveness (ρ = .44), contingent reward follows closely (.39), and laissez-faire is negative (−.37) (Judge &amp; Piccolo, 2004). Transformational leadership adds explanatory power over transactional leadership: the <strong>augmentation effect</strong> (Bass, 1985). Effects are stronger on subjective outcomes (satisfaction, commitment) than on objective ones (performance).</p>
+  <div class="box trap"><span class="lbl">Trap: "active management" means different things in different models</span>
+  <p><strong>In the LEM</strong>, active management is about <em>power and decisions</em>: does the leader take responsibility for decisions, and does he or she share them (decentralised) or keep them (centralised)?<br>
+  <strong>In Bass's Full Range model (L2)</strong>, active management-by-exception is about <em>deviations from standards</em>: does the leader monitor and intervene before mistakes become serious?<br>
+  LEM <strong>passive management</strong> ≈ Bass's <strong>laissez-faire</strong> (avoiding decisions and responsibility).</p></div>
+  <div class="box"><span class="lbl" style="color:var(--navy)">Negative feedback: alternatives the LEM prefers</span><p>When something goes wrong, punishment is not the only option. Gomes suggests <strong>disagreement expressed positively</strong> (when the <em>action</em> must change) or <strong>corrective instruction</strong> (when the <em>way</em> the action is performed must change). Negative feedback is reserved for deliberate breaches of previously agreed standards.</p></div>
+
+  <h3 id="lem-ante">1.4 Antecedent factors and favourability</h3>
+  <p>Antecedent factors do not lead by themselves. They <strong>moderate</strong> the effect of cycles and styles: they work as <em>facilitators</em> (increasing the leader's positive influence) or <em>inhibitors</em> (decreasing it).</p>
+  <div class="tw"><table>
+    <tr><th>Factor</th><th>Personal</th><th>Stable mental</th><th>Dynamic mental</th><th>What the leader should do</th></tr>
+    <tr><td class="k">Leader</td><td>Gender, age, education</td><td>Personality, life goals, beliefs, values</td><td>Tolerance of adversity, coping</td><td>Know yourself; adjust actions to your own characteristics.</td></tr>
+    <tr><td class="k">Team members</td><td>Gender, age, education, experience</td><td>Personality, goals, values</td><td>Coping, motivation, confidence</td><td>Understand how each person works; adjust to them.</td></tr>
+    <tr><td class="k">Situation</td><td colspan="3">Responsibility in the organisation (hierarchical level, autonomy, power) · type of organisation · external environment (market, competition, regulation) · culture · goals set for the leader · material and financial conditions</td><td>Maximise the available resources and opportunities.</td></tr>
+  </table></div>
+  <h4>Three types of favourability</h4>
+  <p>The antecedents combine into the <strong>favourability of conditions</strong> for leadership (drawing on Fiedler, Hersey &amp; Blanchard, and Likert):</p>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Technical favourability</span><p><strong>Leader:</strong> task orientation (value given to mission and goals).<br><strong>Members:</strong> task maturity (competence, knowledge of what must be done).</p><p class="small">Raise it with: vision, inspiration, instruction, positive feedback.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--accent)">Psychological favourability</span><p><strong>Leader:</strong> relationship orientation (interest in people's needs, expectations, values).<br><strong>Members:</strong> psychological maturity (self-confidence and motivation to accept responsibility).</p><p class="small">Raise it with: individualisation, support, decentralised active management.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--good)">Situational favourability</span><p><strong>Material:</strong> resources, budget.<br><strong>Human:</strong> number, experience and maturity of members.<br><strong>Environmental:</strong> market, deadlines, competition.</p><p class="small">Raise it with: vision and instruction to convince decision makers; adapting behaviours to members' maturity.</p></div>
+  </div>
+  <div class="box ex"><span class="lbl">Example</span><p>A new team lead inherits six experienced but disengaged engineers, a frozen budget and a hard launch date. Technical favourability is high (competent members). Psychological favourability is low (low motivation to take responsibility). Situational favourability is low (budget, deadline). <strong>Adjustment:</strong> lean on individualisation and support to rebuild engagement; use decentralised active management to give the seniors ownership of the launch plan; use vision and instruction upwards to negotiate scope with the director.</p></div>
+
+  <h3 id="lem-hyp">1.5 The four hypotheses of the LEM</h3>
+  <div class="tw"><table>
+    <tr><th>Hypothesis</th><th>Statement</th><th>In one line</th></tr>
+    <tr><td class="k">H1 · Congruence of leadership cycles</td><td>Efficacy increases when the conceptual cycle (how the leader intends to lead) matches the practical cycle (how they actually lead), considering both the leader's and the members' perspectives.</td><td>Do what you say, measure what you value.</td></tr>
+    <tr><td class="k">H2 · Optimal leadership profile</td><td>Efficacy increases when congruence is sustained with high transformational leadership, more positive than negative feedback, and active (decentralised) rather than passive management.</td><td>The right behaviours raise the quality of the cycle.</td></tr>
+    <tr><td class="k">H3 · Favourability of conditions</td><td>Efficacy increases when antecedent factors act as facilitators, or when the leader adopts strategies to minimise the inhibiting ones.</td><td>Read the leader, the people and the context, and adjust.</td></tr>
+    <tr><td class="k">H4 · Optimised Congruence Hypothesis (OCHL)</td><td>Efficacy is highest when the leader combines all three: congruent cycles + optimal profile + consideration of antecedent factors.</td><td>The whole model together.</td></tr>
+  </table></div>
+  <div class="box trap"><span class="lbl">Congruence is necessary but not sufficient</span><p>A leader can be perfectly congruent around a harmful idea (Bass's <strong>pseudo-transformational</strong> leader). That is why the LEM judges the <em>quality</em> of the cycle through the styles (H2) and why the definition requires positive ideals and a better situation for everyone.</p></div>
+
+  <h3 id="lem-tasks">1.6 Five leadership tasks: which style for which phase</h3>
+  <p>Gomes (2020, Fig. 5) maps the cycle onto five tasks and suggests which behaviour serves each. This table is very useful for Section 5 of your plan.</p>
+  <div class="tw"><table>
+    <tr><th>Cycle phase</th><th>Task</th><th>Main behaviour(s)</th><th>Why</th></tr>
+    <tr><td class="k">Philosophy</td><td>1 · Establishing the mission</td><td>Vision</td><td>Creates a collective sense of purpose around the mission.</td></tr>
+    <tr><td class="k" rowspan="3">Practice</td><td>2 · Uniting the team</td><td>Active management (decentralised or centralised)</td><td>Decentralised = collective <em>involvement</em> (members co-author the mission, so cohesion grows). Centralised = collective <em>mobilisation</em> (the leader must convince).</td></tr>
+    <tr><td>3 · Defining the plan of action</td><td>Instruction, individualisation, support</td><td>Challenge people to improve, value each person, build trust.</td></tr>
+    <tr><td>4 · Applying the plan of action</td><td>Inspiration</td><td>Obtain maximum effort day to day.</td></tr>
+    <tr><td class="k">Criteria</td><td>5 · Defining the outcomes</td><td>Positive feedback, (negative feedback)</td><td>Sustain prolonged effort; correct negative actions, preferably through corrective instruction.</td></tr>
+  </table></div>
+  <div class="box plan"><span class="lbl">For your Leadership Plan</span><p>The plan <em>is</em> the LEM applied to you. Sections 1–3 of the official template are the conceptual cycle; Section 4 is the antecedent factors; Section 5 is the styles. Pro●Leader's own words: participants "choose a certain scenario in their lives where they can exert influence toward others, and then they must elaborate on how to positively influence others". See the <a href="#plan">Leadership Plan</a> section.</p></div>
+</section>
+
+<!-- ============ L1 ============ -->
+<section class="part" id="l1">
+  <h2>L1 · Foundations of Leadership and Motivation I</h2>
+  <p class="part-q">What is leadership and why does it matter? · LEM: general overview</p>
+
+  <h3>Leadership is influence, not position</h3>
+  <p>Many people associate leadership with authority, hierarchy, charisma or a job title. The course rejects that view: leadership exists whenever someone influences other people's behaviour, attitudes, decisions, motivation and commitment towards a common goal. It often happens <em>before</em> people hold a formal leadership position. A junior analyst who gets the team to adopt a better process is leading; a director who only signs approvals may not be.</p>
+  <div class="vs">
+    <div><h5>Assigned leadership</h5><p>Based on a formal position (team lead, director). Authority is given by the organisation.</p></div>
+    <div><h5>Emergent leadership</h5><p>Based on how others respond: people come to see someone as a leader through their behaviour, regardless of title (Northouse, 2022).</p></div>
+  </div>
+
+  <h3>Influence and the five bases of power (French &amp; Raven, 1959)</h3>
+  <p>Power is the <em>capacity</em> to influence; influence is power in use. Power itself is neutral: its consequences depend on how it is used (L3).</p>
+  <div class="tw"><table>
+    <tr><th>Base</th><th>Source</th><th>Type</th><th>Example</th><th>Typical effect</th></tr>
+    <tr><td class="k">Legitimate</td><td>Formal position, the right to ask</td><td>Position</td><td>"As project lead I'm assigning the deadline."</td><td>Compliance</td></tr>
+    <tr><td class="k">Reward</td><td>Ability to give benefits (bonus, good projects, praise)</td><td>Position</td><td>Choosing who presents to the client.</td><td>Compliance; can become transactional dependence</td></tr>
+    <tr><td class="k">Coercive</td><td>Ability to punish or withdraw benefits</td><td>Position</td><td>Threatening a bad appraisal.</td><td>Compliance or resistance; damages trust</td></tr>
+    <tr><td class="k">Expert</td><td>Knowledge and skills others value</td><td>Personal</td><td>The engineer everyone consults on the architecture.</td><td>Commitment</td></tr>
+    <tr><td class="k">Referent</td><td>Being liked, admired, identified with</td><td>Personal</td><td>A respected colleague whose example others follow.</td><td>Commitment</td></tr>
+  </table></div>
+  <p class="small">Personal power (expert, referent) tends to produce commitment; position power (legitimate, reward, coercive) tends to produce compliance. Effective leaders combine them and rely mostly on personal power.</p>
+
+  <h3>Leadership vs. management (Kotter, 1990)</h3>
+  <p>Kotter argues they are <strong>complementary</strong>, not opposed: management copes with <em>complexity</em>, leadership copes with <em>change</em>. Organisations need both.</p>
+  <div class="tw"><table>
+    <tr><th>Function</th><th>Management (complexity)</th><th>Leadership (change)</th></tr>
+    <tr><td class="k">Deciding what to do</td><td>Planning and budgeting: targets, steps, resources</td><td>Setting a direction: vision and strategies</td></tr>
+    <tr><td class="k">Creating networks of people</td><td>Organising and staffing: structure, jobs, delegation</td><td>Aligning people: communicating the direction so people understand and believe it</td></tr>
+    <tr><td class="k">Ensuring it gets done</td><td>Controlling and problem-solving: monitor against plan</td><td>Motivating and inspiring: appealing to needs, values, emotions</td></tr>
+    <tr><td class="k">Result</td><td>Order, consistency, predictability</td><td>Movement, adaptation, commitment</td></tr>
+  </table></div>
+  <div class="box ex"><span class="lbl">Example</span><p>Launching a new product line: management builds the Gantt chart, budget and staffing; leadership explains <em>why</em> the launch matters, gets sales and engineering to believe in it, and keeps people going when the first version fails.</p></div>
+
+  <h3>Leadership effectiveness</h3>
+  <p>Effectiveness is the <strong>positive and sustainable impact</strong> leadership creates on individuals, teams, organisations and outcomes (Gomes, 2020). Kaiser, Hogan and Craig (2008) stress that effectiveness should be judged by the <strong>performance of the team or organisation</strong> the leader is responsible for, not only by how much the leader is liked or promoted, and that failure rates among managers are high: leadership matters for the fate of organisations.</p>
+
+  <h3>Leadership and motivation</h3>
+  <p>Motivation drives effort, persistence, engagement and commitment. Leaders cannot inject motivation; they <strong>shape the conditions</strong> under which people work and develop. Self-Determination Theory (Deci, Olafsen &amp; Ryan, 2017) says motivation depends on three basic needs: <strong>autonomy, competence and relatedness</strong> (developed in <a href="#l8">L8</a>).</p>
+  <div class="box def"><span class="lbl">Motivation is both a consequence and a condition of leadership</span><p><strong>Consequence:</strong> good leadership produces motivated people. <strong>Condition:</strong> motivated followers make leadership easier (psychological favourability in the LEM). It is a loop.</p></div>
+
+  <div class="box key"><span class="lbl">Key messages L1</span><ol>
+    <li>Leadership is influence, not position.</li>
+    <li>Technical excellence does not automatically make an effective leader.</li>
+    <li>Leadership exists to mobilise (motivate) people towards shared goals.</li>
+    <li>Efficacy depends on the interaction of cycles, styles and the characteristics of leader, followers and context.</li>
+    <li>Motivation is both a consequence and a condition of leadership.</li>
+    <li>Leadership is a skill that can be developed, not something you have or lack.</li>
+  </ol></div>
+  <div class="box plan"><span class="lbl">For your plan</span><p>The "My leadership story" exercise (leaders you admire) is raw material for your philosophy: what did those leaders believe, do and measure? Which of their sources of power do you want to rely on?</p></div>
+</section>
+
+<!-- ============ L2 ============ -->
+<section class="part" id="l2">
+  <h2>L2 · Foundations of Leadership II: the theories</h2>
+  <p class="part-q">How has leadership research tried to explain effectiveness? · LEM: overview + leadership cycles</p>
+  <p>Models are simplified representations of a complex reality: they help to understand, diagnose, predict and improve. No theory explains everything; each one answers a different question. The LEM integrates them.</p>
+
+  <figure class="dg"><div class="flow">
+    <div class="step"><b>Trait</b>1900s–1940s<br>Who is a leader?</div><div class="arrow">→</div>
+    <div class="step"><b>Behavioural</b>1950s–60s<br>What do leaders do?</div><div class="arrow">→</div>
+    <div class="step"><b>Contingency</b>1960s–70s<br>What works in which situation?</div><div class="arrow">→</div>
+    <div class="step"><b>New leadership</b>1980s+<br>Transformational, full range</div><div class="arrow">→</div>
+    <div class="step"><b>Integrative</b>LEM<br>Cycles + styles + antecedents</div>
+  </div><figcaption>Evolution of leadership theory (Benmira &amp; Agboola, 2021; Northouse, 2022).</figcaption></figure>
+
+  <h3>Leadership emergence vs. leadership effectiveness</h3>
+  <div class="vs">
+    <div><h5>Emergence</h5><p>The extent to which a person is <em>perceived</em> as a leader by others. Who gets chosen, noticed, followed.</p></div>
+    <div><h5>Effectiveness</h5><p>The extent to which leadership <em>produces</em> positive and sustainable outcomes for people, teams and results (Kaiser et al., 2008).</p></div>
+  </div>
+  <div class="box ex"><span class="lbl">Example</span><p>The most talkative, confident student is usually chosen to lead the group project (emergence). Whether the project is good and the group stays united is a different question (effectiveness). Extraversion predicts emergence more than effectiveness.</p></div>
+
+  <h3>Trait approach</h3>
+  <p><strong>Assumption:</strong> some stable personal characteristics make people more likely to become leaders. Classic traits: intelligence, self-confidence, determination, integrity, sociability (Northouse, 2022). Modern research uses the <strong>Big Five</strong>.</p>
+  <div class="tw"><table>
+    <tr><th>Big Five trait</th><th>Correlation with leadership (Judge et al., 2002)</th><th>Reading</th></tr>
+    <tr><td class="k">Extraversion</td><td>.31</td><td>Most consistent correlate, especially of emergence</td></tr>
+    <tr><td class="k">Conscientiousness</td><td>.28</td><td>Organised, persistent, reliable</td></tr>
+    <tr><td class="k">Openness to experience</td><td>.24</td><td>Creative, curious</td></tr>
+    <tr><td class="k">Neuroticism</td><td>−.24</td><td>Emotional instability lowers leadership</td></tr>
+    <tr><td class="k">Agreeableness</td><td>.08</td><td>Weak relationship</td></tr>
+  </table></div>
+  <p>Together the Big Five correlate <strong>.48</strong> with leadership. <strong>Contribution:</strong> explains who tends to emerge; useful for selection and self-knowledge. <strong>Limitations:</strong> ignores situation and followers; says little about how to become effective; traits are hard to train.</p>
+  <p class="small">In the LEM, traits survive as <strong>leader characteristics</strong> within the antecedent factors.</p>
+
+  <h3>Behavioural approach</h3>
+  <p><strong>Assumption:</strong> effectiveness depends on what leaders <em>do</em>. Because behaviours can be trained, <strong>leadership can be learned</strong>. This is the foundation of leadership development, Pro●Leader included.</p>
+  <div class="vs">
+    <div><h5>Task-oriented (initiating structure)</h5><p>Organising work, defining roles, setting goals and standards, scheduling. Helps people achieve objectives.</p></div>
+    <div><h5>Relationship-oriented (consideration)</h5><p>Respect, trust, attention to wellbeing, making people comfortable. Focuses on people.</p></div>
+  </div>
+  <p>Ohio State and Michigan studies, and Blake and Mouton's Managerial Grid (high task + high people = "team management"), all conclude that effective leaders <strong>balance</strong> both. DeRue et al. (2011) found that behaviours explain <em>more</em> variance in effectiveness than traits, and that behaviours partly <em>mediate</em> the effect of traits: traits → behaviours → effectiveness. Together they explain at least 31% of the variance.</p>
+  <p><strong>Limitation:</strong> no universal "best behaviour" was found; the same behaviour works in one situation and fails in another. That opened the door to contingency theories.</p>
+
+  <h3>Full Range Leadership Model (Bass &amp; Riggio, 2006)</h3>
+  <p>Leadership behaviours range from most passive and least effective to most active and effective:</p>
+  <figure class="dg"><div class="flow">
+    <div class="step" style="background:var(--warn-soft)"><b>Laissez-faire</b>Absence of leadership: avoids decisions, delayed intervention</div><div class="arrow">→</div>
+    <div class="step" style="background:var(--surface-2)"><b>MBE-passive</b>Intervenes only after serious problems</div><div class="arrow">→</div>
+    <div class="step" style="background:var(--surface-2)"><b>MBE-active</b>Monitors and intervenes before problems grow</div><div class="arrow">→</div>
+    <div class="step"><b>Contingent reward</b>Rewards when agreed goals are met</div><div class="arrow">→</div>
+    <div class="step" style="background:var(--good-soft)"><b>The 4 I's</b>Transformational leadership</div>
+  </div><figcaption>Passive and less effective on the left; active and more effective on the right. MBE = management-by-exception.</figcaption></figure>
+  <div class="tw"><table>
+    <tr><th>Transformational "4 I's"</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="k">Idealised influence</td><td>Role model; admired, trusted, high ethical standards (charisma)</td><td>The CEO takes the same pay cut as staff during a crisis.</td></tr>
+    <tr><td class="k">Inspirational motivation</td><td>Communicates a compelling vision, high expectations, optimism</td><td>"We're not just cutting costs, we're building the most efficient plant in Iberia."</td></tr>
+    <tr><td class="k">Intellectual stimulation</td><td>Encourages questioning assumptions, creativity, new approaches</td><td>"Before we choose, convince me why we should do the opposite."</td></tr>
+    <tr><td class="k">Individualised consideration</td><td>Recognises individual needs; coaches and mentors</td><td>Different development plans for a new graduate and a senior specialist.</td></tr>
+  </table></div>
+  <p><strong>Transactional</strong> leadership regulates performance through exchanges: <em>contingent reward</em> (reward for achieved goals), <em>active MBE</em> and <em>passive MBE</em>. Evidence: transformational .44, contingent reward .39, laissez-faire −.37; MBE is inconsistent (Judge &amp; Piccolo, 2004). Transformational and contingent reward are strongly correlated (.80): effective leaders use both.</p>
+
+  <h3>Contingency approaches</h3>
+  <p><strong>Assumption:</strong> effectiveness depends on the <strong>fit</strong> between leader behaviour, follower characteristics and situational demands.</p>
+  <div class="tw"><table>
+    <tr><th>Theory</th><th>Core idea</th><th>Key variables</th></tr>
+    <tr><td class="k">Fiedler's contingency theory</td><td>Leaders have a fairly fixed style (task- or relationship-motivated, measured with the LPC scale). Match the leader to the situation.</td><td>Leader–member relations, task structure, position power → situational favourability. Task-motivated leaders do best in very favourable or very unfavourable situations; relationship-motivated in the middle.</td></tr>
+    <tr><td class="k">Situational leadership (Hersey &amp; Blanchard)</td><td>Adapt directive and supportive behaviour to followers' development level (competence + commitment).</td><td>S1 directing → S2 coaching → S3 supporting → S4 delegating, matched to D1–D4.</td></tr>
+    <tr><td class="k">Path–goal theory (House)</td><td>The leader clears the path to the goal, choosing directive, supportive, participative or achievement-oriented behaviour.</td><td>Follower characteristics (ability, locus of control) and task characteristics (structure, authority system, team).</td></tr>
+  </table></div>
+  <figure class="dg"><div class="grid2x2" style="grid-template-columns:auto 1fr 1fr">
+    <div class="ax v">Supportive behaviour →</div>
+    <div class="cell c-navy"><b>S3 · Supporting</b>High support, low direction. For D3: capable but variable commitment. Listen, encourage, share decisions.</div>
+    <div class="cell c-navy"><b>S2 · Coaching</b>High support, high direction. For D2: some competence, low commitment. Explain, persuade.</div>
+    <div class="ax v"></div>
+    <div class="cell c-soft"><b>S4 · Delegating</b>Low support, low direction. For D4: competent and committed. Hand over responsibility.</div>
+    <div class="cell c-soft"><b>S1 · Directing</b>Low support, high direction. For D1: low competence, high enthusiasm. Clear instructions.</div>
+    <div></div><div class="ax">← low</div><div class="ax">Directive behaviour → high</div>
+  </div><figcaption>Situational Leadership II. The LEM borrows this logic in "negotiate with mature members, persuade immature ones" and in technical/psychological maturity.</figcaption></figure>
+
+  <h3>Summary table: what each approach explains and misses</h3>
+  <div class="tw"><table>
+    <tr><th>Approach</th><th>Core assumption</th><th>Main contribution</th><th>Main limitation</th><th>Where it lives in the LEM</th></tr>
+    <tr><td class="k">Traits</td><td>Some people have leader characteristics</td><td>Explains emergence; self-knowledge</td><td>Ignores situation; little guidance for development</td><td>Leader characteristics (antecedents)</td></tr>
+    <tr><td class="k">Behavioural</td><td>What leaders do matters</td><td>Leadership can be learned; task vs people</td><td>No universal best style</td><td>Leadership styles (9 behaviours)</td></tr>
+    <tr><td class="k">Full range</td><td>Transformational &gt; transactional &gt; laissez-faire</td><td>Strong evidence; augmentation effect</td><td>Overlap between dimensions; heroic bias</td><td>Transformational + transactional styles; passive mgmt</td></tr>
+    <tr><td class="k">Contingency</td><td>It depends on the fit</td><td>Brings in followers and context</td><td>Complex; mixed evidence</td><td>Antecedent factors; favourability</td></tr>
+    <tr><td class="k">LEM</td><td>Efficacy = congruent cycles + optimal profile + favourable conditions</td><td>Integrates the others; gives a planning tool</td><td>Recent; intervention not yet empirically tested (Gomes &amp; Morais, 2025)</td><td>The whole model</td></tr>
+  </table></div>
+
+  <div class="box key"><span class="lbl">Key messages L2</span><ol>
+    <li>Every theory explains something; none explains everything.</li>
+    <li>Traits explain who emerges, not who becomes effective.</li>
+    <li>Behavioural approaches moved attention from who leaders are to what they do, the basis of leadership development.</li>
+    <li>Effectiveness depends partly on fit between behaviours, followers and situation.</li>
+    <li>Effective leaders rarely rely on a single style.</li>
+    <li>Theories should guide judgement, not replace it.</li>
+  </ol></div>
+</section>
+
+<!-- ============ L3 ============ -->
+<section class="part" id="l3">
+  <h2>L3 · Ethical leadership and diversity</h2>
+  <p class="part-q">Can leadership be considered effective if it lacks ethical legitimacy? · LEM: leadership cycles</p>
+
+  <h3>No leadership is ethically neutral</h3>
+  <p>Because leadership is influence, it always affects other people's opportunities, wellbeing, development and decisions. That creates ethical responsibility. <strong>Ethical leadership</strong> is the responsible exercise of influence through behaviour consistent with integrity, fairness, honesty and respect. Ethical leaders behave ethically <em>and</em> promote ethical conduct in others: they act as a "moral person" and a "moral manager" (Brown &amp; Treviño, 2006).</p>
+  <div class="box def"><span class="lbl">Leadership legitimacy</span><p>The perception that a leader's influence, decisions and actions are appropriate, fair and acceptable. People trust and follow leaders they see as fair and responsible, so ethics feeds legitimacy and legitimacy feeds influence.</p></div>
+  <div class="box ex"><span class="lbl">Example: "ethics versus success"</span><p>Morais, Abrams and Randsley de Moura (2020) show that people are more willing to accept unethical behaviour from leaders who bring success. The danger: results can "buy" tolerance for misconduct in the short term, while trust and sustainability erode. Think of sales leaders who hit targets with aggressive mis-selling until a scandal breaks.</p></div>
+
+  <h3>Power</h3>
+  <p>Power is the capacity to influence people, decisions, resources and outcomes. It is neither ethical nor unethical in itself. The lecture's message: <strong>power can improve or deteriorate judgement</strong>. It gives the ability to act, but it can also reduce perspective-taking and make leaders less attentive to others' views.</p>
+
+  <h3>Ethical dilemmas: right vs. right</h3>
+  <p>A dilemma occurs when two or more <strong>legitimate</strong> values point to different actions. It is not "right vs. wrong" but "right vs. right" (Ciulla, 2020).</p>
+  <div class="tw"><table>
+    <tr><th>Tension</th><th>Example</th></tr>
+    <tr><td class="k">Loyalty vs. fairness</td><td>Promote a loyal long-time team member or the stronger external candidate?</td></tr>
+    <tr><td class="k">Individual vs. collective</td><td>Grant one person's flexible-hours request when it increases others' workload?</td></tr>
+    <tr><td class="k">Truth vs. care</td><td>Tell the team now about possible layoffs, or wait until it is certain?</td></tr>
+    <tr><td class="k">Short term vs. long term</td><td>Meet the quarter's target or invest in training that will pay off next year?</td></tr>
+  </table></div>
+  <p>Ethical leadership requires <strong>judgement</strong>, not just good intentions: making the competing values explicit, considering who is affected, and explaining the reasoning.</p>
+
+  <h3>Cognitive biases (Kahneman, 2011)</h3>
+  <p>Leaders decide with incomplete information and rely on <strong>heuristics</strong> (mental shortcuts). Shortcuts are useful but produce systematic errors: <strong>biases</strong>. Good intentions do not protect you from them.</p>
+  <div class="tw"><table>
+    <tr><th>Bias</th><th>Definition</th><th>Leadership example</th><th>Antidote</th></tr>
+    <tr><td class="k">Confirmation</td><td>Seeking, interpreting and remembering information that confirms what we believe</td><td>Having decided a new hire is weak, the manager notices only their mistakes.</td><td>Ask "what would prove me wrong?"; seek disconfirming data.</td></tr>
+    <tr><td class="k">Halo / horn</td><td>One positive (or negative) trait colours the whole evaluation</td><td>A brilliant presenter is assumed to be good at budgeting too.</td><td>Evaluate criteria separately, with evidence for each.</td></tr>
+    <tr><td class="k">Similarity / affinity</td><td>Favouring people like ourselves</td><td>Hiring people from your own university "because they fit".</td><td>Structured interviews; diverse panels; defined criteria.</td></tr>
+    <tr><td class="k">Authority</td><td>Giving excessive weight to people with status or expertise</td><td>Nobody questions the senior partner's flawed assumption.</td><td>Leader speaks last; anonymous input.</td></tr>
+    <tr><td class="k">Attribution</td><td>Explaining our own behaviour by the situation and others' by their character (fundamental attribution error)</td><td>"I was late because of traffic; he was late because he's careless."</td><td>Ask what in the situation could explain it before judging the person.</td></tr>
+    <tr><td class="k">Availability</td><td>Over-relying on recent, vivid, easily recalled information</td><td>The annual review is dominated by last month's incident.</td><td>Keep a performance log through the year.</td></tr>
+    <tr><td class="k">Groupthink</td><td>Prioritising consensus and harmony over critical evaluation</td><td>The board approves an acquisition nobody really challenged.</td><td>Devil's advocate, pre-mortem (see <a href="#l4">L4</a>).</td></tr>
+  </table></div>
+  <div class="box ws"><span class="lbl">Workshop link</span><p>W2–W3 (Zoom in / zoom out) and the attention video (Simons) show how much we miss when focused on one thing. W4 "Confirmation bias vs factual listening" trains separating what you heard from what you expected to hear.</p></div>
+
+  <h3>Diversity vs. inclusion</h3>
+  <div class="vs">
+    <div><h5>Diversity: who is present</h5><p>Differences among people: demographic, experiential, professional, cognitive. Gives access to more perspectives, information and problem-solving approaches.</p></div>
+    <div><h5>Inclusion: who participates</h5><p>The extent to which people are respected, heard, able to participate and to influence decisions (Shore et al., 2018). Combines belonging with being valued for one's uniqueness.</p></div>
+  </div>
+  <p><strong>"Diversity without inclusion generates little value"</strong>: a team can look diverse while only the same two people decide.</p>
+
+  <h3>Psychological safety (Edmondson)</h3>
+  <p>A shared belief that the team is safe for interpersonal risk-taking: people can ask questions, admit mistakes, raise concerns and challenge assumptions without fear of humiliation, punishment or rejection. It does <strong>not</strong> mean lower standards (see the 2×2 in <a href="#l4">L4</a>).</p>
+
+  <h3>Ethics through the LEM: congruence</h3>
+  <p>Ethical leadership in the LEM means congruence between what you <strong>believe</strong> (philosophy), what you <strong>do</strong> (practice) and how you <strong>evaluate success</strong> (criteria). A leader who preaches "people first" but evaluates only revenue is incongruent, and people notice. Incongruence destroys trust and legitimacy.</p>
+
+  <div class="box key"><span class="lbl">Key messages L3</span><ol>
+    <li>There is no ethically neutral leadership.</li>
+    <li>Ethical leadership requires judgement, not merely good intentions.</li>
+    <li>Power can improve or deteriorate judgement.</li>
+    <li>Information processing is vulnerable to biases.</li>
+    <li>Diversity without inclusion generates little value.</li>
+    <li>Psychological safety does not mean lower standards.</li>
+    <li>Sustainable effectiveness requires ethical legitimacy.</li>
+  </ol></div>
+  <div class="box plan"><span class="lbl">For your plan</span><p>State an explicit ethical commitment in your philosophy, and include at least one <em>human</em> criterion (fairness, trust, voice), not only task criteria. Name the bias you are most prone to and how your practice protects against it.</p></div>
+</section>
+
+<!-- ============ L4 ============ -->
+<section class="part" id="l4">
+  <h2>L4 · Team development: from groups to high-performing teams</h2>
+  <p class="part-q">How do leaders turn a group of people into a high-performing team? · LEM: antecedent factors (followers and context)</p>
+  <p>Four guiding questions of the lecture: <strong>who belonged, who supported whom, who could disagree or fail without cost, and who thought differently and what happened to them?</strong> The lecture closed with the individual 12-week plan for a newly merged team: the first draft of the final project.</p>
+
+  <h3>Group vs. team</h3>
+  <div class="vs">
+    <div><h5>Group</h5><ul><li>Members answer for their own work</li><li>Individual goals</li><li>Result = sum of individual contributions</li><li>Individual accountability</li></ul></div>
+    <div><h5>Team (Katzenbach &amp; Smith, 1993)</h5><p>"A small number of people with complementary skills who are committed to a common purpose, set of performance goals, and approach for which they hold themselves mutually accountable."</p><p><strong>Interdependence + shared goals + mutual accountability.</strong></p></div>
+  </div>
+
+  <h3>Stages of team development (Tuckman, 1965; Tuckman &amp; Jensen, 1977)</h3>
+  <div class="tw"><table>
+    <tr><th>Stage</th><th>What it looks like</th><th>Leader focus</th><th>Leader should avoid</th><th>Useful LEM behaviours</th></tr>
+    <tr><td class="k">Forming</td><td>Politeness, uncertainty, dependence on the leader, unclear roles</td><td><strong>Direct and include</strong>: purpose, roles, first agreements; make everyone feel they belong</td><td>Assuming everyone already understands the goal</td><td>Vision, instruction, support</td></tr>
+    <tr><td class="k">Storming</td><td>Conflict over roles, power and methods; people test the leader</td><td><strong>Surface and channel the conflict</strong>: make disagreement explicit and about the task</td><td>Suppressing conflict or taking sides</td><td>Active management, individualisation, active listening</td></tr>
+    <tr><td class="k">Norming</td><td>Cohesion grows; norms, procedures and rituals form</td><td><strong>Consolidate while keeping the challenge alive</strong></td><td>Comfort that slides into groupthink</td><td>Positive feedback, inspiration</td></tr>
+    <tr><td class="k">Performing</td><td>Autonomy, trust, interdependence; the team solves its own problems</td><td><strong>Empower and stretch</strong></td><td>Micromanaging a team that no longer needs it</td><td>Decentralised active management, intellectual challenge</td></tr>
+    <tr><td class="k">Adjourning</td><td>Project ends or team changes</td><td><strong>Close and celebrate</strong>; capture learning</td><td>Ending without recognition or review</td><td>Positive feedback, support</td></tr>
+  </table></div>
+  <div class="box trap"><span class="lbl">Not a law</span><p>The model came from small, mostly therapy and laboratory groups: it is a <strong>shared language</strong>, not a law. Stages are not linear: a new member, a new goal or a crisis can send a team back to storming.</p></div>
+
+  <h3>Groupthink (Janis, 1972)</h3>
+  <p>The wish for agreement overrides a realistic appraisal of alternatives.</p>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--warn)">More likely with</span><ul><li>High cohesion</li><li>Isolation from outside views</li><li>A very directive leader</li><li>Time pressure</li><li>No method for deciding</li></ul></div>
+    <div class="box"><span class="lbl" style="color:var(--warn)">Warning signs</span><ul><li>Illusion of invulnerability</li><li>Illusion of unanimity</li><li>Self-censorship of doubts</li><li>Pressure on dissenters</li><li>"Mindguards" shielding the leader from bad news</li></ul></div>
+    <div class="box"><span class="lbl" style="color:var(--good)">Antidotes</span><ul><li>Leader speaks last</li><li>Rotating devil's advocate</li><li>Pre-mortem: "a year from now we failed. Why?"</li><li>Silent input before discussion</li><li>Outside challenge; second-chance meeting</li></ul></div>
+  </div>
+  <p class="small">Empirical support for the full model is mixed: use it as a lens.</p>
+
+  <h3>Diversity in teams (van Knippenberg et al., 2004)</h3>
+  <div class="vs">
+    <div><h5>Gains</h5><ul><li>More perspectives and information</li><li>Better analysis of complex problems</li><li>Natural brake on groupthink</li><li>Members prepare more because they expect disagreement (Phillips et al., 2009)</li></ul></div>
+    <div><h5>Costs</h5><ul><li>More coordination effort</li><li>More conflict early on</li><li><strong>Faultlines</strong>: subgroups forming around shared attributes (Lau &amp; Murnighan, 1998), e.g. "the ex-Company A people" vs "the ex-Company B people"</li><li><strong>Tokenism</strong>: present but not heard</li></ul></div>
+  </div>
+  <p>More diversity usually means more storming. That is the price of the gain, not a sign of failure. Diversity pays off only with <strong>inclusion, psychological safety and a good decision process</strong>.</p>
+
+  <h3>Psychological safety × accountability (Edmondson, 2012, 2018)</h3>
+  <figure class="dg"><div class="grid2x2">
+    <div class="ax v">Psychological safety →</div>
+    <div class="cell c-soft"><b>Comfort zone</b>Pleasant, friendly, but little learning or effort.</div>
+    <div class="cell c-good"><b>Learning zone</b>Challenge with support. High performance happens here.</div>
+    <div class="ax v"></div>
+    <div class="cell c-warn"><b>Apathy zone</b>People show up; nobody cares.</div>
+    <div class="cell c-warn"><b>Anxiety zone</b>Fear, hidden errors, silence.</div>
+    <div></div><div class="ax">← low</div><div class="ax">Standards / accountability → high</div>
+  </div><figcaption>Safety and standards work together. Safer teams tend to report <em>more</em> errors, because they talk about them (Edmondson, 1999).</figcaption></figure>
+
+  <h3>What high-performing teams have in common</h3>
+  <div class="cols two">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Project Aristotle (Google; Duhigg, 2016)</span><p>180+ teams: <em>how</em> members worked together mattered more than <em>who</em> was on the team. Five dynamics:</p><ol><li><strong>Psychological safety</strong> (by far the most important)</li><li>Dependability</li><li>Structure and clarity</li><li>Meaning</li><li>Impact</li></ol><p class="small">Internal, correlational study: consistent with research, not proof of cause.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Hackman (2002): conditions for team effectiveness</span><p>Leaders cannot <em>make</em> a team perform, but they can create conditions:</p><ol><li>A <strong>real team</strong> (clear membership, interdependence, stability)</li><li>A <strong>compelling direction</strong></li><li>An <strong>enabling structure</strong> (task design, composition, norms)</li><li>A <strong>supportive organisational context</strong></li><li><strong>Expert coaching</strong> at the right moments</li></ol></div>
+  </div>
+
+  <h4>The five dysfunctions of a team (Lencioni, 2002)</h4>
+  <figure class="dg"><div class="pyr">
+    <div style="width:30%;background:var(--warn-soft)">5 · Inattention to results</div>
+    <div style="width:45%">4 · Avoidance of accountability</div>
+    <div style="width:60%">3 · Lack of commitment</div>
+    <div style="width:75%">2 · Fear of conflict</div>
+    <div style="width:90%;background:var(--accent-soft)">1 · Absence of trust (foundation)</div>
+  </div><figcaption>Each dysfunction builds on the one below. Practical message: <strong>trust before conflict, conflict before commitment.</strong></figcaption></figure>
+
+  <h4>Cases discussed (read critically)</h4>
+  <div class="tw"><table>
+    <tr><th>Case</th><th>Lesson</th><th>Business translation</th></tr>
+    <tr><td class="k">All Blacks (Kerr, 2013)</td><td>Clear identity, humility ("sweep the sheds"), players own and enforce the standards</td><td>Standards owned by the team, not policed by the boss</td></tr>
+    <tr><td class="k">McChrystal's Team of Teams</td><td>From command silos to a network: radical transparency, empowered execution</td><td>Daily cross-unit briefings; decisions pushed to who has the information</td></tr>
+    <tr><td class="k">Surgical checklists, Flight 1549</td><td>Checklists, clear roles, speaking up across hierarchy</td><td>Anyone can stop the line; protocols reduce error under pressure</td></tr>
+    <tr><td class="k">Pixar's Braintrust</td><td>Candid peer feedback on the work, never on the person</td><td>Feedback rituals separated from evaluation</td></tr>
+  </table></div>
+  <div class="box trap"><span class="lbl">Critical reading</span><p>We only see teams that won (survivorship bias); we rarely see the cost (who left, burned out, was never heard); and their context (selection, resources, luck) is not available to everyone.</p></div>
+
+  <div class="box key"><span class="lbl">Key messages L4</span><ol>
+    <li>Effective teams are built, not spontaneous.</li>
+    <li>A group becomes a team through interdependence, shared goals and mutual accountability.</li>
+    <li>Development is not linear.</li>
+    <li>Trust comes before commitment; productive conflict is indispensable.</li>
+    <li>Cohesion without challenge leads to groupthink; diversity without inclusion generates conflict without value.</li>
+    <li>Psychological safety and high standards work together.</li>
+    <li>Leaders create conditions more than they control results.</li>
+  </ol></div>
+  <div class="box plan"><span class="lbl">For your plan (first draft)</span><p>The 12-week merged-team plan should name the concepts where you use them: e.g. "Weeks 1–2 (forming): vision session + team charter (Hackman: compelling direction)". Watch for faultlines between the two original teams, and plan psychological safety <em>and</em> standards. See the <a href="#plan-example">worked example</a>.</p></div>
+</section>
+
+<!-- ============ L5 ============ -->
+<section class="part" id="l5">
+  <h2>L5 · Communication, feedback and conflict management</h2>
+  <p class="part-q">Can leaders manage conflict in ways that support both performance and the quality of relationships? · LEM: antecedent factors + leadership styles</p>
+
+  <h3>The nature and sources of conflict</h3>
+  <p>Conflict arises when people perceive that their interests, goals, values or expectations are incompatible. It is <strong>inevitable</strong> and does not mean the leader failed. Its consequences depend on its nature, context and management.</p>
+  <div class="vs">
+    <div><h5>Task conflict (about the work)</h5><p>Disagreement about ideas, methods, priorities. At moderate levels it can improve decisions: it surfaces concerns and alternatives.</p></div>
+    <div><h5>Relationship conflict (about the people)</h5><p>Personal attacks, tension, resentment. Almost always damages cooperation and performance (Robbins &amp; Judge). Process conflict (who does what) sits in between.</p></div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>Source</th><th>Concerns</th><th>Example</th></tr>
+    <tr><td class="k">Interests</td><td>What people need or want</td><td>Two managers both want the only available developer.</td></tr>
+    <tr><td class="k">Values</td><td>What people consider important or acceptable</td><td>"Quality first" vs "ship fast and fix later".</td></tr>
+    <tr><td class="k">Perceptions</td><td>How people interpret events and behaviour</td><td>One reads a short email as rude; the sender meant efficient.</td></tr>
+    <tr><td class="k">Structural</td><td>Unclear roles, competing priorities, limited resources, unmet expectations</td><td>Sales promises dates that operations was never asked about.</td></tr>
+  </table></div>
+  <p>Identifying the source lets the leader address the underlying issue rather than only its visible expression.</p>
+
+  <h3>Communication Efficacy Model (Gomes, 2023)</h3>
+  <p>Communication is the transmission of information, thoughts, opinions and ideas between two or more people, verbally or non-verbally. The model links:</p>
+  <figure class="dg"><div class="flow">
+    <div class="step"><b>Destabilising event</b>Something disrupts the interaction</div><div class="arrow">→</div>
+    <div class="step"><b>Appraisal</b>How the person interprets it</div><div class="arrow">→</div>
+    <div class="step"><b>Adaptive efforts</b>How they try to cope</div><div class="arrow">→</div>
+    <div class="step"><b>Communication behaviours</b>Facilitate or undermine</div><div class="arrow">→</div>
+    <div class="step"><b>Relational outcome</b>Feeds back into the next interaction</div>
+  </div><figcaption>Human interaction systems support personal expression throughout. The outcome of one conversation shapes the next.</figcaption></figure>
+
+  <h3>Communication profiles</h3>
+  <p>Characteristic <em>patterns of behaviour</em> (not fixed personality types) in how people express ideas, guide action and relate to others. They come in mirrored pairs:</p>
+  <div class="tw"><table>
+    <tr><th>Focus</th><th>Positive profile</th><th>Negative profile</th></tr>
+    <tr><td class="k">Vision / future</td><td><strong>Optimistic idealist</strong>: communicates a shared positive vision; expresses disagreement assertively. <span class="small">"This is hard, but here's why we can do it. I disagree with the timing, and here's my reason."</span></td><td><strong>Pessimistic idealist</strong>: communicates fear and pessimism; discourages initiative and innovation. <span class="small">"These projects always fail here."</span></td></tr>
+    <tr><td class="k">Instruction / correction</td><td><strong>Positive technical</strong>: constructive instructions focused on what <em>can</em> be done. <span class="small">"Start with the summary, then the data."</span></td><td><strong>Negative technical</strong>: instructions focused on what others should <em>not</em> do; restricts initiative. <span class="small">"Don't send it like that. Don't use that template."</span></td></tr>
+    <tr><td class="k">Relationship</td><td><strong>Encourager</strong>: promotes understanding, recognition, support and mutual trust.</td><td><strong>Discourager</strong>: disregards or punishes others' ideas, progress or performance.</td></tr>
+  </table></div>
+  <div class="box trap"><span class="lbl">Profiles vs. conflict styles</span><p><strong>Conflict management styles</strong> describe how you <em>approach a disagreement</em>. <strong>Communication profiles</strong> describe how you <em>communicate</em>, inside and outside disagreements. A leader can collaborate (style) while speaking as a discourager (profile).</p></div>
+  <div class="box"><span class="lbl" style="color:var(--navy)">Mapping profiles to the LEM</span><p>Optimistic idealist ≈ vision + inspiration · Positive technical ≈ instruction · Encourager ≈ support + positive feedback · the negative profiles ≈ the suboptimal profile.</p></div>
+
+  <h3>Conflict management styles (Thomas–Kilmann)</h3>
+  <p>Styles differ in <strong>assertiveness</strong> (pursuing your own concerns) and <strong>cooperativeness</strong> (attending to the other's concerns).</p>
+  <figure class="dg"><div class="grid2x2">
+    <div class="ax v">Assertiveness (own concerns) →</div>
+    <div class="cell c-warn"><b>Competing</b>Win–lose. Prioritise your position. <span class="small">When: emergencies, unpopular but necessary decisions, ethics or safety at stake.</span></div>
+    <div class="cell c-good"><b>Collaborating</b>Win–win. A solution that meets both parties' concerns. <span class="small">When: important issue, relationship matters, time to discuss.</span></div>
+    <div class="ax v"></div>
+    <div class="cell c-soft"><b>Avoiding</b>Postpone or withdraw. <span class="small">When: trivial issue, emotions need to cool, someone else is better placed.</span></div>
+    <div class="cell c-navy"><b>Accommodating</b>Give priority to the other's concerns. <span class="small">When: you are wrong, the issue matters more to them, building goodwill.</span></div>
+    <div></div><div class="ax">← low</div><div class="ax">Cooperativeness (other's concerns) → high</div>
+  </div><figcaption><strong>Compromising</strong> sits in the middle: mutual concessions; useful for equal power and time pressure, when a temporary solution is enough. No style fits every situation: consider urgency, importance of the issue, the relationship, power differences and the chance for discussion.</figcaption></figure>
+
+  <h3>Active listening, empathy, validate and redirect</h3>
+  <div class="cols">
+    <div class="box def"><span class="lbl">Active listening</span><p>Deliberately attending to the message and checking it was understood: open questions, paraphrasing, clarifying, summarising. It does not require agreement. Seek first to understand, then to be understood.</p></div>
+    <div class="box def"><span class="lbl">Empathy</span><p>Seeking to understand the other's perspective and emotional experience. It helps identify obstacles and sustain cooperation while <em>keeping</em> expectations and accountability.</p></div>
+    <div class="box def"><span class="lbl">Validate + redirect</span><p><strong>Validation</strong> acknowledges the concern; <strong>redirection</strong> moves to clarification, expectations, options or a next step. Validation is not agreement.</p></div>
+  </div>
+  <div class="box ex"><span class="lbl">Validate → redirect, in practice</span>
+  <p><strong>Employee:</strong> "This is the third time the requirements change. I'm fed up."<br>
+  <strong>Validate:</strong> "I can see why it feels frustrating, especially after all the work you already put in."<br>
+  <strong>Redirect:</strong> "Let's clarify exactly what changed, what can be reused, and agree a realistic next step. I'll also raise the change process with the client lead."</p></div>
+  <div class="box ws"><span class="lbl">Workshop links</span><p><strong>W5 Communication &amp; accountability:</strong> sender → code → channel → receiver; the poorer the channel (email = words only), the clearer the code must be. "I sent it" ≠ "they got it": close the loop (ask, owner, deadline → read-back → follow-up).<br><strong>W6 Five levels of listening</strong> (Covey): ignoring → pretending → selective → attentive/active → empathic. Every level can be a conscious choice; the real risk is the <em>gap</em> between the level you think you're at and the one you're actually at.</p></div>
+
+  <div class="box key"><span class="lbl">Key messages L5</span><ol>
+    <li>The problem is not conflict itself but how it is managed.</li>
+    <li>Listening is a leadership skill.</li>
+    <li>Validation does not mean agreement.</li>
+    <li>Communication shapes the quality of relationships.</li>
+    <li>Empathy can be a tool for improving performance.</li>
+  </ol></div>
+  <div class="box plan"><span class="lbl">For your plan</span><p>Say how you will handle disagreement (which style by default, when you will switch) and how you will evaluate a conflict as "well managed": practical outcome + relationship quality + alignment with your philosophy.</p></div>
+</section>
+
+<!-- ============ L6 ============ -->
+<section class="part" id="l6">
+  <h2>L6 · Leadership criteria: zooming out and sound judgement</h2>
+  <p class="part-q">How can zooming out help leaders define meaningful criteria, in line with their philosophy, followers and context? · LEM: leadership cycles (criteria) + antecedents + styles</p>
+
+  <h3>Sound judgement</h3>
+  <p>The ability to interpret situations carefully and make reasoned decisions with the available evidence. It involves separating <strong>observations</strong> from <strong>assumptions</strong>, considering alternative explanations and recognising uncertainty. It can be developed through reflection, feedback and reviewing decisions and their consequences.</p>
+  <figure class="dg"><div class="flow">
+    <div class="step"><b>Observation</b>"Ana delivered the last three reports after the deadline."</div><div class="arrow">→</div>
+    <div class="step" style="background:var(--accent-soft)"><b>Interpretations (several)</b>She's unmotivated? Overloaded? Unclear deadline? Waiting on data from another team?</div><div class="arrow">→</div>
+    <div class="step" style="background:var(--good-soft)"><b>Response</b>Ask first (1:1), check the workflow, then act at the right level</div>
+  </div><figcaption>A confident response can still address the wrong problem. Keep the three steps separate.</figcaption></figure>
+
+  <h3>Technical vs. adaptive challenges (Heifetz &amp; Laurie, 1997)</h3>
+  <div class="tw"><table>
+    <tr><th></th><th>Technical challenge</th><th>Adaptive challenge</th></tr>
+    <tr><td class="k">Nature</td><td>Clear problem, known solution</td><td>Requires people to learn and change assumptions, priorities, behaviours or relationships</td></tr>
+    <tr><td class="k">Who solves it</td><td>Experts, procedures, authority</td><td>The people with the problem; the leader mobilises them</td></tr>
+    <tr><td class="k">Example</td><td>The new software crashes on export: IT patches it.</td><td>Teams won't share client information because the bonus system rewards individual sales.</td></tr>
+    <tr><td class="k">Classic mistake</td><td colspan="2">Treating an adaptive challenge as technical: sending everyone on a "collaboration training" when the incentive system punishes collaboration. Expertise alone cannot produce the learning adaptive change needs. Many situations mix both.</td></tr>
+  </table></div>
+
+  <h3>Zooming out: the balcony and the dance floor</h3>
+  <p>Zooming out means stepping back from immediate demands to see relationships, recurring patterns and longer-term implications, then <strong>returning</strong> with a better-informed response. Heifetz's metaphor: on the <strong>dance floor</strong> you only see your partner; from the <strong>balcony</strong> you see the patterns of the whole room. Leaders need both: closeness to people's experience and enough distance to question first interpretations. Reflection, mentoring and decision reviews support this movement.</p>
+  <div class="vs">
+    <div><h5>Zoom in</h5><p>The individual and the moment: what is this person doing, feeling, needing right now? Also zooming in on yourself (self-awareness).</p></div>
+    <div><h5>Zoom out</h5><p>The system: roles, incentives, workflows, culture, history. If several people hit the same obstacle, the problem is probably the system.</p></div>
+  </div>
+  <div class="box ws"><span class="lbl">Workshop link</span><p>W2–W3 "Zoom in / Zoom out": zoom in on yourself (self-awareness, the Leadership Orientations questionnaire), then zoom out to the system. The "planning vs on-sight navigation" staircase (plan ahead → observe reality → trial and error → practice → process → discipline → improvement) shows that leadership improves through cycles of planning and correcting against reality, which is the LEM feedback loop.</p></div>
+
+  <h3>Leadership evaluation criteria</h3>
+  <p>Criteria are <strong>explicit indicators used to assess whether, or to what extent, the intended leadership practices are implemented</strong>, and with what consequences. Good criteria are:</p>
+  <div class="tw"><table>
+    <tr><th>Quality</th><th>Meaning</th><th>Weak</th><th>Strong</th></tr>
+    <tr><td class="k">Aligned</td><td>Follows from your philosophy and practice</td><td>Philosophy "people first"; criterion "revenue +10%" only</td><td>"Each team member has a development goal agreed in a 1:1 by week 4"</td></tr>
+    <tr><td class="k">Clear</td><td>Unambiguous meaning</td><td>"Better communication"</td><td>"Every decision from the Monday meeting is written down with an owner and a date"</td></tr>
+    <tr><td class="k">Specific</td><td>Says exactly what is assessed</td><td>"Team is motivated"</td><td>"Members rate 'I can influence how I do my work' (autonomy item)"</td></tr>
+    <tr><td class="k">Measurable</td><td>Assessable with evidence (quantitative or qualitative)</td><td>"People trust me"</td><td>"Average score ≥ 4/5 on 'I can raise problems with my manager without fear' in a monthly pulse survey"</td></tr>
+  </table></div>
+  <p>Criteria should also be <strong>meaningful to the people affected</strong>, have an identified <strong>evidence source</strong> (survey, log, dashboard, observation, 1:1 notes) and a <strong>review time</strong> (weekly, monthly, end of quarter).</p>
+  <div class="box def"><span class="lbl">Two kinds of evidence (L6–L7)</span>
+  <ul><li><strong>Implementation evidence:</strong> did the intended action happen? (1:1s held, retrospectives done, responsibilities agreed)</li>
+  <li><strong>Consequence evidence:</strong> what did it produce? <em>Task</em> consequences (deadlines, quality, errors, sales) and <em>human</em> consequences (trust, fairness, workload, wellbeing, voice).</li></ul></div>
+  <div class="box trap"><span class="lbl">Common mistake</span><p>Measuring only results (consequences) and not whether you actually did what you planned (implementation). If results are bad you cannot tell whether the plan was wrong or simply not applied.</p></div>
+
+  <div class="box key"><span class="lbl">Key messages L6</span><ol>
+    <li>There is no good leadership without sound diagnosis.</li>
+    <li>Addressing symptoms is not solving problems.</li>
+    <li>Understand the system as well as the individuals.</li>
+    <li>Judgement develops through practice, feedback and reflection.</li>
+    <li>Zooming out should inform a concrete response.</li>
+    <li>Criteria should align with philosophy and practice.</li>
+  </ol></div>
+</section>
+
+<!-- ============ L7 ============ -->
+<section class="part" id="l7">
+  <h2>L7 · Levels of execution</h2>
+  <p class="part-q">How can leaders choose where and how to intervene, in ways that fit the situation and their philosophy? · LEM: antecedents + styles + cycles</p>
+  <p>After communicating (L5) and diagnosing and evaluating (L6), the leader must decide <strong>where</strong> to intervene. The level is the <em>main target</em> of the action.</p>
+
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Relational · the person</span><p>One-to-one conversations: clarify expectations, identify obstacles, give feedback, develop responsibility. Combine observation, active listening and an agreement on next steps, then <strong>follow through</strong>. Examine your own behaviour too; don't assume poor motivation.</p><p class="small">"The individual relationship is the fundamental unit of leadership." Related to LMX theory (Graen &amp; Uhl-Bien, 1995).</p></div>
+    <div class="box"><span class="lbl" style="color:var(--accent)">Contextual · the conditions</span><p>Change what surrounds the work: task sequences, roles, information flows, resources, norms, incentives. If several people repeatedly meet the same obstacle, fix the system.</p><p class="small">"Changing systems can produce more lasting change than changing individuals."</p></div>
+    <div class="box"><span class="lbl" style="color:var(--good)">Hierarchical · authority</span><p>Decisions within legitimate authority: priorities, allocating responsibilities, setting boundaries. Explain the rationale; clarify who decides what. Without authority: seek agreement or refer to the decision-maker.</p><p class="small">"Authority is only one of the possible forms of influence."</p></div>
+  </div>
+
+  <div class="box ex"><span class="lbl">One problem, three levels</span>
+  <p><strong>Situation:</strong> customer complaints about late replies are rising in a support team.</p>
+  <ul>
+    <li><strong>Relational:</strong> 1:1 with the two agents with the most delays. You discover one is covering a colleague's queue informally.</li>
+    <li><strong>Contextual:</strong> the ticket system assigns tickets randomly, with no visibility of workload. You introduce a shared dashboard and a rotation rule.</li>
+    <li><strong>Hierarchical:</strong> you decide that tickets older than 24h are escalated automatically, and announce the rule with its reason.</li>
+  </ul>
+  <p>The levels complement each other. Effectiveness depends on intervening at the level that is actually <strong>sustaining</strong> the problem.</p></div>
+
+  <h3>Delegation and management</h3>
+  <figure class="dg"><div class="flow">
+    <div class="step" style="background:var(--warn-soft)"><b>Abdication</b>Necessary decisions or support left unattended. "Abandon": goal never shared, no check-ins.</div><div class="arrow">↔</div>
+    <div class="step" style="background:var(--good-soft)"><b>Responsible delegation</b>Clear outcomes, decision space, resources, proportionate review. "Supervised autonomy".</div><div class="arrow">↔</div>
+    <div class="step" style="background:var(--warn-soft)"><b>Micromanagement</b>Unnecessary control over details; every step through the leader, who becomes the bottleneck.</div>
+  </div><figcaption>Delegating is not abandoning: it is agreeing what is expected, how it is reported and when it is checked (W7).</figcaption></figure>
+  <p><strong>Active management</strong> means taking responsibility for decisions; it can include shared decision-making and delegation. <strong>Passive management</strong> means avoiding or delaying needed responsibility. <strong>Not intervening also has consequences.</strong></p>
+  <div class="box ws"><span class="lbl">W7 · Bulletproof delegation (8 mechanisms)</span>
+  <ol><li>Share the goal and the success criterion</li><li>A common language</li><li>A reporting format</li><li>Delegate the analysis, not just the collection (the leader controls the result, not the process)</li><li>Paced checkpoints (supervision on a schedule, not on impulse)</li><li>Read-back (they restate the goal in their own words)</li><li>An escalation rule (what is decided below, what goes up)</li><li>Final validation before acting</li></ol>
+  <p class="small">The "Disney leadership" card game: only the leader knew the goal, the information was with the employees. Lesson: people cannot deliver what they cannot see.</p></div>
+
+  <h3>Levels vs. behaviours: where vs. how</h3>
+  <p>The level identifies <strong>where</strong> to act; the LEM behaviours identify <strong>how</strong>. Vision, inspiration, instruction, individualisation, support, feedback and management can be used at any level. Choice depends on the leader, the members and the situation: technical capacity, psychological conditions, situational resources. Ask: <em>what can I change, what must I accommodate, what needs another decision-maker?</em></p>
+  <div class="tw"><table>
+    <tr><th>Level</th><th>Behaviours that fit naturally</th></tr>
+    <tr><td class="k">Relational</td><td>Individualisation, support, instruction, positive feedback, active listening</td></tr>
+    <tr><td class="k">Contextual</td><td>Decentralised active management (co-design the process), vision (why the change), instruction</td></tr>
+    <tr><td class="k">Hierarchical</td><td>Centralised active management, clear rationale (vision), negative feedback only for breaches of agreed standards</td></tr>
+  </table></div>
+  <h3>Criteria and review</h3>
+  <p>Separate <strong>implementation</strong> (did the action occur? responsibilities agreed, reviews done) from <strong>consequences</strong> (task: timeliness, quality; human: trust, fairness, workload). Criteria aligned, clear, specific, measurable, with a source and a review date.</p>
+
+  <div class="box key"><span class="lbl">Key messages L7</span><ol>
+    <li>The individual relationship remains the fundamental unit of leadership.</li>
+    <li>Changing systems can produce more lasting change than changing individuals.</li>
+    <li>Authority is only one of the possible forms of influence.</li>
+    <li>Involving people in decisions fosters commitment and responsibility.</li>
+    <li>The absence of intervention also has consequences.</li>
+    <li>Effectiveness depends on intervening at the right level of the problem.</li>
+  </ol></div>
+  <div class="box plan"><span class="lbl">For your plan</span><p>For each main action in your practice, state its level (R/C/H) and the behaviours involved. A strong plan uses all three levels, not only 1:1 conversations.</p></div>
+</section>
+
+<!-- ============ L8 ============ -->
+<section class="part" id="l8">
+  <h2>L8 · Foundations of Motivation II</h2>
+  <p class="part-q">How can leaders understand what motivates people and create conditions that support the quality and persistence of motivation? · LEM: antecedent factors (psychological favourability)</p>
+
+  <h3>What motivation is</h3>
+  <p>From Latin <em>movere</em>, to move. Motivation is <strong>the process responsible for the intensity, direction and persistence of effort towards a goal</strong> (Robbins).</p>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Intensity</span><p>How much effort.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Direction</span><p>What the effort aims at. Effort must go towards the right priorities.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Persistence</span><p>How long it is sustained.</p></div>
+  </div>
+  <p>High effort does not guarantee performance if priorities, strategies, skills or resources are inadequate. Motivation comes from the <strong>interaction between person and situation</strong>, is inferred from behaviour over time, and is not a fixed trait.</p>
+
+  <h3>Content theories: what people need</h3>
+  <div class="cols two">
+    <div><h4>Maslow (1943): hierarchy of needs</h4>
+    <figure class="dg"><div class="pyr">
+      <div style="width:36%">Self-actualisation</div>
+      <div style="width:52%">Esteem</div>
+      <div style="width:68%">Love / belonging</div>
+      <div style="width:84%">Safety</div>
+      <div style="width:100%">Physiological</div>
+    </div></figure>
+    <p>Unsatisfied needs organise behaviour; basic needs take priority; once substantially satisfied, a need loses force and the next becomes salient. Originally a theory of human development, not of work. <strong>Limits:</strong> weak empirical support for a strict hierarchy; people pursue several needs at once.</p></div>
+    <div><h4>Herzberg (1968): two-factor theory</h4>
+    <div class="tw"><table style="min-width:0">
+      <tr><th>Motivators (intrinsic to the work)</th><th>Hygiene factors (context)</th></tr>
+      <tr><td>Achievement, recognition, interesting or challenging work, responsibility, advancement, growth</td><td>Policies, supervision, relationships, pay, working conditions, job security</td></tr>
+      <tr><td>Present → <strong>satisfaction</strong>; absent → no satisfaction</td><td>Adequate → <strong>no dissatisfaction</strong>; poor → dissatisfaction</td></tr>
+    </table></div>
+    <p><strong>Two continua, not one:</strong> removing dissatisfaction does not create motivation. A pay rise stops complaints; it does not make boring work engaging.</p></div>
+  </div>
+  <h4>McClelland (1987): acquired needs</h4>
+  <div class="tw"><table>
+    <tr><th>Motive</th><th>Seeks</th><th>Opportunity that fits</th><th>Risk</th></tr>
+    <tr><td class="k">Achievement (nAch)</td><td>Excellence, improvement, personal responsibility, useful feedback, moderate challenge</td><td>Stretch goals with clear feedback</td><td>Star individual performers do not automatically make good managers</td></tr>
+    <tr><td class="k">Affiliation (nAff)</td><td>Close relationships, cooperation, belonging</td><td>Team roles, onboarding buddies</td><td>Difficult feedback becomes uncomfortable</td></tr>
+    <tr><td class="k">Power (nPow)</td><td>Influence and impact on others</td><td>Leading initiatives, representing the team</td><td>Can serve collective goals (institutional) or personal status (personal)</td></tr>
+  </table></div>
+  <p class="small">People can have several strong motives. Use the theory to ask which opportunities suit someone, not to label them.</p>
+
+  <h3>Self-Determination Theory (Deci &amp; Ryan, 1985; Ryan &amp; Deci, 2000)</h3>
+  <p>SDT distinguishes motivation by its <strong>quality</strong>: the reasons behind action. It is the main motivation theory of the course (and of the LEM's psychological favourability).</p>
+  <div class="cols">
+    <div class="box def"><span class="lbl">Autonomy</span><p>Experiencing choice and personal endorsement of what you do. Not the same as independence: you can depend on others and still act autonomously.</p><p class="small">Leader: explain the why, offer choices in how, acknowledge feelings, minimise pressure.</p></div>
+    <div class="box def"><span class="lbl">Competence</span><p>Feeling effective and able to meet challenges.</p><p class="small">Leader: optimal challenge, clear structure, informational feedback, visible progress.</p></div>
+    <div class="box def"><span class="lbl">Relatedness</span><p>Feeling connected, respected and cared for.</p><p class="small">Leader: genuine interest, inclusion, a team where people support each other.</p></div>
+  </div>
+  <h4>The self-determination continuum</h4>
+  <figure class="dg"><div class="cont">
+    <div class="c-warn"><span class="h">Amotivation</span>No intention; "why bother?"<br><span class="small">Non-regulation</span></div>
+    <div class="c-soft"><span class="h">External</span>Rewards / punishments<br><span class="small">"I do it for the bonus"</span></div>
+    <div class="c-soft"><span class="h">Introjected</span>Guilt, ego, pride<br><span class="small">"I'd feel bad if I didn't"</span></div>
+    <div class="c-navy"><span class="h">Identified</span>Values the outcome<br><span class="small">"It's important for my growth"</span></div>
+    <div class="c-navy"><span class="h">Integrated</span>Fits who I am<br><span class="small">"It's part of my values"</span></div>
+    <div class="c-good"><span class="h">Intrinsic</span>Interest, enjoyment<br><span class="small">"I find it fascinating"</span></div>
+  </div><figcaption>From controlled (left, external locus) to autonomous (right, internal locus). External and introjected = <strong>controlled</strong> motivation; identified, integrated and intrinsic = <strong>autonomous</strong> motivation. Leaders help people move right through <strong>internalisation</strong> (taking in a value) and <strong>integration</strong> (making it one's own).</figcaption></figure>
+  <p><strong>Evidence at work</strong> (Deci, Olafsen &amp; Ryan, 2017): autonomy-supportive managers → more need satisfaction → more autonomous motivation → better performance, engagement and wellbeing, and less burnout and turnover. Controlling rewards can undermine intrinsic motivation; rewards perceived as <em>informational</em> (acknowledging competence) are less harmful.</p>
+  <div class="box trap"><span class="lbl">Common confusion: extrinsic is not always bad</span><p>Identified and integrated regulation are extrinsic (done for an outcome) but <strong>autonomous</strong>. Most work tasks are not fun; the leader's job is to help people see why they matter (identified), not to make everything intrinsically enjoyable.</p></div>
+
+  <h3>Feedback cycles and perceived progress</h3>
+  <p>Useful feedback makes the link between action and improvement visible. A distant target gives direction but little evidence of progress. <strong>Feedback</strong> = information about performance; <strong>recognition</strong> = acknowledgement of a contribution. Both should be specific and credible.</p>
+  <figure class="dg"><div class="flow">
+    <div class="step"><b>1 · Agree</b>Goal and criteria</div><div class="arrow">→</div>
+    <div class="step"><b>2 · Act</b>And gather evidence</div><div class="arrow">→</div>
+    <div class="step"><b>3 · Discuss</b>Progress and remaining difficulties (include their view; separate effort, strategy, results, constraints)</div><div class="arrow">→</div>
+    <div class="step"><b>4 · Adjust</b>Agree the next adjustment and review date</div>
+  </div></figure>
+  <div class="box ws"><span class="lbl">Workshop links: feedback</span>
+  <p><strong>W8 Alignment feedback:</strong> "Feedback without an agreement is just an opinion." Agree first (what, how, three concrete rules), then give <strong>SBI + A</strong>: Situation, Behaviour, <strong>Agreement</strong>, Impact. Make agreements observable ("only one person speaks at a time", not "communicate well").<br>
+  <strong>W9 Continuous improvement feedback:</strong> "The meeting after the game prepares the next game." Ask first, hear the resistance, then argue; SBI on 2–3 key moments; close with <strong>Keep · Drop · Add</strong>. Three moments, three styles: <em>directive and brief</em> during the task, <em>facilitative</em> after it, <em>private</em> one-to-one when it's about one person's behaviour.</p></div>
+  <div class="box"><span class="lbl" style="color:var(--navy)">Link to the LEM</span><p>Psychological favourability = leader's relationship orientation + members' psychological maturity (confidence and motivation to take responsibility). SDT tells you <em>how</em> to raise it: autonomy (decentralised active management), competence (instruction, positive feedback), relatedness (support, individualisation).</p></div>
+
+  <div class="box key"><span class="lbl">Key messages L8</span><ol>
+    <li>No single theory explains all motivation.</li>
+    <li>The quality of motivation matters.</li>
+    <li>Different people require different approaches.</li>
+    <li>Autonomy is a powerful source of motivation.</li>
+    <li>Leaders shape the conditions for motivation rather than creating it directly.</li>
+    <li>Feedback and perceived progress strengthen competence and sustain motivation.</li>
+  </ol></div>
+</section>
+
+<!-- ============ L9 ============ -->
+<section class="part" id="l9">
+  <h2>L9 · Followers and leadership contexts</h2>
+  <p class="part-q">Who do I lead, and where? · LEM: antecedent factors</p>
+  <div class="update"><strong>Preview.</strong> No lecture guide for L9 yet. This section anticipates the topic from the mandatory bibliography (Northouse; Gomes, 2020; Gomes &amp; Morais, 2025). It will be updated after the lecture.</div>
+
+  <h3>Followers are not passive</h3>
+  <p>Leadership is a relationship: followers shape leaders as much as leaders shape followers. Northouse treats <strong>followership</strong> as a process in which individuals accept the influence of others to achieve a common goal, and stresses that effective followers are active, critical and engaged.</p>
+  <div class="tw"><table>
+    <tr><th>Kelley's followership styles</th><th>Thinking</th><th>Engagement</th><th>What the leader can do</th></tr>
+    <tr><td class="k">Exemplary (effective)</td><td>Independent, critical</td><td>Active</td><td>Delegate, involve in decisions, use as sparring partners</td></tr>
+    <tr><td class="k">Alienated</td><td>Independent, critical</td><td>Passive</td><td>Listen to their criticism, rebuild trust, give voice</td></tr>
+    <tr><td class="k">Conformist ("yes people")</td><td>Dependent</td><td>Active</td><td>Invite challenge, reward dissent, psychological safety</td></tr>
+    <tr><td class="k">Passive</td><td>Dependent</td><td>Passive</td><td>Clear expectations, small responsibilities, positive feedback</td></tr>
+    <tr><td class="k">Pragmatist</td><td colspan="2">Middle of both: "wait and see"</td><td>Clarity about direction; show the change is real</td></tr>
+  </table></div>
+
+  <h3>Leader–member exchange (LMX)</h3>
+  <p>Graen and Uhl-Bien (1995): leaders build different-quality relationships with each member. <strong>High-quality exchanges</strong> (in-group: trust, respect, extra responsibility) predict better performance, satisfaction and commitment; <strong>low-quality exchanges</strong> (out-group: only the formal contract) produce the opposite. Leaders should try to build high-quality relationships with <em>everyone</em>, and be aware of similarity bias in who ends up "in" (L3). Connects with the relational level in L7.</p>
+
+  <h3>Follower characteristics in the LEM</h3>
+  <p>The LEM considers members' personal factors (age, gender, education, experience), stable mental factors (personality, goals, values) and dynamic mental factors (coping, confidence, motivation), summarised as <strong>technical maturity</strong> (competence) and <strong>psychological maturity</strong> (confidence and willingness to take responsibility). Practical rule from Pro●Leader: <strong>negotiate</strong> active management with mature members; <strong>persuade</strong> less mature ones.</p>
+  <div class="tw"><table>
+    <tr><th>Member profile</th><th>Technical maturity</th><th>Psychological maturity</th><th>LEM emphasis</th></tr>
+    <tr><td class="k">New graduate, eager</td><td>Low</td><td>High</td><td>Instruction, positive feedback, clear structure</td></tr>
+    <tr><td class="k">Capable but disengaged veteran</td><td>High</td><td>Low</td><td>Individualisation, support, decentralised decisions to restore ownership</td></tr>
+    <tr><td class="k">Overwhelmed newcomer to a hard role</td><td>Low</td><td>Low</td><td>Support + instruction, centralised but explained decisions, small wins</td></tr>
+    <tr><td class="k">Expert and committed</td><td>High</td><td>High</td><td>Delegation, decentralised active management, vision</td></tr>
+  </table></div>
+
+  <h3>Context</h3>
+  <p>Situational characteristics in the LEM: the leader's responsibility (hierarchical level, autonomy, power), the type of organisation, the external environment, culture, goals given to the leader, material and financial conditions. Contingency theories (Fiedler: leader–member relations, task structure, position power; path–goal: task and environment) all point the same way: the same behaviour works differently in different contexts. Examples of contexts that change leadership: remote or hybrid work, crisis, startups vs. bureaucracies, cross-cultural teams, regulated industries.</p>
+  <div class="box plan"><span class="lbl">For your plan</span><p>This lecture feeds <strong>Section 4 (Challenges of leadership)</strong> of the template: is the plan in line with your values and responsibilities, with your team members' values and expectations, and with your organisation's?</p></div>
+</section>
+
+<!-- ============ L10 ============ -->
+<section class="part" id="l10">
+  <h2>L10 · Strategy, organisational culture and change</h2>
+  <p class="part-q">How does leadership connect to the organisation as a whole? · LEM: situation · Integration + practical case (30/11)</p>
+  <div class="update"><strong>Preview</strong> based on Robbins, Judge &amp; Vohra (2024) and Northouse (2022). To be updated after the lecture.</div>
+
+  <h3>Organisational culture</h3>
+  <p>A system of shared meaning held by members that distinguishes the organisation from others (Robbins). Schein's three levels:</p>
+  <div class="flow">
+    <div class="step"><b>Artifacts</b>Visible: office layout, dress, rituals, stories, language</div><div class="arrow">→</div>
+    <div class="step"><b>Espoused values</b>What the organisation says it values: mission, codes</div><div class="arrow">→</div>
+    <div class="step"><b>Basic assumptions</b>Taken-for-granted beliefs that really drive behaviour</div>
+  </div>
+  <p>Culture is transmitted through stories, rituals, material symbols and language, and created and sustained by founders, selection, top management behaviour and socialisation. A strong culture increases consistency but can become a barrier to change, diversity and mergers. Leaders shape culture mostly through what they pay attention to, measure, reward and role-model: in LEM terms, through their <strong>criteria</strong> and <strong>practice</strong>, not their stated philosophy.</p>
+
+  <h3>Leading change</h3>
+  <div class="cols two">
+    <div class="box"><span class="lbl" style="color:var(--navy)">Lewin's three steps</span><ol><li><strong>Unfreeze</strong>: create readiness, reduce resistance</li><li><strong>Move / change</strong>: new behaviours and processes</li><li><strong>Refreeze</strong>: stabilise through norms, systems, rewards</li></ol></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Kotter's eight steps</span><ol><li>Establish a sense of urgency</li><li>Form a guiding coalition</li><li>Create a vision</li><li>Communicate the vision</li><li>Empower others to act; remove obstacles</li><li>Create short-term wins</li><li>Consolidate improvements</li><li>Institutionalise the change in the culture</li></ol></div>
+  </div>
+  <h4>Resistance to change</h4>
+  <p>Individual sources: habit, security, economic factors, fear of the unknown, selective information processing. Organisational sources: structural inertia, group norms, threat to expertise, power and resources. Ways to reduce it: education and communication, participation, building support and commitment, developing positive relationships, implementing changes fairly, selecting people who accept change. Coercion and manipulation work short term but damage trust.</p>
+  <div class="box"><span class="lbl" style="color:var(--navy)">Connections with earlier lectures</span><p>Change is usually an <strong>adaptive challenge</strong> (L6). Resistance is information: "ask first, hear the resistance, then argue" (W9). Short-term wins = perceived progress (L8). Merging teams (L4) is a change process: faultlines and storming are expected.</p></div>
+</section>
+
+<!-- ============ WORKSHOPS ============ -->
+<section class="part" id="ws">
+  <h2>Workshops → concepts → business lessons</h2>
+  <p class="part-q">Each game is a small model of an organisational situation. Here is what each one trains and where it sits in theory.</p>
+  <div class="tw"><table>
+    <tr><th>Workshop</th><th>Activity</th><th>Concept behind it</th><th>Business lesson</th></tr>
+    <tr><td class="k">W2 Zoom in / out I</td><td>Self-awareness (yin-yang), selective attention video, Leadership Orientations questionnaire</td><td>Self-awareness; attention blindness; leader characteristics (LEM antecedents)</td><td>You see what you focus on. Know your own orientations before leading others.</td></tr>
+    <tr><td class="k">W3 Zoom in / out II</td><td>"What should a leader BE / DO?"; debrief + / − / ↻; planning vs on-sight navigation staircase</td><td>Traits (be) vs behaviours (do); conceptual vs practical cycle; feedback loop</td><td>Leadership improves by cycles: plan ahead, observe reality, adjust, practise until it becomes process and discipline.</td></tr>
+    <tr><td class="k">W4 Cross-departmental cooperation</td><td>Interdependent task between "departments"</td><td>Silos; group vs team; faultlines; contextual level</td><td>Departments optimise locally and fail globally; leaders must design interdependence and shared goals.</td></tr>
+    <tr><td class="k">W5 Communication &amp; accountability</td><td>Sender–code–channel–receiver; email exercise</td><td>Communication model; accountability; closing the loop</td><td>"I sent it" ≠ "they got it". State ask, owner and deadline; ask for read-back; follow up silence.</td></tr>
+    <tr><td class="k">W6 Levels of communication</td><td>Secret listening level cards; observers as level detectives, information trackers, emotion watchers</td><td>Covey's 5 levels of listening; active and empathic listening (L5)</td><td>Choose your listening level consciously; the danger is believing you listen better than you do.</td></tr>
+    <tr><td class="k">W7 Effective delegation</td><td>"Disney leadership": written-only, hierarchical card game</td><td>Delegation vs abdication vs micromanagement (L7); information asymmetry</td><td>Share the goal first; agree language and format; delegate the thinking; check at agreed moments.</td></tr>
+    <tr><td class="k">W8 Alignment feedback</td><td>Blindfolded rope shapes with a silent captain; observers count broken agreements</td><td>SBI + Agreement; criteria must be observable (L6); positive feedback vs character attacks</td><td>Agree first, then compare behaviour with the agreement. The proof of feedback is that the next round changes.</td></tr>
+    <tr><td class="k">W9 Continuous improvement feedback</td><td>Paper tower, then a 15-minute team meeting led by the leader; rated on emotion, clarity, repeat</td><td>Team debriefs; facilitation; Keep · Drop · Add; style by moment</td><td>A meeting can feel good and change nothing. Directive during, facilitative after, one-to-one when personal.</td></tr>
+    <tr><td class="k">W11–W12 Observation, listening, feedback</td><td>Integration of observer roles and feedback</td><td>Observation vs interpretation (L6); feedback cycles (L8)</td><td>Report facts, not opinions; feedback is only as good as the observation behind it.</td></tr>
+  </table></div>
+  <div class="box"><span class="lbl" style="color:var(--navy)">Patterns across all workshops</span>
+  <ul>
+    <li><strong>Participant ↔ observer roles</strong>: the same structure as Pro●Leader's role-play training (leader, follower, observer). Observing is a leadership skill.</li>
+    <li><strong>Practice → feedback → repetition</strong> (two rounds): the LEM feedback loop between conceptual and practical cycles.</li>
+    <li><strong>Agreements before evaluation</strong>: criteria must be defined before you can judge (L6).</li>
+    <li><strong>Facts, not character</strong>: protect people, challenge ideas (psychological safety + standards, L4).</li>
+  </ul></div>
+</section>
+
+<!-- ============ CONFUSIONS ============ -->
+<section class="part" id="vs">
+  <h2>Concepts that get confused</h2>
+  <p class="part-q">Side by side, with the one-line test to tell them apart.</p>
+
+  <div class="tw"><table>
+    <tr><th>Pair</th><th>A</th><th>B</th><th>Test</th></tr>
+    <tr><td class="k">Leadership vs management</td><td>Direction, alignment, commitment (copes with change)</td><td>Planning, organising, control (copes with complexity)</td><td>Is it about <em>why/where</em> or about <em>how/when</em>?</td></tr>
+    <tr><td class="k">Emergence vs effectiveness</td><td>Being seen as a leader</td><td>Producing good outcomes</td><td>Who was chosen vs. what happened afterwards</td></tr>
+    <tr><td class="k">Power vs influence</td><td>Capacity to influence</td><td>Power in use: actually changing behaviour or attitudes</td><td>Potential vs exercised</td></tr>
+    <tr><td class="k">Conceptual vs practical cycle</td><td>The plan on paper</td><td>The plan applied in reality</td><td>Intended vs actual</td></tr>
+    <tr><td class="k">Philosophy vs practice vs criteria</td><td colspan="2">Believe (why) · Do (how) · Evaluate (how much)</td><td>Is it a value, a behaviour or an indicator?</td></tr>
+    <tr><td class="k">Leadership practice vs leadership styles</td><td>Your specific actions in your plan (cycle phase)</td><td>The 9 behaviour categories those actions draw on</td><td>"Monthly 1:1s" is practice; "individualisation, support" are the styles behind it</td></tr>
+    <tr><td class="k">Active management: LEM vs Bass</td><td>LEM: taking responsibility for decisions, centralised or decentralised</td><td>Bass MBE-active: monitoring deviations and correcting before problems grow</td><td>Decisions/power vs errors/standards</td></tr>
+    <tr><td class="k">Passive management vs laissez-faire</td><td colspan="2">Almost the same: avoiding or delaying needed decisions and responsibility</td><td>LEM term vs Bass term</td></tr>
+    <tr><td class="k">Decentralised vs centralised active management</td><td>Decide after involving members → involvement, cohesion</td><td>Decide alone → mobilisation; relies on persuasion</td><td>Who took part in the decision?</td></tr>
+    <tr><td class="k">Negative feedback vs corrective instruction</td><td>Punishment for deviating from agreed standards (last resort)</td><td>Teaching the right way positively</td><td>Does it punish or teach?</td></tr>
+    <tr><td class="k">Feedback vs recognition</td><td>Information about performance</td><td>Acknowledgement of a contribution</td><td>Informs vs. appreciates</td></tr>
+    <tr><td class="k">Implementation vs consequence criteria</td><td>Did I do what I planned?</td><td>What did it produce (task + human)?</td><td>Action vs effect</td></tr>
+    <tr><td class="k">Subjective vs objective efficacy</td><td>Satisfaction, commitment, trust</td><td>Goals, performance, profit</td><td>Feelings vs facts</td></tr>
+    <tr><td class="k">Technical / psychological / situational favourability</td><td colspan="2">Task orientation + task maturity · relationship orientation + psychological maturity · material, human, environmental conditions</td><td>Can they? · Do they want to and feel able to? · Do we have the conditions?</td></tr>
+    <tr><td class="k">Technical favourability vs technical challenge</td><td>LEM: task orientation and competence (a condition)</td><td>Heifetz: a problem with a known solution (a problem type)</td><td>Condition vs problem</td></tr>
+    <tr><td class="k">Technical vs adaptive challenge</td><td>Known solution; experts fix it</td><td>Requires people to learn and change</td><td>Can an expert solve it alone?</td></tr>
+    <tr><td class="k">Observation vs interpretation</td><td>What I saw or heard</td><td>What I think it means</td><td>Would a camera record it?</td></tr>
+    <tr><td class="k">Intervention level vs behaviour</td><td>Where: relational, contextual, hierarchical</td><td>How: vision, support, feedback…</td><td>Target vs manner</td></tr>
+    <tr><td class="k">Delegation vs abdication vs micromanagement</td><td colspan="2">Clear outcome + space + resources + review · goal not shared, no check-ins · every step through the leader</td><td>Is there an agreed goal and a scheduled check?</td></tr>
+    <tr><td class="k">Conflict styles vs communication profiles</td><td>How you approach a disagreement (5 styles)</td><td>How you communicate in general (6 profiles)</td><td>Strategy in conflict vs pattern of speech</td></tr>
+    <tr><td class="k">Validation vs agreement</td><td>"I understand why you feel this"</td><td>"You're right"</td><td>Acknowledging emotion ≠ accepting the interpretation</td></tr>
+    <tr><td class="k">Group vs team</td><td>Individual goals, sum of parts</td><td>Interdependence, shared goals, mutual accountability</td><td>Do they win or lose together?</td></tr>
+    <tr><td class="k">Cohesion vs groupthink</td><td>Healthy unity</td><td>Unity that suppresses critical thinking</td><td>Can people still disagree?</td></tr>
+    <tr><td class="k">Diversity vs inclusion</td><td>Who is present</td><td>Who participates and influences</td><td>Count heads vs count voices</td></tr>
+    <tr><td class="k">Psychological safety vs comfort</td><td>Safe to take interpersonal risks, with high standards</td><td>Pleasant, low demands</td><td>Are people challenged?</td></tr>
+    <tr><td class="k">Motivators vs hygiene (Herzberg)</td><td>Create satisfaction (work itself)</td><td>Prevent dissatisfaction (context)</td><td>Does fixing it make people <em>want</em> to do more, or just stop complaining?</td></tr>
+    <tr><td class="k">Intrinsic vs identified vs introjected</td><td>Enjoyment of the activity</td><td>Valuing its outcome · vs · guilt or pride pressure</td><td>"I like it" · "it matters" · "I should"</td></tr>
+    <tr><td class="k">Autonomy vs independence</td><td>Acting with choice and endorsement</td><td>Not relying on others</td><td>You can depend on a team and still feel autonomous</td></tr>
+    <tr><td class="k">Transformational vs pseudo-transformational</td><td>Inspiration towards positive, shared ideals</td><td>Same charisma serving the leader's self-interest</td><td>Who benefits?</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="part" id="plan">
+  <h2>The Leadership Plan</h2>
+  <p class="part-q">35% of the grade · submission 30/11 · built from the sheets completed at the end of each lecture</p>
+  <div class="update"><strong>To confirm in class:</strong> the exact format, length, whether it is written in class, and the rubric. What follows is based on the course's own model: the Pro●Leader leadership plan (Gomes &amp; Morais, 2025, Figure 5), which uses the LEM structure.</div>
+
+  <h3>What the plan is (and is not)</h3>
+  <p>In Pro●Leader the whole programme is "centred on the formulation of a leadership plan, which is individualised for each participant". Participants:</p>
+  <ol>
+    <li>choose a <strong>real scenario in their lives</strong> where they can influence others (a team at work, a student association, a sports team, a project group, a family business);</li>
+    <li>define their <strong>leadership cycle</strong>: philosophy, practice, criteria (conceptual cycle);</li>
+    <li><strong>adjust</strong> it to the antecedent factors: their own characteristics, their followers', the situation;</li>
+    <li><strong>select the leadership behaviours</strong> needed to implement it (optimal profile);</li>
+    <li>train it through role-play (leader, followers, observers), which is the practical cycle.</li>
+  </ol>
+  <p>The plan is not an essay about theories. It is a <strong>personal, concrete and evaluable</strong> design, where theory justifies each choice.</p>
+
+  <h3 id="plan-template">Official template (Pro●Leader, Figure 5)</h3>
+  <div class="tw"><table>
+    <tr><th style="width:24%">Section</th><th>Definition</th><th>Questions to answer</th></tr>
+    <tr><td class="k">1 · Leadership philosophy</td><td>Values, beliefs, assumptions, attitudes, principles and priorities assumed by the leader, which influence both practice and criteria.</td><td>What is your leadership philosophy? What are your most important ideas? What are your goals? Are your ideas and goals important to your team?</td></tr>
+    <tr><td class="k">2 · Leadership practice</td><td>Specific behaviours assumed by the leader to fulfil the philosophy.</td><td>What is your leadership approach? Are your actions important to your team?</td></tr>
+    <tr><td class="k">3 · Leadership criteria</td><td>Personal and professional indicators that help the leader monitor whether philosophy and practice are fulfilled.</td><td>What are your criteria/indicators? Are your criteria important to your team?</td></tr>
+    <tr><td class="k">4 · Challenges of leadership</td><td>Characteristics and expectations of team members, leaders and organisations that can influence leadership.</td><td>Is your plan in line with your values, expectations and responsibilities as a leader? With the values and expectations of your team members? With those of your organisation?</td></tr>
+    <tr><td class="k">5 · Leadership styles and behaviours</td><td>Select the behaviours necessary to implement the plan.</td><td>Could <strong>vision</strong> increase collective purpose? <strong>Inspiration</strong> the will to give it their all? <strong>Instruction</strong> the will to improve? <strong>Individualisation</strong> the sense of personal value? <strong>Support</strong> personal trust in the leader? <strong>Positive feedback</strong> recognition of correct actions and maximum effort? <strong>Negative feedback</strong> control of undesirable actions? <strong>Active management</strong> involvement in what needs to be done?</td></tr>
+  </table></div>
+  <p class="small">Note that every section asks "is it important to your team?": the plan must be built <em>with</em> the followers in mind, not only from the leader's perspective.</p>
+
+  <h3 id="plan-how">Section by section: how to write it well</h3>
+
+  <h4>Before Section 1: describe the scenario</h4>
+  <p>In Pro●Leader's role-play, the leader first describes <strong>the context, the followers and the main purpose</strong> of the plan. Do the same: who you lead (number, profiles, maturity), where (organisation, constraints, your power), what for (the challenge), and for how long.</p>
+
+  <h4>Section 1 · Philosophy</h4>
+  <ul>
+    <li>One short mission sentence + 2–4 core values/principles. Positive, specific, personal, ethical (Gomes, 2020).</li>
+    <li>Show where it comes from: your leadership story, values, the theories that convince you (e.g. "I believe people perform better when they feel autonomous and competent: SDT").</li>
+    <li>Answer "is it important to my team?": connect it to what <em>they</em> need.</li>
+    <li>Use the lenses if helpful: what leading means to you (ontology), values (axiology), ethical limits (ethics), how you live it (phenomenology).</li>
+  </ul>
+  <h4>Section 2 · Practice</h4>
+  <ul>
+    <li>Every value in Section 1 must have at least one concrete, observable action. <strong>No orphan values.</strong></li>
+    <li>Write actions as behaviours with frequency: "Fortnightly 30-minute 1:1 with each member", not "I will be close to my team".</li>
+    <li>Cover the five tasks: establish the mission, unite the team, define the plan, apply it, define outcomes.</li>
+    <li>Use the three levels of intervention (relational, contextual, hierarchical).</li>
+    <li>Include how you'll communicate, give feedback (SBI + A), handle conflict, delegate.</li>
+  </ul>
+  <h4>Section 3 · Criteria</h4>
+  <ul>
+    <li>For every practice: an indicator that is <strong>aligned, clear, specific, measurable</strong>, with <strong>source</strong> and <strong>review date</strong>.</li>
+    <li>Mix <strong>implementation</strong> (did I do it?) and <strong>consequences</strong> (task and human).</li>
+    <li>Mix subjective and objective efficacy.</li>
+    <li>Say what you will do if a criterion is not met: the feedback loop.</li>
+  </ul>
+  <h4>Section 4 · Challenges (antecedent factors)</h4>
+  <ul>
+    <li><strong>You:</strong> strengths and risks (personality, bias you're prone to, preferred conflict style, Leadership Orientations results) and how you compensate.</li>
+    <li><strong>Members:</strong> technical and psychological maturity, motives (McClelland), diversity, possible faultlines.</li>
+    <li><strong>Situation:</strong> power, resources, deadlines, culture, what your organisation expects.</li>
+    <li>For each: facilitator or inhibitor? And the <strong>adjustment</strong> you make to the plan.</li>
+  </ul>
+  <h4>Section 5 · Styles and behaviours</h4>
+  <ul>
+    <li>Tick the behaviours you use and say <strong>where</strong> in the cycle and <strong>why</strong> (use the five-tasks table in 1.6).</li>
+    <li>Aim for the optimal profile: all five transformational behaviours, positive feedback, decentralised active management where maturity allows.</li>
+    <li>Negative feedback: say when (only breaches of agreed standards) and what you'll use instead first (corrective instruction).</li>
+    <li>Passive management: say how you'll avoid it.</li>
+  </ul>
+
+  <h3 id="plan-example">Worked example: leading a newly merged team (12 weeks)</h3>
+  <p class="small">An illustration of the level of detail and the links the model expects. Build yours on your own scenario and lecture sheets; don't copy this one.</p>
+
+  <div class="box"><span class="lbl" style="color:var(--navy)">Scenario</span>
+  <p>I have just been appointed coordinator of the new Customer Success team, formed by merging two teams after an acquisition: 5 people from the original company (Porto, experienced, used to a very structured process) and 4 from the acquired startup (Lisbon, younger, used to autonomy and fast improvisation). Hybrid work. I have formal authority over priorities and schedules, not over salaries. Management expects a single process and stable customer satisfaction within one quarter. Two people from each side applied for my position.</p></div>
+
+  <div class="tw"><table>
+    <tr><th style="width:20%">Section</th><th>Content</th><th style="width:22%">Concepts used</th></tr>
+    <tr><td class="k">1 · Philosophy</td><td><strong>Mission:</strong> "One team, the best of both: clients feel no difference between where we came from, and each of us grows in the process."<br><strong>Principles:</strong> (1) people perform best when they understand <em>why</em> and have a say in <em>how</em>; (2) disagreement about work is welcome, attacks on people are not; (3) nobody wins alone: results are shared; (4) I never trade fairness for speed.<br><strong>Important to the team?</strong> It answers both groups' fears: Porto fears losing quality, Lisbon fears losing autonomy. "Best of both" says neither side is absorbed.</td><td>Positive, specific, vocation, ethical; SDT (autonomy, competence); psychological safety + standards; ethical leadership</td></tr>
+    <tr><td class="k">2 · Practice</td><td><strong>Weeks 1–2 (forming):</strong> kick-off with vision and the "why" of the merger; each person presents their way of working; mixed pairs (one Porto, one Lisbon) per client account. Draft team agreements together (3 observable rules).<br><strong>Weeks 3–6 (storming):</strong> process-design workshops: both processes mapped; the team chooses, step by step, which to keep (decentralised active management). I speak last in decisions; rotating devil's advocate. Fortnightly 1:1s with everyone, including the two who wanted my job.<br><strong>Weeks 7–10 (norming):</strong> single process documented; weekly 20-min retrospective with Keep · Drop · Add; peer coaching between pairs.<br><strong>Weeks 11–12 (performing):</strong> delegate process ownership to two mixed "process owners" with clear goals, reporting format and checkpoints; celebrate the first quarter together and review.<br><strong>Throughout:</strong> feedback with SBI + A; corrective instruction before any negative feedback; conflicts approached by collaborating, competing only for client-safety issues.</td><td>Tuckman stages; vision; decentralised active management; groupthink antidotes; relational (1:1s), contextual (process, pairs) and hierarchical (final process sign-off) levels; bulletproof delegation; W8–W9</td></tr>
+    <tr><td class="k">3 · Criteria</td><td>See criteria table below.</td><td>Aligned, clear, specific, measurable; implementation + consequences; feedback loop</td></tr>
+    <tr><td class="k">4 · Challenges</td><td><strong>Me:</strong> I tend to avoid conflict (accommodating) and I have affinity with the Lisbon group's style (similarity bias). <em>Adjustment:</em> devil's advocate and structured decisions; I track who I spend 1:1 time with.<br><strong>Members:</strong> Porto: high technical, medium psychological maturity (anxious about change). Lisbon: medium technical in the formal process, high psychological maturity. Two internal candidates may feel passed over. Faultline risk: origin + age + location coincide. <em>Adjustment:</em> mixed pairs break the faultline; instruction for Lisbon on compliance steps; individualisation and support for Porto; open, early conversation with the two candidates, offering them visible roles.<br><strong>Situation:</strong> management wants speed; hybrid work reduces informal contact; no salary levers. <em>Adjustment:</em> negotiate a 12-week horizon with management (vision and instruction upwards); one in-person day per week; rely on recognition and development rather than money (Herzberg: motivators).</td><td>Leader, member and situational antecedents; technical/psychological/situational favourability; faultlines; similarity bias; LMX; Herzberg</td></tr>
+    <tr><td class="k">5 · Styles</td><td><strong>Vision</strong>: kick-off and repeated in every retrospective. <strong>Inspiration</strong>: I'm the first to learn the other team's tool. <strong>Instruction</strong>: positive sequence in process training. <strong>Individualisation</strong>: development goal per person in 1:1s. <strong>Support</strong>: open door; monthly in-person lunch. <strong>Positive feedback</strong>: weekly specific recognition linked to agreements. <strong>Negative feedback</strong>: only for repeated breach of client-data rules after corrective instruction. <strong>Active management</strong>: decentralised for process design; centralised only for the final sign-off and safety rules, always explained. <strong>Passive management</strong>: avoided: any open conflict is addressed within one week.</td><td>Optimal leadership profile; five tasks table</td></tr>
+  </table></div>
+
+  <h4>Criteria table (Section 3)</h4>
+  <div class="tw"><table>
+    <tr><th>Practice it checks</th><th>Indicator</th><th>Type</th><th>Source</th><th>Review</th></tr>
+    <tr><td>Fortnightly 1:1s</td><td>≥ 90% of planned 1:1s held, each with an agreed next step</td><td>Implementation</td><td>My 1:1 log</td><td>Every 2 weeks</td></tr>
+    <tr><td>Process co-design</td><td>Every step of the new process has an owner and was decided in a workshop with both groups present</td><td>Implementation</td><td>Process document + minutes</td><td>Week 6</td></tr>
+    <tr><td>Psychological safety</td><td>Average ≥ 4/5 on "In this team I can raise a problem without fear"; no gap &gt; 0.5 between ex-Porto and ex-Lisbon members</td><td>Consequence · human</td><td>Anonymous pulse survey</td><td>Weeks 4, 8, 12</td></tr>
+    <tr><td>Integration (faultlines)</td><td>Share of client issues solved by mixed pairs rises from 0% to ≥ 60%</td><td>Consequence · task/human</td><td>Ticket system</td><td>Monthly</td></tr>
+    <tr><td>Retrospectives</td><td>Each retrospective ends with written Keep · Drop · Add decisions; ≥ 80% of "Add" actions done by the next one</td><td>Implementation + consequence</td><td>Retro board</td><td>Weekly</td></tr>
+    <tr><td>Client results</td><td>Customer satisfaction (CSAT) stays ≥ pre-merger average; first-reply time ≤ 4h</td><td>Consequence · task (objective)</td><td>CRM dashboard</td><td>Monthly</td></tr>
+    <tr><td>Motivation quality</td><td>Average ≥ 4/5 on "I have a say in how I do my work" (autonomy) and "I'm learning new skills" (competence)</td><td>Consequence · human (subjective)</td><td>Pulse survey</td><td>Weeks 6, 12</td></tr>
+    <tr><td>Feedback loop</td><td>If any criterion is missed twice: 1:1s or a team session to diagnose (observation → interpretations → response) before changing the plan</td><td>Rule</td><td>—</td><td>Ongoing</td></tr>
+  </table></div>
+  <div class="box ex"><span class="lbl">Why this example is congruent</span><p>"Have a say in how" (philosophy) → process co-design and decentralised decisions (practice) → co-design criterion + autonomy survey item (criteria). "Disagreement welcome, attacks not" → devil's advocate, SBI + A, collaborating style → psychological safety item. "Nobody wins alone" → mixed pairs → mixed-pair resolution rate. Every value can be followed through practice to an indicator: that traceability is H1.</p></div>
+
+  <h3 id="plan-check">Quality checklist</h3>
+  <div class="cols two">
+    <div class="box"><span class="lbl" style="color:var(--good)">A strong plan…</span><ul>
+      <li>Has a specific scenario (who, where, what for, how long)</li>
+      <li>States a short, positive, ethical, personal philosophy</li>
+      <li>Traces each value → action → indicator (no orphans)</li>
+      <li>Uses observable, dated actions at the three intervention levels</li>
+      <li>Has criteria with source and review date, for implementation and consequences, task and human</li>
+      <li>Analyses leader, members and situation, and shows the <strong>adjustment</strong></li>
+      <li>Justifies each chosen behaviour with the optimal profile</li>
+      <li>Answers "is it important to my team?" in every section</li>
+      <li>Includes a feedback loop: what you'll do when reality differs</li>
+      <li>Names concepts precisely (e.g. "decentralised active management", not "being democratic")</li>
+    </ul></div>
+    <div class="box"><span class="lbl" style="color:var(--warn)">Common mistakes</span><ul>
+      <li>Philosophy as a list of buzzwords ("trust, innovation, excellence") with no meaning</li>
+      <li>Practice that describes intentions ("I'll be supportive"), not behaviours</li>
+      <li>Criteria only about results (sales, grades)</li>
+      <li>Criteria that cannot be measured ("people are happy")</li>
+      <li>Ignoring followers: plan written only from the leader's view</li>
+      <li>Treating negative feedback or centralised control as the main tool</li>
+      <li>Confusing Bass's MBE-active with LEM's active management</li>
+      <li>No mention of your own weaknesses or biases</li>
+      <li>Theory summaries instead of application</li>
+    </ul></div>
+  </div>
+
+  <h4>Blank skeleton to prepare</h4>
+  <div class="box plan"><span class="lbl">Fill in from your lecture sheets</span>
+  <ol>
+    <li><strong>Scenario:</strong> I lead … (who, how many, profiles) in … (context) to … (purpose) over … (time). My power: …</li>
+    <li><strong>Philosophy:</strong> Mission: "…". Principles: 1 … 2 … 3 … Why it matters to my team: …</li>
+    <li><strong>Practice:</strong> per principle → actions (what, how often, level R/C/H, stage of team development).</li>
+    <li><strong>Criteria:</strong> per action → indicator · implementation/consequence · task/human · source · review date. If missed → …</li>
+    <li><strong>Challenges:</strong> Me (strengths, risks, bias, adjustment) · Members (technical/psychological maturity, motives, faultlines, adjustment) · Situation (power, resources, culture, adjustment).</li>
+    <li><strong>Styles:</strong> vision · inspiration · instruction · individualisation · support · positive feedback · (negative feedback: when) · active management (decentralised/centralised: when) · how I avoid passive management.</li>
+  </ol></div>
+</section>
+
+<!-- ============ SHEET ============ -->
+<section class="part" id="sheet">
+  <h2>One-page revision sheet</h2>
+  <div class="cols">
+    <div class="box"><span class="lbl" style="color:var(--navy)">LEM in 30 seconds</span><p><strong>Efficacy</strong> = congruent <strong>cycles</strong> (philosophy → practice → criteria; conceptual ↔ practical; feedback loop) × <strong>optimal profile</strong> (5 transformational + positive feedback + decentralised active management; minimise negative feedback and passive management) × <strong>favourable conditions</strong> (leader, members, situation → technical, psychological, situational). H1, H2, H3 → H4 (OCHL).</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Theories in 30 seconds</span><p>Traits → who emerges (Big Five, R = .48; extraversion .31). Behaviours → leadership can be learned (task vs people). Full range → transformational .44, contingent reward .39, laissez-faire −.37. Contingency → fit (Fiedler, situational, path–goal). LEM integrates all.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Ethics &amp; teams</span><p>No neutral leadership; legitimacy; right vs right dilemmas; 7 biases. Diversity = present, inclusion = heard. Psych. safety + standards = learning zone. Tuckman 5 stages (non-linear). Groupthink antidotes. Aristotle: safety first. Lencioni: trust → conflict → commitment.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Communication &amp; conflict</span><p>Sources: interests, values, perceptions, structure. 3 positive / 3 negative profiles. 5 conflict styles (assertiveness × cooperativeness). Active listening, empathy, validate + redirect. 5 levels of listening. Close the loop.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Judgement &amp; execution</span><p>Observation ≠ interpretation ≠ response. Technical vs adaptive. Balcony and dance floor. Criteria: aligned, clear, specific, measurable + source + review. Levels: relational, contextual, hierarchical. Delegation ≠ abdication ≠ micromanagement.</p></div>
+    <div class="box"><span class="lbl" style="color:var(--navy)">Motivation</span><p>Intensity, direction, persistence. Maslow (5 levels), Herzberg (motivators vs hygiene, two continua), McClelland (achievement, affiliation, power). SDT: autonomy, competence, relatedness; continuum amotivation → external → introjected → identified → integrated → intrinsic. Feedback cycle: agree → act → discuss → adjust. SBI + A; Keep · Drop · Add.</p></div>
+  </div>
+  <p class="small" style="margin-top:24px">Sources: course syllabus and lecture guides L1–L8 (2026/27); Gomes (2020); Gomes &amp; Morais (2025); Northouse (2022); Robbins, Judge &amp; Vohra (2024); Bass &amp; Riggio (2006); Judge &amp; Piccolo (2004); Judge et al. (2002); DeRue et al. (2011); Kaiser, Hogan &amp; Craig (2008); Kotter (1990); Ryan &amp; Deci (2000); Deci, Olafsen &amp; Ryan (2017); workshop slides W2–W9.</p>
+</section>
+
+</main>
+</div>
