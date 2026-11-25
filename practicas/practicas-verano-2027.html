@@ -111,6 +111,16 @@ a{color:var(--accent)}
 .weeks li{counter-increment:w;display:grid;grid-template-columns:44px 1fr;gap:12px}
 .weeks li::before{content:"S" counter(w);font-family:var(--mono);font-weight:500;color:var(--accent);font-size:14px;padding-top:1px}
 .letter{white-space:pre-wrap;font-size:14.5px;line-height:1.65;max-width:68ch}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.snips{display:grid;gap:16px}
+.snip{display:grid;gap:8px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.snip:last-child{border-bottom:0;padding-bottom:0}
+.snip-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.snip-h h3{font-size:15px}
+.snip-h .tag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-left:8px}
+.snip pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;font-family:var(--body);font-size:14.5px;line-height:1.6;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.snip .note{font-size:13px;color:var(--muted)}
+button.mini{font-family:var(--body);font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:7px;padding:4px 10px;cursor:pointer}
 .brief-head{display:grid;gap:8px;max-width:72ch}
 .brief-head h1{font-size:26px}
 .news{display:grid;gap:0;list-style:none;margin:0;padding:0}
@@ -140,6 +150,7 @@ a{color:var(--accent)}
       <a href="#panel">Panel</a>
       <a href="#empresas">Empresas</a>
       <a href="#redactar">Redactar</a>
+      <a href="#versiones">CV a medida</a>
       <a href="#cv">CV y carta</a>
     </nav>
   </div>
@@ -270,6 +281,17 @@ a{color:var(--accent)}
       <li><span class="pill p-Contactado">5</span><span><b>Ritmo realista</b>: 5 invitaciones y 2 candidaturas a la semana valen más que 40 mensajes en un día.</span></li>
     </ul>
   </div>
+</section>
+
+<!-- VERSIONES -->
+<section class="view" id="v-versiones" hidden>
+  <div style="display:grid;gap:6px">
+    <h1>CV a medida</h1>
+    <p class="muted">Las versiones de cada parte de tu CV según a quién te presentes. Elige el sector, copia cada bloque y pégalo en tu CV. El resto (formación, idiomas, voluntariado) es igual para todos.</p>
+  </div>
+  <div class="seg" id="vSeg" role="group" aria-label="Sector"></div>
+  <div class="panel"><div class="snips" id="vSnips"></div></div>
+  <div class="notice info" id="vTip"></div>
 </section>
 
 <!-- CV -->
@@ -403,7 +425,7 @@ const timer=setTimeout(()=>fallback("sin conexión con el almacén"),10000);
 })();
 
 /* ---------- routing ---------- */
-const VIEWS=["panel","empresas","redactar","cv"];
+const VIEWS=["panel","empresas","redactar","versiones","cv"];
 function route(){
   const h=(location.hash||"#panel").slice(1);const v=VIEWS.includes(h)?h:"panel";
   VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
@@ -580,6 +602,95 @@ function copy(text,el){
   try{navigator.clipboard.writeText(text).then(()=>toast("Copiado"),()=>{sel(el)})}catch(e){sel(el)}
   function sel(x){if(x&&x.select){x.select()}else if(x){const r=document.createRange();r.selectNodeContents(x);const s=getSelection();s.removeAllRanges();s.addRange(r)}toast("Selecciona y copia con Ctrl/Cmd+C")}
 }
+
+/* ---------- CV a medida ---------- */
+const PKF_TITLE_EN="PKF Attest · Legal Intern – Corporate & Commercial Law (Legal & Tax Department) · Madrid · Jun–Jul 2026";
+const OTHER_EN=`Freelance Events Photographer · Spain · 2023–Present
+Ran a freelance events photography business: client acquisition, pricing and delivery.
+
+Tutor · Madrid · 2024–2025
+Taught French, Spanish and History to secondary-school students.
+
+Sales Assistant · Lester · Madrid · 2023, Jul 2025, Mar 2026
+Client-facing retail sales.`;
+const SECTORS=[
+ {id:"despachos",label:"Despachos",
+  tip:"Para despachos españoles (Garrigues, Cuatrecasas, Uría, Pérez-Llorca, GA_P) envía el CV en español. Para los internacionales (Freshfields), en inglés. Pon PKF arriba del todo en la sección de experiencia.",
+  blocks:[
+   {h:"Cabecera",tag:"EN",t:"Endlessly curious and analytical, with a habit of asking \"why\" until things make sense. Raised in the French school system, I bring structure, synthesis and attention to detail to everything I do."},
+   {h:"Cabecera",tag:"ES",t:"Curiosa por naturaleza y analítica, con la costumbre de preguntar «por qué» hasta entender las cosas. Formada en el sistema educativo francés, aporto estructura, capacidad de síntesis y atención al detalle en todo lo que hago."},
+   {h:"Prácticas en PKF",tag:"EN",t:PKF_TITLE_EN+`
+• Drafted and reviewed commercial and corporate agreements for client companies
+• Prepared corporate transactions and coordinated their execution before notaries
+• Supported legal advisory on M&A transactions in collaboration with the tax team
+• Assisted on compliance reviews of regulatory and internal obligations`},
+   {h:"Prácticas en PKF",tag:"ES",t:`PKF Attest · Prácticas en el departamento legal (mercantil y societario) · Madrid · jun.–jul. 2026
+• Redacción y revisión de contratos mercantiles y societarios para empresas clientes
+• Preparación de operaciones societarias y coordinación de su formalización ante notario
+• Apoyo en el asesoramiento legal de operaciones de M&A, en colaboración con el equipo fiscal
+• Apoyo en revisiones de cumplimiento normativo (compliance)`},
+   {h:"Otras experiencias",tag:"EN",t:OTHER_EN},
+   {h:"Skills",tag:"EN",t:"Microsoft Office (Word, Excel, PowerPoint) · Legal research databases [solo las que hayas usado: Aranzadi, vLex, La Ley…] · AI tools (Claude, ChatGPT)",note:"Quita los corchetes y deja solo las bases de datos que conozcas."},
+   {h:"Interests",tag:"EN",t:"Reading and writing · Geopolitics · Photography · Golf and padel · Art"}
+  ]},
+ {id:"big4",label:"Big4 y consultoría",
+  tip:"Para EY, Deloitte, PwC y KPMG en Legal o Tax, combina esta cabecera con la versión de PKF de Despachos. Para Deals o consultoría, usa la de aquí.",
+  blocks:[
+   {h:"Cabecera",tag:"EN",t:"Ambitious, hard-working and grounded in strong values. I learn fast, stay calm under pressure and care about doing things properly, not just quickly."},
+   {h:"Prácticas en PKF",tag:"EN",t:PKF_TITLE_EN+`
+• Supported legal advisory on M&A and corporate transactions, from document review to execution before notaries
+• Worked alongside the tax team to integrate legal and tax considerations into client transactions
+• Drafted and reviewed commercial and corporate agreements
+• Assisted on compliance reviews for client companies`},
+   {h:"Otras experiencias",tag:"EN",t:OTHER_EN},
+   {h:"Skills",tag:"EN",t:"Excel (formulas, pivot tables) · PowerPoint · Word · Gretl (econometrics) · AI tools (Claude, ChatGPT)",note:"Pon “pivot tables” solo si sabes hacerlas; si no, aprende en una tarde y luego añádelo."},
+   {h:"Interests",tag:"EN",t:"Geopolitics and economics · Reading · Photography · Golf and padel · Travel"}
+  ]},
+ {id:"banca",label:"Banca e inversión",
+  tip:"En banca miran mucho la nota y la parte financiera. Si haces un curso corto de modelización financiera (por ejemplo, los gratuitos de CFI), añádelo en Skills: es lo que más suma.",
+  blocks:[
+   {h:"Cabecera",tag:"EN",t:"Analytical and detail-oriented, with a habit of asking \"why\" until the numbers make sense. Ambitious and resilient, I enjoy demanding environments and take ownership of my work from day one."},
+   {h:"Prácticas en PKF",tag:"EN",t:PKF_TITLE_EN+`
+• Supported legal advisory on M&A and corporate transactions, from document review to execution before notaries
+• Worked alongside the tax team to integrate legal and tax considerations into client transactions
+• Drafted and reviewed commercial and corporate agreements
+• Assisted on compliance reviews for client companies`},
+   {h:"Otras experiencias",tag:"EN",t:OTHER_EN},
+   {h:"Skills",tag:"EN",t:"Excel · PowerPoint · Gretl (econometrics) · AI tools (Claude, ChatGPT) · [Financial modelling – CFI, cuando lo termines]",note:"Quita el corchete hasta que hayas hecho el curso."},
+   {h:"Interests",tag:"EN",t:"Financial markets and geopolitics (weekly reader of Expansión and the FT) · Golf · Swimming · Photography",note:"Si pones que lees prensa financiera, prepárate para comentar una noticia reciente: tienes La Semana Internacional para eso."}
+  ]},
+ {id:"startups",label:"Startups",
+  tip:"En startups (HappyRobot, Fever, Factorial…) valoran la iniciativa: el negocio de fotografía y el uso de herramientas de IA te diferencian. Puedes enviar el CV en inglés.",
+  blocks:[
+   {h:"Cabecera",tag:"EN",t:"Curious by nature, fast learner and comfortable with responsibility. I enjoy understanding how things work, connecting ideas from law and business, and getting things done."},
+   {h:"Cabecera alternativa",tag:"EN",t:"Curious, adaptable and at ease in new environments, having lived and studied across Spain, the US and Portugal. I combine ambition with humility and take ownership of my work from day one."},
+   {h:"Prácticas en PKF",tag:"EN",t:PKF_TITLE_EN+`
+• Managed corporate and commercial documentation end-to-end, from drafting to notarial execution
+• Supported M&A advisory as part of a cross-functional legal and tax team
+• Assisted on compliance reviews, identifying regulatory obligations for client companies`},
+   {h:"Otras experiencias",tag:"EN",t:`Freelance Events Photographer · Spain · 2023–Present
+Built and run my own events photography business: client acquisition, pricing, scheduling and delivery.
+
+Tutor · Madrid · 2024–2025
+Taught French, Spanish and History, adapting methods to each student.
+
+Sales Assistant · Lester · Madrid · 2023, Jul 2025, Mar 2026
+Client-facing retail sales.`},
+   {h:"Skills",tag:"EN",t:"AI tools (Claude, Claude Code, ChatGPT) · Excel · PowerPoint · Gretl (econometrics)",note:"Deja Claude Code solo si puedes contar en la entrevista qué has hecho con él."},
+   {h:"Interests",tag:"EN",t:"AI and technology · Photography · Travel · Padel and pickleball · Reading"}
+  ]}
+];
+let vSec="despachos";try{vSec=localStorage.getItem("cv-sector")||vSec}catch(e){}
+function renderVersions(){
+  if(!SECTORS.some(s=>s.id===vSec))vSec="despachos";
+  $("#vSeg").innerHTML=SECTORS.map(s=>`<button type="button" class="chip" data-s="${s.id}" aria-pressed="${s.id===vSec}">${esc(s.label)}</button>`).join("");
+  const s=SECTORS.find(x=>x.id===vSec);
+  $("#vSnips").innerHTML=s.blocks.map((b,i)=>`<div class="snip"><div class="snip-h"><h3>${esc(b.h)}<span class="tag">${esc(b.tag)}</span></h3><button type="button" class="mini" data-copy="${i}">Copiar</button></div><pre id="snip-${i}">${esc(b.t)}</pre>${b.note?`<p class="note">${esc(b.note)}</p>`:""}</div>`).join("");
+  $("#vTip").textContent=s.tip;
+}
+$("#vSeg").addEventListener("click",e=>{const b=e.target.closest("button[data-s]");if(!b)return;vSec=b.dataset.s;try{localStorage.setItem("cv-sector",vSec)}catch(x){}renderVersions()});
+$("#vSnips").addEventListener("click",e=>{const b=e.target.closest("button[data-copy]");if(!b)return;const s=SECTORS.find(x=>x.id===vSec);copy(s.blocks[+b.dataset.copy].t,$("#snip-"+b.dataset.copy))});
+renderVersions();
 
 /* ---------- cv ---------- */
 $("#baseLetter").textContent=BASE;
