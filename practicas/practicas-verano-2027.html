@@ -138,11 +138,9 @@ a{color:var(--accent)}
     <div class="brand">Prácticas Verano 2027<small>Paz · Derecho + ADE · UC3M</small></div>
     <nav id="nav" aria-label="Secciones">
       <a href="#panel">Panel</a>
-      <a href="#resumen">Resumen semanal</a>
       <a href="#empresas">Empresas</a>
       <a href="#redactar">Redactar</a>
       <a href="#cv">CV y carta</a>
-      <a href="#aprender">Aprender</a>
     </nav>
   </div>
 </header>
@@ -193,15 +191,6 @@ a{color:var(--accent)}
       <p class="small"><a href="https://www.uc3m.es/ss/Satellite/SecretariaVirtual/en/TextoMixta/1371319429346/Practicum_Derecho_y_Doble_Grado_Derecho-ADE" target="_blank" rel="noopener">Prácticum Derecho-ADE</a> · <a href="https://www.uc3m.es/ss/Satellite/SecretariaVirtual/es/TextoMixta/1371210942487/Practicas_extracurriculares" target="_blank" rel="noopener">Extracurriculares</a> · <a href="#redactar" data-kind="uc3m" class="jump">Redactar correo a la Secretaría</a></p>
     </div>
   </div>
-</section>
-
-<!-- RESUMEN -->
-<section class="view" id="v-resumen" hidden>
-  <div class="toolbar" style="justify-content:space-between">
-    <p class="eyebrow" id="r-range">Resumen semanal</p>
-    <label style="min-width:200px">Semana<select id="r-week"></select></label>
-  </div>
-  <div id="r-body"><div class="panel"><p class="muted">Cargando tus resúmenes… Cada lunes por la mañana aparecerá aquí uno nuevo, con las noticias más importantes de empresa, mercados y startups explicadas para ti.</p></div></div>
 </section>
 
 <!-- EMPRESAS -->
@@ -331,73 +320,6 @@ a{color:var(--accent)}
   </div>
 </section>
 
-<!-- APRENDER -->
-<section class="view" id="v-aprender" hidden>
-  <div style="display:grid;gap:6px">
-    <h1>Entender el mercado</h1>
-    <p class="muted">Una rutina para saber qué empresas están de moda y poder hablar de mercados en una entrevista, más una ruta de seis semanas para aprender lo básico de finanzas.</p>
-  </div>
-  <div class="grid2">
-    <div class="panel">
-      <h2>Rutina semanal</h2>
-      <ul class="check" id="routine"></ul>
-      <p class="small muted">Se reinicia cada lunes. Se guarda solo en este navegador.</p>
-    </div>
-    <div class="panel">
-      <h2>Ruta de 6 semanas</h2>
-      <ol class="weeks">
-        <li><span><b>Leer unas cuentas.</b> Balance, cuenta de resultados y flujos de caja de una empresa del IBEX (empieza por Inditex). <a href="https://www.investopedia.com/terms/f/financial-statements.asp" target="_blank" rel="noopener">Investopedia</a></span></li>
-        <li><span><b>Valorar una empresa.</b> Múltiplos (EV/EBITDA, PER) y la idea del DCF. <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener">Damodaran (NYU), gratis</a></span></li>
-        <li><span><b>Bolsa y tipos.</b> Qué mueve el IBEX 35, qué decide el BCE y por qué afecta a bancos y startups. <a href="https://www.ecb.europa.eu/home/html/index.es.html" target="_blank" rel="noopener">BCE</a></span></li>
-        <li><span><b>M&A y capital riesgo.</b> Cómo es una operación, de la due diligence al cierre: aquí tu parte de Derecho es una ventaja. <a href="https://corporatefinanceinstitute.com/resources/valuation/mergers-acquisitions-ma-process/" target="_blank" rel="noopener">CFI</a></span></li>
-        <li><span><b>Startups y venture capital.</b> Seed, Serie A–D, valoración y dilución. Analiza una ronda española reciente (Factorial, Multiverse).</span></li>
-        <li><span><b>Ensayar la entrevista.</b> “Cuéntame una operación o una empresa que sigas”: prepara dos, una grande y una startup, con datos.</span></li>
-      </ol>
-    </div>
-  </div>
-  <div class="panel">
-    <h2>Fuentes</h2>
-    <p class="small muted">Ya lees El Mundo y Expansión: es una buena base. La idea es añadir una fuente de startups, una internacional y un podcast para los trayectos, no leerlo todo.</p>
-    <ul class="src">
-      <li><span class="freq">Diario · 10 min</span><a href="https://www.expansion.com" target="_blank" rel="noopener"><b>Expansión</b></a><span class="small muted">Tu fuente principal. Lee la portada, la sección de Mercados y la de Empresas: operaciones corporativas y nombramientos en España.</span></li>
-      <li><span class="freq">Diario · 5 min</span><a href="https://www.elmundo.es/economia.html" target="_blank" rel="noopener"><b>El Mundo · Economía</b></a><span class="small muted">Para la actualidad general y política. Ahora con las elecciones es clave.</span></li>
-      <li><span class="freq">Diario · 5 min</span><a href="https://www.morningbrew.com" target="_blank" rel="noopener"><b>Morning Brew</b></a><span class="small muted">Newsletter gratuita en inglés: negocios y mercados de EE. UU. en 5 minutos, con humor.</span></li>
-      <li><span class="freq">3–4 por semana</span><a href="https://www.bloomberg.com/account/newsletters/money-stuff" target="_blank" rel="noopener"><b>Money Stuff (Matt Levine)</b></a><span class="small muted">Newsletter gratuita. La mejor explicación de banca, M&A y derecho de sociedades que existe, y muy divertida. Para ti, imprescindible.</span></li>
-      <li><span class="freq">Diario</span><a href="https://www.nytimes.com/section/business/dealbook" target="_blank" rel="noopener"><b>DealBook (NYT)</b></a><span class="small muted">Las grandes operaciones y los CEOs del día.</span></li>
-      <li><span class="freq">Diario · 5 min</span><a href="https://cincodias.elpais.com" target="_blank" rel="noopener"><b>Cinco Días</b></a><span class="small muted">Alternativa o complemento a Expansión; buena cobertura de startups y rondas.</span></li>
-      <li><span class="freq">Semanal</span><a href="https://elreferente.es" target="_blank" rel="noopener"><b>El Referente</b></a><span class="small muted">Ecosistema emprendedor español: rondas, inversores y startups que contratan.</span></li>
-      <li><span class="freq">Trimestral</span><a href="https://www.bankinter.com/www2/blog/observatorio-startups" target="_blank" rel="noopener"><b>Observatorio de Startups de Bankinter</b></a><span class="small muted">Resumen de las rondas del trimestre en España. De aquí salen las startups de la lista.</span></li>
-      <li><span class="freq">Semanal</span><a href="https://sifted.eu" target="_blank" rel="noopener"><b>Sifted</b></a><span class="small muted">Startups europeas (del Financial Times). Útil si te planteas ir fuera.</span></li>
-      <li><span class="freq">Semanal</span><a href="https://www.lesechos.fr" target="_blank" rel="noopener"><b>Les Echos</b></a><span class="small muted">Prensa económica francesa: aprovecha tu francés para seguir empresas francesas con presencia en España.</span></li>
-      <li><span class="freq">Semanal</span><a href="https://www.economist.com" target="_blank" rel="noopener"><b>The Economist</b></a> · <a href="https://www.ft.com" target="_blank" rel="noopener"><b>Financial Times</b></a><span class="small muted">Contexto internacional. Pregunta en la UC3M si tienes acceso gratuito como estudiante.</span></li>
-      <li><span class="freq">Podcast · diario</span><b>FT News Briefing</b> · <b>The Journal (WSJ)</b><span class="small muted">10–20 minutos con la noticia económica del día. Ideales para el trayecto a la universidad.</span></li>
-      <li><span class="freq">Podcast · semanal</span><b>Prof G Markets</b> (Scott Galloway)<span class="small muted">Mercados, empresas y tecnología con opinión clara.</span></li>
-      <li><span class="freq">Podcast</span><a href="https://www.bloomberg.com/oddlots" target="_blank" rel="noopener"><b>Odd Lots (Bloomberg)</b></a> · <a href="https://www.acquired.fm" target="_blank" rel="noopener"><b>Acquired</b></a><span class="small muted">Mercados explicados con calma; historias completas de grandes empresas.</span></li>
-      <li><span class="freq">Podcast · español</span><b>Itnig</b><span class="small muted">Entrevistas a fundadores e inversores del ecosistema startup español.</span></li>
-    </ul>
-  </div>
-  <div class="panel">
-    <h2>A quién seguir</h2>
-    <p class="small muted">Búscalos en LinkedIn y en X. No hace falta seguirlos a todos: elige 15–20 y añade más cuando un nombre te salga varias veces en las noticias.</p>
-    <div class="people">
-      <div><h3>Grandes empresas españolas</h3><ul><li>Ana Botín · Santander</li><li>Carlos Torres Vila · BBVA</li><li>Gonzalo Gortázar · CaixaBank</li><li>Ignacio Sánchez Galán · Iberdrola</li><li>Óscar García Maceiras · Inditex</li><li>Marc Murtra · Telefónica</li></ul></div>
-      <div><h3>Empresas globales</h3><ul><li>Jensen Huang · Nvidia</li><li>Satya Nadella · Microsoft</li><li>Sam Altman · OpenAI</li><li>Dario Amodei · Anthropic</li><li>Jamie Dimon · J.P. Morgan</li><li>Larry Fink · BlackRock</li></ul></div>
-      <div><h3>Explican mercados y tecnología</h3><ul><li>Matt Levine · Bloomberg</li><li>Aswath Damodaran · NYU (valoración)</li><li>Scott Galloway · NYU</li><li>Ben Thompson · Stratechery</li><li>Kiko Llaneras · El País (datos)</li></ul></div>
-      <div><h3>Startups en España</h3><ul><li>Iñaki Arrola · Kfund</li><li>Carlos Blanco · Encomenda</li><li>Bernardo Hernández · inversor</li><li>El Referente y Sifted (cuentas de medios)</li><li>Los fundadores de las startups de tu lista</li></ul></div>
-    </div>
-  </div>
-  <div class="panel">
-    <h2>X (Twitter) y LinkedIn: cómo usarlos sin perder el tiempo</h2>
-    <ul class="check" style="font-size:14px">
-      <li><span class="pill p-Oferta">Sí</span><span><b>Descárgate X, pero úsalo como un lector de noticias, no como red social.</b> Es donde aparecen antes las noticias de mercados y tecnología, y donde opinan CEOs, inversores y periodistas.</span></li>
-      <li><span class="pill p-Contactado">1</span><span><b>Crea dos o tres listas</b> (por ejemplo “Mercados”, “Startups España” y “Tecnología”) y lee solo esas. La pestaña “Para ti” está pensada para engancharte.</span></li>
-      <li><span class="pill p-Contactado">2</span><span><b>Sigue a medios y a personas, no a cuentas de “trading”</b> ni a gurús que prometen rentabilidades: son ruido, y a veces estafas.</span></li>
-      <li><span class="pill p-Contactado">3</span><span><b>Guarda en Marcadores</b> lo que quieras leer con calma. Dedica 10–15 minutos al día, mejor con un límite de tiempo en el móvil.</span></li>
-      <li><span class="pill p-Aplicado">Clave</span><span><b>Para tu búsqueda de prácticas, LinkedIn es más importante que X.</b> Sigue las páginas de las empresas de tu lista, activa las alertas de empleo con “prácticas verano 2027” y “summer internship Madrid”, y publica o comenta de vez en cuando con criterio.</span></li>
-    </ul>
-  </div>
-</section>
-
 </div></main>
 
 <script>
@@ -429,15 +351,6 @@ Hasta finales de enero estoy en Oporto, así que puedo hacer cualquier entrevist
 Un saludo,
 
 Paz Satrústegui Sañudo`;
-const ROUTINE=[
-  ["d","Cada día: 10 minutos de Expansión o Cinco Días. Apunta una noticia que te llame la atención."],
-  ["l","Lunes: lee El Referente y apunta una ronda o startup nueva en la lista de empresas."],
-  ["x","Miércoles: 5 invitaciones de LinkedIn (antiguos alumnos UC3M primero)."],
-  ["j","Jueves: 2 candidaturas con carta adaptada."],
-  ["v","Viernes: seguimientos pendientes del Panel y un episodio de podcast."],
-  ["s","Fin de semana: una semana de la ruta de aprendizaje."]
-];
-
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const safeUrl=u=>/^https:\/\//.test(String(u||""))?String(u):"";
@@ -480,9 +393,6 @@ const timer=setTimeout(()=>fallback("sin conexión con el almacén"),10000);
   try{
     db=window.claude&&window.claude.use?await window.claude.use("db"):null;
     if(!db){clearTimeout(timer);fallback("almacén no disponible");return}
-    db.collection("resumenes").onSnapshot(snap=>{
-      resumenes=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>String(b.semana||b.id).localeCompare(String(a.semana||a.id)));renderBrief();
-    },()=>{});
     coll=db.collection("empresas");
     coll.onSnapshot(snap=>{
       clearTimeout(timer);mode="db";$("#storeNote").hidden=true;
@@ -492,7 +402,7 @@ const timer=setTimeout(()=>fallback("sin conexión con el almacén"),10000);
 })();
 
 /* ---------- routing ---------- */
-const VIEWS=["panel","resumen","empresas","redactar","cv","aprender"];
+const VIEWS=["panel","empresas","redactar","cv"];
 function route(){
   const h=(location.hash||"#panel").slice(1);const v=VIEWS.includes(h)?h:"panel";
   VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
@@ -673,40 +583,6 @@ function copy(text,el){
 /* ---------- cv ---------- */
 $("#baseLetter").textContent=BASE;
 $("#copyBase").addEventListener("click",()=>copy(BASE,$("#baseLetter")));
-
-/* ---------- routine (per-viewer, weekly reset) ---------- */
-function weekKey(){const d=today();const day=(d.getDay()+6)%7;d.setDate(d.getDate()-day);return"rutina-"+d.toISOString().slice(0,10)}
-let done={};try{done=JSON.parse(localStorage.getItem(weekKey())||"{}")}catch(e){done={}}
-$("#routine").innerHTML=ROUTINE.map(([k,t])=>`<li><input type="checkbox" id="r-${k}" ${done[k]?"checked":""}><label for="r-${k}" style="font-size:14px;font-weight:400;color:var(--ink)">${esc(t)}</label></li>`).join("");
-$("#routine").addEventListener("change",e=>{const k=e.target.id.slice(2);done[k]=e.target.checked;try{localStorage.setItem(weekKey(),JSON.stringify(done))}catch(x){}});
-
-/* ---------- resumen semanal ---------- */
-let resumenes=[];let briefSel="";
-$("#r-week").addEventListener("change",e=>{briefSel=e.target.value;renderBrief()});
-function renderBrief(){
-  if(!resumenes.length){$("#r-week").innerHTML="";$("#r-body").innerHTML=`<div class="panel"><p class="muted">Todavía no hay resúmenes. Cada lunes por la mañana aparecerá aquí uno nuevo.</p></div>`;return}
-  if(!briefSel||!resumenes.some(r=>r.id===briefSel))briefSel=resumenes[0].id;
-  $("#r-week").innerHTML=resumenes.map(r=>`<option value="${esc(r.id)}" ${r.id===briefSel?"selected":""}>${esc(r.rango||r.semana||r.id)}</option>`).join("");
-  const b=resumenes.find(r=>r.id===briefSel);
-  $("#r-range").textContent="Resumen semanal · "+(b.rango||b.semana||"");
-  const srcs=f=>(Array.isArray(f)?f:[]).map(s=>{const u=safeUrl(s&&s[1]);return u?`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(s[0])}</a>`:esc(s&&s[0])}).join("");
-  const news=(Array.isArray(b.noticias)?b.noticias:[]).map(n=>`<li>
-    <div class="body"><span class="cat">${esc(n.cat)}</span><h3>${esc(n.titulo)}</h3><p>${esc(n.resumen)}</p>
-      ${n.importa?`<p class="importa"><b>Por qué te importa.</b> ${esc(n.importa)}</p>`:""}
-      <div class="srcs">${srcs(n.fuentes)}</div></div>
-    ${n.concepto&&n.concepto.t?`<div class="concept"><span class="lbl">Concepto</span><b>${esc(n.concepto.t)}</b><p>${esc(n.concepto.e)}</p></div>`:"<div></div>"}
-  </li>`).join("");
-  const agenda=(Array.isArray(b.agenda)?b.agenda:[]).map(a=>`<li><span class="date ${dateCls(a[0])}">${fmtD(a[0])}</span><span>${esc(a[1])}</span></li>`).join("");
-  const acc=(Array.isArray(b.accion)?b.accion:[]).map(a=>`<li>${esc(a)}</li>`).join("");
-  $("#r-body").innerHTML=`<div style="display:grid;gap:24px">
-    <div class="brief-head"><h1>${esc(b.titular)}</h1><p class="muted">${esc(b.intro)}</p></div>
-    <div class="panel"><ul class="news">${news}</ul></div>
-    <div class="grid2">
-      ${agenda?`<div class="panel"><h2>Agenda</h2><ul class="list">${agenda}</ul></div>`:""}
-      <div class="panel"><h2>Para tu búsqueda</h2><ul style="margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px">${acc}</ul>
-        ${b.pregunta?`<p class="importa" style="border-left:3px solid var(--accent);padding-left:12px;font-size:14px"><b style="color:var(--accent)">Pregunta de entrevista.</b> ${esc(b.pregunta)}</p>`:""}</div>
-    </div></div>`;
-}
 
 function renderAll(){renderPanel();renderRows();renderEmpSelect()}
 renderAll();

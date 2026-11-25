@@ -1,0 +1,276 @@
+<title>La Semana Internacional</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: newsletter column (~720px) with a numbered story list; concepts open in a side card (desktop) or bottom sheet (phone) */
+:root{
+  --bg:#FAFBFB; --paper:#FFFFFF; --ink:#13201F; --muted:#5A6866; --line:#DCE3E2;
+  --accent:#0E5E6F; --accent-soft:#E2F0F2; --term:#D6EBEE; --warm:#9A5B12; --warm-soft:#F7EEDF;
+  --serif:"Newsreader",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1515; --paper:#141D1D; --ink:#E4ECEB; --muted:#9AACA9; --line:#26332F;
+  --accent:#6CC3D3; --accent-soft:#16302F; --term:#1D3B3E; --warm:#E0A85A; --warm-soft:#33260F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1515; --paper:#141D1D; --ink:#E4ECEB; --muted:#9AACA9; --line:#26332F;
+  --accent:#6CC3D3; --accent-soft:#16302F; --term:#1D3B3E; --warm:#E0A85A; --warm-soft:#33260F; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+header.top{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding-block:12px;max-width:1040px}
+.brand{font-family:var(--serif);font-weight:600;font-size:20px}
+nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto}
+nav a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;padding:5px 11px;border-radius:999px;white-space:nowrap}
+nav a[aria-current="page"]{background:var(--accent-soft);color:var(--accent)}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+main .wrap{padding-block:36px 80px;display:grid;gap:32px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;text-wrap:balance;letter-spacing:-.005em}
+h1{font-size:34px;line-height:1.15} h2{font-size:24px;line-height:1.25} h3{font-size:18px}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.lede{font-size:18px;color:var(--muted);font-family:var(--serif);line-height:1.5}
+.hint{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.hint .term{pointer-events:none}
+.weekpick{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+select{font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.stories{list-style:none;margin:0;padding:0;counter-reset:s;display:grid}
+.story{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);gap:0 12px;padding:28px 0;border-top:1px solid var(--line)}
+.story::before{content:counter(s,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:5px}
+.story .in{display:grid;gap:10px;min-width:0}
+.cat{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.story h2{font-size:23px}
+.story .txt{font-size:16.5px}
+.key{background:var(--warm-soft);border-radius:8px;padding:10px 14px;font-size:14.5px}
+.key b{color:var(--warm)}
+.read{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;font-size:14px}
+.read .main{font-weight:600;text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:4px 12px}
+.read .main:hover{background:var(--accent-soft)}
+.read .more{font-size:13px;color:var(--muted)}
+.read .more a{color:var(--muted)}
+button.term{font:inherit;color:inherit;background:var(--term);border:0;border-bottom:1.5px dotted var(--accent);padding:0 3px;border-radius:3px;cursor:pointer;line-height:inherit}
+button.term:hover,button.term[aria-expanded="true"]{background:var(--accent);color:var(--paper)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;display:grid;gap:14px;min-width:0}
+.box.startup{border-color:var(--accent);border-width:1.5px}
+.agenda{list-style:none;margin:0;padding:0;display:grid}
+.agenda li{display:grid;grid-template-columns:84px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--line);font-size:15px}
+.agenda li:first-child{border-top:0}
+.date{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+/* concept card */
+.card{position:fixed;z-index:30;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:min(380px,calc(100vw - 32px));background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 50px -12px rgba(0,0,0,.35);padding:18px 20px 20px;display:grid;gap:8px}
+.card .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.card h3{font-size:21px}
+.card p{font-size:15px}
+.card .x{position:absolute;top:10px;right:10px;background:transparent;border:0;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:6px}
+@media (max-width:600px){.card{left:0;right:0;bottom:0;width:auto;border-radius:16px 16px 0 0;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}}
+@media (prefers-reduced-motion:no-preference){.card{animation:up .18s ease-out}@keyframes up{from{transform:translateY(8px);opacity:.6}to{transform:none;opacity:1}}}
+/* glossary */
+input[type=search]{font:inherit;width:100%;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:9px 12px}
+.gl{list-style:none;margin:0;padding:0;display:grid}
+.gl li{padding:16px 0;border-top:1px solid var(--line);display:grid;gap:4px}
+.gl li:first-child{border-top:0}
+.gl h3{font-size:19px}
+.gl .from{font-size:12px;color:var(--muted);font-family:var(--mono)}
+/* sources */
+.src{list-style:none;margin:0;padding:0;display:grid}
+.src li{padding:12px 0;border-top:1px solid var(--line);display:grid;gap:2px}
+.src li:first-child{border-top:0}
+.freq{font-family:var(--mono);font-size:11px;color:var(--warm);text-transform:uppercase;letter-spacing:.05em}
+.small{font-size:14px} .muted{color:var(--muted)}
+.people{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px 24px}
+.people h3{font-size:16px;margin-bottom:4px}
+.people ul,.tips{margin:0;padding-left:18px;font-size:15px;display:grid;gap:4px}
+.tips{gap:8px}
+.weeks{margin:0;padding-left:22px;display:grid;gap:8px;font-size:15px}
+.empty{color:var(--muted)}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">La Semana Internacional</span>
+    <nav id="nav" aria-label="Secciones">
+      <a href="#semana">Esta semana</a>
+      <a href="#glosario">Glosario</a>
+      <a href="#fuentes">Fuentes</a>
+    </nav>
+  </div>
+</header>
+
+<main><div class="wrap">
+
+<section id="v-semana" class="view" style="display:grid;gap:28px">
+  <div class="weekpick">
+    <span class="eyebrow" id="w-range">Resumen semanal</span>
+    <label class="small muted">Semana <select id="w-sel" aria-label="Elegir semana"></select></label>
+  </div>
+  <div id="w-body" style="display:grid;gap:28px">
+    <div style="display:grid;gap:12px"><h1>Cargando el resumen de la semana…</h1>
+    <p class="lede">Cada lunes aparece aquí un resumen nuevo con las noticias internacionales más importantes. Los conceptos marcados se explican al pulsarlos.</p></div>
+  </div>
+</section>
+
+<section id="v-glosario" class="view" hidden style="display:grid;gap:20px">
+  <div style="display:grid;gap:8px"><h1>Glosario</h1><p class="lede">Todos los conceptos que han salido en tus resúmenes, para repasarlos antes de una entrevista.</p></div>
+  <label><span class="eyebrow">Buscar</span><input id="g-q" type="search" placeholder="OPV, prima de control, euríbor…"></label>
+  <ul class="gl" id="g-list"><li class="empty">Cargando…</li></ul>
+</section>
+
+<section id="v-fuentes" class="view" hidden style="display:grid;gap:28px">
+  <div style="display:grid;gap:8px"><h1>Dónde informarte</h1><p class="lede">Ya lees El Mundo y Expansión: es una buena base. Añade una fuente internacional, una de startups y un podcast para los trayectos. No hace falta leerlo todo.</p></div>
+  <div class="box">
+    <h2>Fuentes</h2>
+    <ul class="src">
+      <li><span class="freq">Diario · 10 min</span><a href="https://www.expansion.com" target="_blank" rel="noopener"><b>Expansión</b></a><span class="small muted">Portada, Mercados y Empresas. Operaciones y nombramientos en España.</span></li>
+      <li><span class="freq">Diario · 5 min</span><a href="https://www.elmundo.es/economia.html" target="_blank" rel="noopener"><b>El Mundo · Economía</b></a><span class="small muted">Actualidad general y política, clave con las elecciones.</span></li>
+      <li><span class="freq">Diario · 5 min</span><a href="https://www.morningbrew.com" target="_blank" rel="noopener"><b>Morning Brew</b></a><span class="small muted">Newsletter gratuita en inglés: negocios y mercados de EE. UU. en 5 minutos.</span></li>
+      <li><span class="freq">3–4 por semana</span><a href="https://www.bloomberg.com/account/newsletters/money-stuff" target="_blank" rel="noopener"><b>Money Stuff (Matt Levine)</b></a><span class="small muted">Gratuita. La mejor explicación de banca, M&A y derecho de sociedades, y muy divertida. Imprescindible con tu doble grado.</span></li>
+      <li><span class="freq">Diario</span><a href="https://www.nytimes.com/section/business/dealbook" target="_blank" rel="noopener"><b>DealBook (NYT)</b></a><span class="small muted">Las grandes operaciones y los CEOs del día.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://www.economist.com" target="_blank" rel="noopener"><b>The Economist</b></a> · <a href="https://www.ft.com" target="_blank" rel="noopener"><b>Financial Times</b></a><span class="small muted">Contexto internacional. Pregunta en la UC3M si tienes acceso gratuito como estudiante.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://www.lesechos.fr" target="_blank" rel="noopener"><b>Les Echos</b></a><span class="small muted">Prensa económica francesa. Aprovecha tu francés.</span></li>
+      <li><span class="freq">Semanal</span><a href="https://sifted.eu" target="_blank" rel="noopener"><b>Sifted</b></a> · <a href="https://elreferente.es" target="_blank" rel="noopener"><b>El Referente</b></a><span class="small muted">Startups europeas y españolas: rondas, fundadores, quién contrata.</span></li>
+      <li><span class="freq">Podcast · diario</span><b>FT News Briefing</b> · <b>The Journal (WSJ)</b><span class="small muted">10–20 minutos con la noticia económica del día.</span></li>
+      <li><span class="freq">Podcast · semanal</span><b>Prof G Markets</b> · <a href="https://www.bloomberg.com/oddlots" target="_blank" rel="noopener"><b>Odd Lots</b></a> · <a href="https://www.acquired.fm" target="_blank" rel="noopener"><b>Acquired</b></a><span class="small muted">Mercados con opinión, economía explicada con calma e historias completas de grandes empresas.</span></li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>A quién seguir</h2>
+    <p class="small muted">En LinkedIn y en X. Elige 15–20 y añade más cuando un nombre te salga varias veces en el resumen.</p>
+    <div class="people">
+      <div><h3>España</h3><ul><li>Ana Botín · Santander</li><li>Carlos Torres Vila · BBVA</li><li>Gonzalo Gortázar · CaixaBank</li><li>Ignacio Sánchez Galán · Iberdrola</li><li>Óscar García Maceiras · Inditex</li><li>Marc Murtra · Telefónica</li></ul></div>
+      <div><h3>Global</h3><ul><li>Jensen Huang · Nvidia</li><li>Satya Nadella · Microsoft</li><li>Sam Altman · OpenAI</li><li>Dario Amodei · Anthropic</li><li>Jamie Dimon · J.P. Morgan</li><li>Larry Fink · BlackRock</li></ul></div>
+      <div><h3>Explican mercados</h3><ul><li>Matt Levine · Bloomberg</li><li>Aswath Damodaran · NYU</li><li>Scott Galloway · NYU</li><li>Ben Thompson · Stratechery</li><li>Kiko Llaneras · El País</li></ul></div>
+      <div><h3>Startups en España</h3><ul><li>Iñaki Arrola · Kfund</li><li>Carlos Blanco · Encomenda</li><li>Bernardo Hernández · inversor</li></ul></div>
+    </div>
+  </div>
+  <div class="box">
+    <h2>X (Twitter): úsalo como lector de noticias</h2>
+    <ul class="tips">
+      <li><b>Sí, descárgatelo.</b> Es donde antes aparecen las noticias de mercados y tecnología, y donde opinan CEOs, inversores y periodistas.</li>
+      <li><b>Crea dos o tres listas</b> (“Mercados”, “Tecnología”, “Startups”) y lee solo esas. La pestaña “Para ti” está pensada para engancharte.</li>
+      <li><b>Nada de cuentas de trading ni gurús</b> que prometen rentabilidades: son ruido, y a veces estafas.</li>
+      <li><b>10–15 minutos al día</b>, con límite de tiempo en el móvil. Lo que quieras leer con calma, a Marcadores.</li>
+    </ul>
+  </div>
+  <div class="box">
+    <h2>Ruta de seis semanas para entender los mercados</h2>
+    <ol class="weeks">
+      <li><b>Leer unas cuentas:</b> balance, cuenta de resultados y flujos de caja de Inditex. <a href="https://www.investopedia.com/terms/f/financial-statements.asp" target="_blank" rel="noopener">Investopedia</a></li>
+      <li><b>Valorar una empresa:</b> múltiplos (PER, EV/EBITDA) y la idea del DCF. <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener">Damodaran, gratis</a></li>
+      <li><b>Bolsa y tipos:</b> qué mueve el IBEX y el S&P 500, y qué deciden el BCE y la Fed.</li>
+      <li><b>M&A:</b> de la due diligence al cierre. Tu parte de Derecho es una ventaja. <a href="https://corporatefinanceinstitute.com/resources/valuation/mergers-acquisitions-ma-process/" target="_blank" rel="noopener">CFI</a></li>
+      <li><b>Startups y venture capital:</b> rondas, valoración y dilución.</li>
+      <li><b>Contarlo:</b> elige una operación y una empresa del resumen y explícalas en 60 segundos.</li>
+    </ol>
+  </div>
+</section>
+
+</div></main>
+
+<div class="card" id="card" role="dialog" aria-modal="false" aria-labelledby="c-t" hidden>
+  <button class="x" type="button" id="c-x" aria-label="Cerrar">×</button>
+  <span class="lbl">Concepto</span>
+  <h3 id="c-t"></h3>
+  <p id="c-e"></p>
+</div>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^https:\/\//.test(String(u||""))?String(u):"";
+const parseD=s=>/^\d{4}-\d{2}-\d{2}$/.test(String(s||""))?new Date(s+"T00:00:00"):null;
+const fmtD=s=>{const d=parseD(s);return d?d.toLocaleDateString("es-ES",{day:"2-digit",month:"short"}):esc(s)};
+const PRACTICAS="https://claude.ai/artifact/QiLtjBi3kir71LZGXGXBw8#empresas";
+
+let weeks=[];let sel="";let concepts={};
+
+/* text with {{término|id}} markers → escaped HTML with concept buttons */
+function rich(text){
+  const s=String(text||"");let out="";let last=0;const re=/\{\{([^|{}]+)\|([^{}]+)\}\}/g;let m;
+  while((m=re.exec(s))){out+=esc(s.slice(last,m.index));const id=m[2].trim();
+    out+=concepts[id]?`<button type="button" class="term" data-c="${esc(id)}" aria-expanded="false">${esc(m[1])}</button>`:esc(m[1]);last=re.lastIndex}
+  return out+esc(s.slice(last));
+}
+function link(f,cls){const u=safeUrl(f&&f[1]);return u?`<a class="${cls||""}" href="${esc(u)}" target="_blank" rel="noopener">${esc(f[0])}</a>`:""}
+
+function renderWeek(){
+  if(!weeks.length){$("#w-sel").innerHTML="";$("#w-body").innerHTML=`<div style="display:grid;gap:12px"><h1>Todavía no hay resúmenes</h1><p class="lede">Cada lunes aparecerá aquí uno nuevo.</p></div>`;return}
+  if(!sel||!weeks.some(w=>w.id===sel))sel=weeks[0].id;
+  $("#w-sel").innerHTML=weeks.map(w=>`<option value="${esc(w.id)}" ${w.id===sel?"selected":""}>${esc(w.rango||w.id)}</option>`).join("");
+  const b=weeks.find(w=>w.id===sel);
+  concepts={};(Array.isArray(b.conceptos)?b.conceptos:[]).forEach(c=>{if(c&&c.id)concepts[c.id]=c});
+  $("#w-range").textContent="Resumen semanal · "+(b.rango||"");
+  const stories=(Array.isArray(b.noticias)?b.noticias:[]).map(n=>{
+    const otras=(Array.isArray(n.otras)?n.otras:[]).map(f=>link(f)).filter(Boolean).join(" · ");
+    return `<li class="story"><div class="in">
+      <span class="cat">${esc(n.cat)}</span><h2>${esc(n.titulo)}</h2>
+      <p class="txt">${rich(n.texto)}</p>
+      ${n.clave?`<p class="key"><b>Para ti:</b> ${rich(n.clave)}</p>`:""}
+      <div class="read">${n.fuente&&safeUrl(n.fuente[1])?`<a class="main" href="${esc(n.fuente[1])}" target="_blank" rel="noopener">Leer el artículo · ${esc(n.fuente[0])} ↗</a>`:""}${otras?`<span class="more">Más: ${otras}</span>`:""}</div>
+    </div></li>`}).join("");
+  const st=(Array.isArray(b.startups)?b.startups:[]).map(n=>`<div style="display:grid;gap:8px">
+      <h3>${esc(n.titulo)}</h3><p>${rich(n.texto)}</p>
+      ${n.clave?`<p class="key"><b>Para tus prácticas:</b> ${rich(n.clave)}</p>`:""}
+      <div class="read">${n.fuente&&safeUrl(n.fuente[1])?`<a class="main" href="${esc(n.fuente[1])}" target="_blank" rel="noopener">Leer el artículo · ${esc(n.fuente[0])} ↗</a>`:""}</div></div>`).join("");
+  const ag=(Array.isArray(b.agenda)?b.agenda:[]).map(a=>`<li><span class="date">${fmtD(a[0])}</span><span>${rich(a[1])}</span></li>`).join("");
+  $("#w-body").innerHTML=`
+    <div style="display:grid;gap:14px"><h1>${esc(b.titular)}</h1><p class="lede">${rich(b.intro)}</p>
+      <p class="hint"><button type="button" class="term" tabindex="-1">Así</button> se marcan los conceptos: púlsalos y verás la explicación.</p></div>
+    <ol class="stories">${stories}</ol>
+    ${st?`<div class="box startup"><span class="eyebrow">Startups · conexión con tu búsqueda de prácticas</span>${st}<p class="small"><a href="${PRACTICAS}" target="_blank" rel="noopener">Abrir tu panel de prácticas ↗</a></p></div>`:""}
+    ${ag?`<div class="box"><h2>Agenda de los próximos días</h2><ul class="agenda">${ag}</ul></div>`:""}`;
+  closeCard();
+}
+
+/* concept card */
+let openBtn=null;
+function openCard(btn){
+  const c=concepts[btn.dataset.c];if(!c)return;
+  if(openBtn)openBtn.setAttribute("aria-expanded","false");
+  openBtn=btn;btn.setAttribute("aria-expanded","true");
+  $("#c-t").textContent=c.t;$("#c-e").textContent=c.e;$("#card").hidden=false;$("#c-x").focus({preventScroll:true});
+}
+function closeCard(){$("#card").hidden=true;if(openBtn){openBtn.setAttribute("aria-expanded","false");const b=openBtn;openBtn=null;if(document.activeElement===$("#c-x"))b.focus({preventScroll:true})}}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button.term[data-c]");if(t){if(openBtn===t)closeCard();else openCard(t);return}
+  if(!e.target.closest("#card"))closeCard();
+});
+$("#c-x").addEventListener("click",closeCard);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCard()});
+$("#w-sel").addEventListener("change",e=>{sel=e.target.value;renderWeek();window.scrollTo(0,0)});
+
+/* glossary */
+function renderGloss(){
+  const q=$("#g-q").value.trim().toLowerCase();const seen=new Map();
+  weeks.forEach(w=>(Array.isArray(w.conceptos)?w.conceptos:[]).forEach(c=>{if(c&&c.t){const k=c.t.toLowerCase();if(!seen.has(k))seen.set(k,{...c,from:w.rango||w.id})}}));
+  const list=[...seen.values()].filter(c=>!q||(c.t+" "+c.e).toLowerCase().includes(q)).sort((a,b)=>a.t.localeCompare(b.t,"es"));
+  $("#g-list").innerHTML=list.length?list.map(c=>`<li><h3>${esc(c.t)}</h3><p>${esc(c.e)}</p><span class="from">Resumen del ${esc(c.from)}</span></li>`).join(""):`<li class="empty">${weeks.length?"Ningún concepto coincide con la búsqueda.":"Todavía no hay conceptos."}</li>`;
+}
+$("#g-q").addEventListener("input",renderGloss);
+
+/* routing */
+const VIEWS=["semana","glosario","fuentes"];
+function route(){const h=(location.hash||"#semana").slice(1);const v=VIEWS.includes(h)?h:"semana";
+  VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
+  document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  closeCard();}
+window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});route();
+
+/* data */
+function noData(msg){$("#w-body").innerHTML=`<div style="display:grid;gap:12px"><h1>No se pueden cargar los resúmenes</h1><p class="lede">${esc(msg)}</p></div>`;$("#g-list").innerHTML=`<li class="empty">${esc(msg)}</li>`}
+const timer=setTimeout(()=>{if(!weeks.length)noData("Abre esta página en claude.ai con tu sesión iniciada.")},10000);
+(async()=>{try{
+  const db=window.claude&&window.claude.use?await window.claude.use("db"):null;
+  if(!db){clearTimeout(timer);noData("Abre esta página en claude.ai con tu sesión iniciada.");return}
+  db.collection("resumenes").onSnapshot(snap=>{clearTimeout(timer);
+    weeks=snap.docs.map(d=>({id:d.id,...d.data()})).sort((a,b)=>String(b.id).localeCompare(String(a.id)));
+    renderWeek();renderGloss();
+  },()=>{clearTimeout(timer);noData("Ha fallado la conexión. Recarga la página.")});
+}catch(e){clearTimeout(timer);noData("Ha fallado la conexión. Recarga la página.")}})();
+})();
+</script>
