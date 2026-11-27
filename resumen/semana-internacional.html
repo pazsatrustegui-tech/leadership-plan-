@@ -87,6 +87,33 @@ input[type=search]{font:inherit;width:100%;color:var(--ink);background:var(--pap
 .tips{gap:8px}
 .weeks{margin:0;padding-left:22px;display:grid;gap:8px;font-size:15px}
 .empty{color:var(--muted)}
+/* guides */
+.guide{display:grid;gap:30px}
+.guide h2{font-size:26px;scroll-margin-top:70px}
+.guide h3{font-size:19px;margin-top:6px}
+.guide section{display:grid;gap:12px;scroll-margin-top:70px}
+.guide p,.guide li{font-size:16px}
+.guide ul,.guide ol{margin:0;padding-left:22px;display:grid;gap:6px}
+.toc{display:grid;gap:4px;margin:0;padding-left:22px;font-size:15px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--paper)}
+.tw table{border-collapse:collapse;width:100%;min-width:520px;font-size:14.5px}
+.tw th{text-align:left;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line)}
+.tw td{padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tw tr:last-child td{border-bottom:0}
+.tw td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.tw tr.tot td{font-weight:600;background:var(--accent-soft)}
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center}
+.flow .node{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:grid;gap:4px;font-size:14px;min-width:0}
+.flow .node b{font-family:var(--serif);font-size:17px}
+.flow .node.gp{border-color:var(--accent);background:var(--accent-soft)}
+.flow .arr{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:center;display:grid;gap:2px}
+.flow .arr span{font-size:20px;color:var(--accent)}
+@media (max-width:640px){.flow{grid-template-columns:1fr}.flow .arr span{transform:rotate(90deg)}}
+.steps{counter-reset:st;list-style:none;padding:0!important;display:grid;gap:10px!important}
+.steps li{counter-increment:st;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.steps li::before{content:counter(st);font-family:var(--mono);font-size:13px;width:26px;height:26px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.callout{background:var(--warm-soft);border-radius:10px;padding:14px 16px;font-size:15px;display:grid;gap:6px}
+.callout b{color:var(--warm)}
 </style>
 
 <header class="top">
@@ -95,6 +122,7 @@ input[type=search]{font:inherit;width:100%;color:var(--ink);background:var(--pap
     <nav id="nav" aria-label="Secciones">
       <a href="#semana">Esta semana</a>
       <a href="#glosario">Glosario</a>
+      <a href="#guias">Guías</a>
       <a href="#fuentes">Fuentes</a>
     </nav>
   </div>
@@ -117,6 +145,250 @@ input[type=search]{font:inherit;width:100%;color:var(--ink);background:var(--pap
   <div style="display:grid;gap:8px"><h1>Glosario</h1><p class="lede">Todos los conceptos que han salido en tus resúmenes, para repasarlos antes de una entrevista.</p></div>
   <label><span class="eyebrow">Buscar</span><input id="g-q" type="search" placeholder="OPV, prima de control, euríbor…"></label>
   <ul class="gl" id="g-list"><li class="empty">Cargando…</li></ul>
+</section>
+
+<section id="v-guias" class="view" hidden>
+<article class="guide">
+  <div style="display:grid;gap:10px">
+    <span class="eyebrow">Guía · Mercados privados</span>
+    <h1>Cómo funcionan los fondos de inversión, y cómo gana dinero una firma como EQT</h1>
+    <p class="lede">De un fondo indexado a una compra apalancada de 5.000 millones: quién pone el dinero, quién decide, cómo se reparten los beneficios y dónde encaja alguien con Derecho y ADE.</p>
+  </div>
+  <ol class="toc">
+    <li><a href="#g-que">Qué es un fondo</a></li>
+    <li><a href="#g-tipos">Los dos grandes mundos: mercados cotizados y mercados privados</a></li>
+    <li><a href="#g-estructura">La estructura de un fondo de private equity: GP y LPs</a></li>
+    <li><a href="#g-vida">La vida de un fondo, año a año</a></li>
+    <li><a href="#g-deal">Cómo se compra una empresa, paso a paso</a></li>
+    <li><a href="#g-lbo">La compra apalancada (LBO) con números</a></li>
+    <li><a href="#g-dinero">Cómo gana dinero la gestora: comisiones y carried interest</a></li>
+    <li><a href="#g-metricas">Cómo se mide si un fondo lo hace bien</a></li>
+    <li><a href="#g-otros">Venture capital, infraestructuras, deuda privada y secundarios</a></li>
+    <li><a href="#g-eqt">El negocio de EQT, Blackstone o KKR como empresas</a></li>
+    <li><a href="#g-quien">Quién es quién, en el mundo y en España</a></li>
+    <li><a href="#g-legal">La parte jurídica: dónde entra el Derecho</a></li>
+    <li><a href="#g-trabajo">Puestos y puertas de entrada para tu perfil</a></li>
+    <li><a href="#g-entrevista">Para la entrevista: cinco preguntas típicas</a></li>
+  </ol>
+
+  <section id="g-que">
+    <h2>1. Qué es un fondo</h2>
+    <p>Un fondo es una <b>bolsa común de dinero</b> que aportan muchos inversores y que un equipo profesional, la <b>gestora</b>, invierte siguiendo unas reglas pactadas de antemano. Cada inversor es dueño de una parte proporcional del fondo, y gana o pierde según lo que ganen o pierdan las inversiones.</p>
+    <p>La idea es simple: juntos se consiguen cosas que uno solo no podría. Diversificar entre cientos de acciones, comprar una empresa entera o construir una autopista requiere mucho dinero y un equipo especializado. La gestora pone el conocimiento; los inversores, el capital; y la gestora cobra por su trabajo.</p>
+  </section>
+
+  <section id="g-tipos">
+    <h2>2. Los dos grandes mundos</h2>
+    <div class="tw"><table>
+      <thead><tr><th></th><th>Mercados cotizados (fondos “tradicionales”)</th><th>Mercados privados (EQT, KKR, Blackstone)</th></tr></thead>
+      <tbody>
+        <tr><td><b>En qué invierten</b></td><td>Acciones y bonos que cotizan en bolsa</td><td>Empresas no cotizadas, infraestructuras, inmuebles, préstamos privados</td></tr>
+        <tr><td><b>Ejemplos</b></td><td>Fondos indexados, ETF, fondos de bolsa española, gestoras value como azValor, Cobas o Magallanes</td><td>Private equity, venture capital, infraestructuras, inmobiliario, deuda privada</td></tr>
+        <tr><td><b>Liquidez</b></td><td>Entras y sales cuando quieras (normalmente a diario)</td><td>El dinero queda comprometido unos 10 años</td></tr>
+        <tr><td><b>Quién invierte</b></td><td>Cualquier ahorrador, desde 10 €</td><td>Sobre todo grandes inversores institucionales y grandes patrimonios</td></tr>
+        <tr><td><b>Cómo influyen</b></td><td>Compran una pequeña parte; no mandan en la empresa</td><td>Suelen comprar el control y cambian la empresa desde dentro</td></tr>
+        <tr><td><b>Comisiones típicas</b></td><td>0,1–0,5% al año (indexados) y 1–2% (gestión activa)</td><td>1,5–2% al año más un 20% de los beneficios (“2 y 20”)</td></tr>
+        <tr><td><b>Supervisor en España</b></td><td>CNMV (Ley de Instituciones de Inversión Colectiva)</td><td>CNMV (Ley de Entidades de Capital-Riesgo) y la directiva europea de gestores alternativos (AIFMD)</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Dentro de los fondos cotizados</h3>
+    <ul>
+      <li><b>Gestión pasiva (indexados y ETF):</b> copian un índice como el S&P 500 o el IBEX. Son baratos y, a largo plazo, baten a la mayoría de los gestores activos.</li>
+      <li><b>Gestión activa:</b> un equipo elige qué comprar intentando batir al índice. Las gestoras <i>value</i> (inversión en valor) buscan empresas que cotizan por debajo de lo que creen que valen y esperan años a que el mercado lo reconozca.</li>
+      <li><b>Valor liquidativo:</b> el precio de cada participación. Se calcula cada día dividiendo el valor de todo lo que tiene el fondo entre el número de participaciones.</li>
+    </ul>
+    <p>El resto de esta guía trata de los <b>mercados privados</b>, que es donde están EQT, KKR o Kfund.</p>
+  </section>
+
+  <section id="g-estructura">
+    <h2>3. La estructura: GP y LPs</h2>
+    <p>Un fondo de private equity es, jurídicamente, una sociedad (en el mundo anglosajón, una <i>limited partnership</i>; en España, un Fondo o una Sociedad de Capital-Riesgo) con dos tipos de socios:</p>
+    <div class="flow" role="img" aria-label="Los inversores comprometen capital en el fondo, que gestiona el GP; el fondo invierte en empresas y devuelve el dinero a los inversores al vender.">
+      <div class="node"><b>LPs · los inversores</b><span>Fondos de pensiones, fondos soberanos, aseguradoras, family offices, grandes patrimonios</span></div>
+      <div class="arr"><span>→</span>comprometen capital</div>
+      <div class="node gp"><b>El fondo · gestionado por el GP</b><span>EQT, KKR o Kfund deciden qué comprar, cuándo y cuándo vender. Cobran comisiones y carry.</span></div>
+      <div class="arr"><span>→</span>invierte</div>
+      <div class="node"><b>Empresas en cartera</b><span>8–15 empresas compradas: por ejemplo, Urbaser o Universidad Europea en el caso de EQT</span></div>
+    </div>
+    <ul>
+      <li><b>LP (limited partner, socio comanditario):</b> pone casi todo el dinero, pero no decide en qué se invierte. Su responsabilidad se limita a lo que aportó.</li>
+      <li><b>GP (general partner, socio gestor):</b> es la gestora. Decide todo y suele poner de su bolsillo un 1–5% del fondo, para que sus intereses estén alineados con los de los LPs (lo llaman <i>skin in the game</i>).</li>
+      <li><b>El LPA (Limited Partnership Agreement):</b> el contrato que lo regula todo: duración, comisiones, reparto de beneficios, qué puede y no puede comprar el fondo, qué pasa si se va un socio clave… Es un documento jurídico de cientos de páginas, y lo negocian abogados especializados.</li>
+    </ul>
+  </section>
+
+  <section id="g-vida">
+    <h2>4. La vida de un fondo, año a año</h2>
+    <ol class="steps">
+      <li><span><b>Captación (fundraising), 1–2 años.</b> La gestora presenta el fondo a inversores y estos firman <b>compromisos</b>: “me comprometo a poner 100 millones cuando me los pidas”. No transfieren el dinero todavía. Los fondos se numeran: EQT X, EQT XI… El año en que empieza a invertir es su <i>vintage</i> (añada, como en el vino).</span></li>
+      <li><span><b>Periodo de inversión, años 1–5.</b> Cada vez que el fondo compra una empresa, pide a los LPs su parte del dinero comprometido: es una <b>llamada de capital</b> (<i>capital call</i>). El dinero comprometido y aún no invertido se llama <b>dry powder</b> (“pólvora seca”).</span></li>
+      <li><span><b>Creación de valor, años 2–8.</b> El fondo mejora las empresas: nuevos directivos, expansión internacional, compras de competidores más pequeños (<i>buy-and-build</i>), digitalización, eficiencia.</span></li>
+      <li><span><b>Desinversión, años 4–10.</b> Vende las empresas y reparte el dinero a los LPs: son las <b>distribuciones</b>.</span></li>
+      <li><span><b>Liquidación, año 10 (más 1–2 de prórroga).</b> El fondo se cierra. Normalmente, antes de terminar, la gestora ya está captando el siguiente.</span></li>
+    </ol>
+    <div class="callout"><b>Por qué el dinero se pide poco a poco.</b><span>Si los LPs entregaran todo el dinero el primer día, estaría parado mientras se encuentran empresas y la rentabilidad caería. Pidiéndolo solo cuando hace falta, el dinero trabaja todo el tiempo que está en el fondo.</span></div>
+  </section>
+
+  <section id="g-deal">
+    <h2>5. Cómo se compra una empresa, paso a paso</h2>
+    <ol class="steps">
+      <li><span><b>Búsqueda de oportunidades (sourcing).</b> El equipo analiza sectores, habla con directivos y recibe propuestas de bancos de inversión que venden empresas. Un fondo grande estudia cientos de oportunidades al año para comprar unas pocas.</span></li>
+      <li><span><b>Primer análisis y oferta no vinculante.</b> Con información limitada (un cuaderno de venta preparado por el banco del vendedor), el fondo estima el valor y presenta una oferta orientativa. Muchas ventas son <b>subastas</b> entre varios fondos.</span></li>
+      <li><span><b>Due diligence.</b> Revisión a fondo de la empresa con asesores externos: financiera y fiscal (Big4), jurídica (despachos), comercial y de mercado (consultoras), sostenibilidad, tecnología, seguros. Aquí trabajan muchas de las empresas de tu lista.</span></li>
+      <li><span><b>Financiación.</b> El fondo negocia con bancos o fondos de deuda el préstamo que usará para pagar parte del precio (ver la sección 6).</span></li>
+      <li><span><b>Oferta vinculante y negociación del contrato.</b> El contrato de compraventa (<b>SPA</b>) fija precio, garantías del vendedor, indemnizaciones y condiciones. Si entra con otros socios, como EQT y Blackstone en Urbaser, firman también un <b>pacto de socios</b>.</span></li>
+      <li><span><b>Autorizaciones y cierre.</b> Competencia (CNMC o Comisión Europea), control de inversiones extranjeras si el sector es estratégico, y firma ante notario. Se paga y el fondo pasa a mandar.</span></li>
+      <li><span><b>Plan de los 100 días y gestión.</b> El fondo entra en el consejo de administración, fija objetivos, a veces cambia al equipo directivo y le da acciones para alinear incentivos.</span></li>
+      <li><span><b>Salida, a los 3–7 años.</b> Tres caminos: vender a una empresa del sector (comprador industrial), vender a otro fondo (<i>secondary buyout</i>) o sacar la empresa a bolsa (OPV).</span></li>
+    </ol>
+  </section>
+
+  <section id="g-lbo">
+    <h2>6. La compra apalancada (LBO), con números</h2>
+    <p>Un <b>LBO</b> (<i>leveraged buyout</i>) es comprar una empresa pagando una parte con dinero del fondo y el resto con deuda que, después, <b>devuelve la propia empresa con sus beneficios</b>. Es como comprar un piso de alquiler con hipoteca: el alquiler paga la hipoteca y, al venderlo, todo lo ganado es tuyo.</p>
+    <p>Ejemplo simplificado: una empresa con un <b>EBITDA</b> (beneficio operativo antes de intereses, impuestos y amortizaciones) de 100 millones, que se compra a <b>10 veces EBITDA</b> y se vende 5 años después.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Concepto</th><th>Al comprar (año 0)</th><th>Al vender (año 5)</th></tr></thead>
+      <tbody>
+        <tr><td>EBITDA</td><td class="n">100 M€</td><td class="n">150 M€</td></tr>
+        <tr><td>Múltiplo (veces EBITDA)</td><td class="n">10x</td><td class="n">10x</td></tr>
+        <tr><td>Valor de la empresa</td><td class="n">1.000 M€</td><td class="n">1.500 M€</td></tr>
+        <tr><td>Deuda</td><td class="n">500 M€</td><td class="n">300 M€</td></tr>
+        <tr class="tot"><td>Dinero del fondo (equity)</td><td class="n">500 M€</td><td class="n">1.200 M€</td></tr>
+      </tbody>
+    </table></div>
+    <p>El fondo puso 500 y recupera 1.200: <b>2,4 veces su dinero</b> en 5 años, una rentabilidad anual (TIR) de alrededor del <b>19%</b>. Sin deuda, habría puesto 1.000 para recuperar 1.500: solo 1,5 veces. La deuda multiplica la ganancia… y también la pérdida si las cosas van mal.</p>
+    <h3>Las tres palancas del valor</h3>
+    <ul>
+      <li><b>Crecimiento del EBITDA:</b> vender más, ser más eficiente, comprar competidores. Es la palanca “sana” y la que más pesa hoy.</li>
+      <li><b>Expansión del múltiplo:</b> vender a más veces EBITDA de las que se pagó, porque la empresa es más grande, más profesional o el mercado está más alcista.</li>
+      <li><b>Desapalancamiento:</b> la empresa usa su caja para devolver deuda, y cada euro devuelto pasa a ser del fondo.</li>
+    </ul>
+    <div class="callout"><b>Por qué importan los tipos de interés.</b><span>Con tipos altos, la deuda es más cara, los compradores pagan múltiplos más bajos y las salidas se retrasan. Por eso en las noticias verás que las subidas de tipos frenan el M&A y el private equity.</span></div>
+  </section>
+
+  <section id="g-dinero">
+    <h2>7. Cómo gana dinero la gestora: “2 y 20”</h2>
+    <ul>
+      <li><b>Comisión de gestión (management fee):</b> alrededor del <b>1,5–2% al año</b> sobre el dinero comprometido durante el periodo de inversión, y después sobre lo invertido. En los fondos muy grandes suele ser menor. Paga sueldos, oficinas y análisis. Es un ingreso <b>estable y predecible</b>.</li>
+      <li><b>Carried interest (carry):</b> normalmente el <b>20% de los beneficios</b>, pero solo si los LPs han ganado antes una rentabilidad mínima, el <b>hurdle</b> o retorno preferente, que suele ser del <b>8% anual</b>. Es la parte variable y la gran fuente de riqueza de los socios de un fondo.</li>
+    </ul>
+    <h3>El reparto (waterfall), simplificado</h3>
+    <p>Un fondo de 1.000 millones que, al final de su vida, ha devuelto 2.000 millones:</p>
+    <div class="tw"><table>
+      <thead><tr><th>Paso</th><th>Quién cobra</th><th>Importe</th></tr></thead>
+      <tbody>
+        <tr><td>1. Devolución del capital</td><td>LPs</td><td class="n">1.000 M€</td></tr>
+        <tr><td>2. Retorno preferente (8% anual)</td><td>LPs</td><td class="n">primero</td></tr>
+        <tr><td>3. Catch-up: el GP se pone al día hasta tener su 20%</td><td>GP</td><td class="n">después</td></tr>
+        <tr><td>4. Resto del beneficio, 80/20</td><td>LPs / GP</td><td class="n">80% / 20%</td></tr>
+        <tr class="tot"><td>Resultado sobre 1.000 M€ de beneficio</td><td>LPs 800 · GP 200</td><td class="n">2.000 M€</td></tr>
+      </tbody>
+    </table></div>
+    <p>El orden importa: los inversores siempre cobran antes. Ese orden, y los detalles (¿se calcula fondo a fondo o operación a operación?, ¿qué pasa si una inversión buena va seguida de una mala?), se pactan en el LPA y son un trabajo jurídico muy especializado.</p>
+  </section>
+
+  <section id="g-metricas">
+    <h2>8. Cómo se mide si un fondo lo hace bien</h2>
+    <ul>
+      <li><b>TIR (IRR):</b> la rentabilidad anual media, teniendo en cuenta cuándo entra y sale cada euro. Un buen fondo de private equity busca una TIR neta del 15–20% o más.</li>
+      <li><b>MOIC o TVPI:</b> cuántas veces se multiplica el dinero. 2x significa que por cada euro invertido se devuelven dos.</li>
+      <li><b>DPI:</b> la parte de ese múltiplo que ya se ha devuelto <i>en efectivo</i>. A los LPs les importa mucho: lo que no se ha vendido es solo una valoración.</li>
+      <li><b>Cuartiles:</b> los fondos se comparan con otros de la misma añada. Estar en el “primer cuartil” (el 25% mejor) es lo que permite captar el siguiente fondo con facilidad.</li>
+    </ul>
+    <div class="callout"><b>TIR y múltiplo cuentan cosas distintas.</b><span>Duplicar el dinero en 2 años da una TIR del 41%; en 10 años, solo del 7%. Por eso se miran siempre las dos.</span></div>
+  </section>
+
+  <section id="g-otros">
+    <h2>9. Otras estrategias de los mercados privados</h2>
+    <h3>Venture capital (Kfund, Seaya, EQT Ventures)</h3>
+    <p>Invierte en startups jóvenes con participaciones minoritarias, sin deuda. La lógica es la de la <b>ley de potencias</b>: la mayoría de inversiones no devuelven el dinero, y una o dos que se multiplican por 50 o 100 pagan todo el fondo. Por eso solo invierten en empresas que podrían llegar a ser enormes. Se invierte por rondas (pre-seed, seed, Serie A, B…), con documentos como la term sheet y el pacto de socios.</p>
+    <h3>Growth equity</h3>
+    <p>A medio camino: empresas que ya ganan dinero y crecen rápido. Participación minoritaria o de control y poca deuda.</p>
+    <h3>Infraestructuras (EQT Infrastructure, Brookfield)</h3>
+    <p>Activos esenciales con ingresos muy estables y contratos a largo plazo: gestión de residuos (Urbaser), energía, fibra óptica, centros de datos, puertos. Rentabilidades más bajas (8–12%) pero más seguras, y fondos que pueden durar 15 años o más. El auge de la IA ha disparado la inversión en centros de datos y energía.</p>
+    <h3>Inmobiliario</h3>
+    <p>Comprar, reformar o desarrollar edificios: logística, oficinas, viviendas de alquiler, residencias de estudiantes.</p>
+    <h3>Deuda privada (private credit)</h3>
+    <p>Fondos que prestan directamente a empresas en lugar de los bancos, a menudo para financiar LBOs. Es una de las estrategias que más crece.</p>
+    <h3>Secundarios (Coller Capital, que compró EQT)</h3>
+    <p>Compran a un LP su participación en un fondo antes de que termine, normalmente con descuento, porque ese LP necesita liquidez. También existen los <b>fondos de continuación</b>: el GP crea un vehículo nuevo para quedarse más tiempo con una empresa que va muy bien, y ofrece a los LPs vender o quedarse.</p>
+    <h3>Fondos evergreen</h3>
+    <p>Fondos sin fecha de fin, abiertos a grandes patrimonios privados, con entradas y salidas periódicas. Es como las gestoras están llegando a inversores particulares adinerados, y uno de los motores de crecimiento de EQT, Blackstone o KKR.</p>
+  </section>
+
+  <section id="g-eqt">
+    <h2>10. El negocio de EQT, Blackstone o KKR como empresas</h2>
+    <p>Hay que distinguir entre los <b>fondos</b> que gestionan y la <b>gestora</b> como empresa. EQT, Blackstone o KKR <b>cotizan en bolsa</b>: puedes comprar acciones de la gestora, no de sus fondos.</p>
+    <ul>
+      <li><b>AUM (activos bajo gestión):</b> todo lo que gestionan. EQT: 354.000 M€ en octubre de 2026.</li>
+      <li><b>FAUM (activos que generan comisiones):</b> la parte sobre la que cobran comisión de gestión. EQT: 195.000 M€. Es lo que más mira la bolsa, porque da ingresos estables.</li>
+      <li><b>Ingresos por comisiones:</b> predecibles, y los que más valoran los accionistas.</li>
+      <li><b>Ingresos por carry:</b> grandes, pero irregulares; dependen de vender bien.</li>
+    </ul>
+    <p><b>Su estrategia</b> es crecer en FAUM: captar fondos más grandes, abrir nuevas estrategias (infraestructuras, deuda privada, secundarios), comprar otras gestoras (EQT con Coller Capital) y atraer el dinero de grandes patrimonios con los fondos evergreen. Su margen es muy alto: EQT tuvo un margen EBITDA ajustado del 60% en el primer semestre de 2026.</p>
+  </section>
+
+  <section id="g-quien">
+    <h2>11. Quién es quién</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Tipo</th><th>Globales</th><th>En España</th></tr></thead>
+      <tbody>
+        <tr><td><b>Private equity (grandes)</b></td><td>Blackstone, KKR, EQT, CVC, Carlyle, Apollo, Permira, Cinven, Ardian</td><td>Todos tienen oficina en Madrid o invierten aquí</td></tr>
+        <tr><td><b>Private equity (mid-market español)</b></td><td>—</td><td>Portobello, MCH, Nazca, Miura, ProA, Magnum, Queka, Suma Capital</td></tr>
+        <tr><td><b>Infraestructuras</b></td><td>Brookfield, EQT Infrastructure, Macquarie, KKR Infra</td><td>Muy activos en energía, residuos y telecomunicaciones</td></tr>
+        <tr><td><b>Venture capital</b></td><td>Sequoia, a16z, Accel, Index</td><td>Kfund, Seaya, Samaipata, JME, Nauta, Adara</td></tr>
+        <tr><td><b>Gestoras cotizadas (value)</b></td><td>—</td><td>azValor, Cobas, Magallanes, Bestinver</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section id="g-legal">
+    <h2>12. La parte jurídica: dónde entra el Derecho</h2>
+    <p>Los fondos son, en gran parte, <b>contratos y estructuras jurídicas</b>. Por eso los despachos tienen equipos enteros dedicados a ellos:</p>
+    <ul>
+      <li><b>Fund formation (estructuración de fondos):</b> crear el fondo, redactar el LPA y el folleto, negociar con los LPs sus condiciones particulares (<i>side letters</i>) y registrarlo ante la CNMV.</li>
+      <li><b>Transacciones:</b> due diligence legal, SPA, pacto de socios, financiación, cierre ante notario. Es justo lo que tocaste en PKF.</li>
+      <li><b>Regulación:</b> la directiva europea de gestores alternativos (AIFMD), la Ley 22/2014 de capital-riesgo en España, las normas de sostenibilidad (SFDR) y el control de inversiones extranjeras.</li>
+      <li><b>Fiscal:</b> cómo tributan el fondo, los LPs y el carry. En España, el carried interest tiene un régimen fiscal específico desde 2023 (Ley de Startups).</li>
+      <li><b>Compliance:</b> prevención de blanqueo, conflictos de interés, conocer al inversor (KYC).</li>
+    </ul>
+    <div class="callout"><b>Tu ventaja.</b><span>La mayoría de candidatos a un fondo son de ADE o ingeniería y no entienden el lado jurídico de una operación. Tú puedes hablar de un SPA, una ampliación de capital o un pacto de socios con conocimiento de causa, y además leer unas cuentas.</span></div>
+  </section>
+
+  <section id="g-trabajo">
+    <h2>13. Puestos y puertas de entrada para tu perfil</h2>
+    <h3>Dentro de una gestora</h3>
+    <ul>
+      <li><b>Equipo de inversión:</b> analista → asociado → vicepresidente → director → socio. Es lo más competitivo: piden modelización financiera y, a menudo, experiencia previa en banca de inversión o Big4.</li>
+      <li><b>Legal y compliance interno:</b> encaja directamente con tu doble grado.</li>
+      <li><b>Relación con inversores y captación:</b> trato con LPs, preparación de informes y presentaciones. Los idiomas cuentan mucho.</li>
+      <li><b>Operaciones y creación de valor:</b> trabajan con las empresas compradas.</li>
+      <li><b>Finanzas del fondo y valoraciones:</b> contabilidad del fondo, cálculo del valor de las participadas.</li>
+      <li><b>Sostenibilidad (ESG).</b></li>
+    </ul>
+    <h3>Alrededor de los fondos (la vía más habitual para empezar)</h3>
+    <ul>
+      <li><b>Despachos:</b> equipos de private equity y fund formation (Cuatrecasas, Garrigues, Uría, Pérez-Llorca, ECIJA y los internacionales).</li>
+      <li><b>Big4:</b> transaction services (due diligence financiera), fiscal de operaciones, valoraciones.</li>
+      <li><b>Banca de inversión y boutiques de M&A:</b> venden empresas a los fondos (Alantra, AZ Capital, Rothschild).</li>
+      <li><b>Empresas en cartera:</b> unas prácticas en Urbaser o Universidad Europea te ponen en contacto con EQT desde dentro.</li>
+    </ul>
+    <p>Un camino muy habitual: empezar en un despacho, una Big4 o un banco de inversión y pasar a un fondo después de 2–3 años. Tus prácticas en despachos te sirven para entrar en este mundo.</p>
+  </section>
+
+  <section id="g-entrevista">
+    <h2>14. Para la entrevista: cinco preguntas típicas</h2>
+    <ol class="steps">
+      <li><span><b>“¿Qué es un LBO y de dónde sale la rentabilidad?”</b> Compra con deuda que paga la propia empresa. Tres palancas: crecimiento del EBITDA, expansión del múltiplo y reducción de deuda.</span></li>
+      <li><span><b>“¿Qué hace que una empresa sea buena para un fondo?”</b> Flujos de caja estables y predecibles (para pagar la deuda), posición fuerte en su mercado, posibilidad de crecer o de comprar competidores y un buen equipo directivo.</span></li>
+      <li><span><b>“¿Cómo gana dinero un fondo?”</b> Comisión de gestión (en torno al 2%) y carried interest (20% de los beneficios por encima de un retorno mínimo del 8%).</span></li>
+      <li><span><b>“Háblame de una operación reciente.”</b> Urbaser: EQT y Blackstone la compran al 50% a Platinum Equity por unos 5.600–5.800 M€. Es infraestructura con ingresos estables, en España, Francia y Portugal, con un plan de crecimiento por compras.</span></li>
+      <li><span><b>“¿Cómo afectan los tipos de interés al sector?”</b> Encarecen la deuda, bajan los múltiplos que se pagan, retrasan las ventas y hacen más atractiva la deuda privada.</span></li>
+    </ol>
+    <p class="small muted">Los porcentajes de comisiones, plazos y rentabilidades son rangos habituales del sector; cada fondo pacta los suyos. Los datos de EQT y Urbaser vienen de los resultados de EQT de 2026 y de la prensa citada en tu resumen sobre EQT.</p>
+  </section>
+</article>
 </section>
 
 <section id="v-fuentes" class="view" hidden style="display:grid;gap:28px">
@@ -254,12 +526,12 @@ function renderGloss(){
 $("#g-q").addEventListener("input",renderGloss);
 
 /* routing */
-const VIEWS=["semana","glosario","fuentes"];
-function route(){const h=(location.hash||"#semana").slice(1);const v=VIEWS.includes(h)?h:"semana";
+const VIEWS=["semana","glosario","guias","fuentes"];
+function route(){let h=(location.hash||"#semana").slice(1);if(/^g-/.test(h)){const t=document.getElementById(h);VIEWS.forEach(x=>{$("#v-"+x).hidden=x!=="guias"});document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#guias")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});if(t)t.scrollIntoView();return}const v=VIEWS.includes(h)?h:"semana";
   VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
   document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   closeCard();}
-window.addEventListener("hashchange",()=>{route();window.scrollTo(0,0)});route();
+window.addEventListener("hashchange",()=>{route();if(!/^#g-/.test(location.hash))window.scrollTo(0,0)});route();
 
 /* data */
 function noData(msg){$("#w-body").innerHTML=`<div style="display:grid;gap:12px"><h1>No se pueden cargar los resúmenes</h1><p class="lede">${esc(msg)}</p></div>`;$("#g-list").innerHTML=`<li class="empty">${esc(msg)}</li>`}
