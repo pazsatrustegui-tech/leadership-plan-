@@ -147,10 +147,280 @@ input[type=search]{font:inherit;width:100%;color:var(--ink);background:var(--pap
   <ul class="gl" id="g-list"><li class="empty">Cargando…</li></ul>
 </section>
 
-<section id="v-guias" class="view" hidden>
-<article class="guide">
+<section id="v-guias" class="view" hidden style="display:grid;gap:48px">
+<div class="box" role="navigation" aria-label="Guías disponibles" style="gap:10px">
+  <span class="eyebrow">Guías</span>
+  <ol class="toc" style="font-size:16px">
+    <li><a href="#b-inicio"><b>El mapa del dinero, desde la base</b></a> <span class="muted small">· empieza por aquí</span></li>
+    <li><a href="#g-inicio"><b>Cómo funcionan los fondos y las firmas como EQT</b></a> <span class="muted small">· para profundizar</span></li>
+  </ol>
+</div>
+
+<article class="guide" id="b-inicio" style="scroll-margin-top:70px">
   <div style="display:grid;gap:10px">
-    <span class="eyebrow">Guía · Mercados privados</span>
+    <span class="eyebrow">Guía 1 · Desde la base</span>
+    <h1>El mapa del dinero: empresas, bolsa, bancos y fondos explicados desde la raíz</h1>
+    <p class="lede">Para entender cualquier noticia económica basta con saber responder a tres preguntas: quién tiene el dinero, quién lo necesita y quién los pone en contacto. Esta guía construye todo lo demás sobre esa idea, paso a paso.</p>
+  </div>
+  <ol class="toc">
+    <li><a href="#b-raiz">La raíz: quien tiene dinero y quien lo necesita</a></li>
+    <li><a href="#b-deuda">Las dos formas de financiarse: deuda o capital</a></li>
+    <li><a href="#b-empresa">Qué es jurídicamente una empresa</a></li>
+    <li><a href="#b-bolsa">Empresas cotizadas y no cotizadas: qué implica salir a bolsa</a></li>
+    <li><a href="#b-mapa">El mapa completo de jugadores</a></li>
+    <li><a href="#b-fondos">Todos los tipos de fondos en una tabla</a></li>
+    <li><a href="#b-quien">Quién invierte en qué, y por qué</a></li>
+    <li><a href="#b-tx">Cómo se relacionan entre sí: seis operaciones típicas</a></li>
+    <li><a href="#b-ley">La base legal: las normas detrás de cada cosa</a></li>
+    <li><a href="#b-noticia">Cómo leer una noticia, frase a frase</a></li>
+    <li><a href="#b-dicc">Diccionario de periódico</a></li>
+    <li><a href="#b-refs">Para seguir aprendiendo: libros, podcasts y webs</a></li>
+  </ol>
+
+  <section id="b-raiz">
+    <h2>1. La raíz: quien tiene dinero y quien lo necesita</h2>
+    <p>Toda la economía financiera se reduce a esto: <b>hay gente con dinero que no necesita ahora</b> (ahorradores) y <b>gente que necesita dinero que no tiene</b> (empresas que quieren crecer, Estados que gastan más de lo que ingresan, familias que compran casa).</p>
+    <p>El sistema financiero es el conjunto de <b>intermediarios</b> que conectan a unos con otros: bancos, bolsas, gestoras de fondos… Cada uno lo hace de una forma distinta, con un riesgo distinto y cobrando a su manera. Cuando leas una noticia, pregúntate siempre: <b>¿quién pone el dinero, quién lo recibe y quién cobra por conectarlos?</b></p>
+    <div class="callout"><b>Ejemplo para todo el resto de la guía.</b><span>Imagina una panadería, “Pan de Paz SL”, que quiere abrir diez tiendas nuevas y necesita 1 millón de euros. Iremos viendo de dónde podría sacarlo y qué cambia en cada caso.</span></div>
+  </section>
+
+  <section id="b-deuda">
+    <h2>2. Las dos formas de financiarse: deuda o capital</h2>
+    <p>Cualquier empresa que necesita dinero solo tiene dos opciones. Todo lo demás son variaciones de estas dos.</p>
+    <div class="tw"><table>
+      <thead><tr><th></th><th>Deuda (pedir prestado)</th><th>Capital (vender una parte de la empresa)</th></tr></thead>
+      <tbody>
+        <tr><td><b>Qué es</b></td><td>Un préstamo que hay que devolver con intereses</td><td>Entra un nuevo socio que se queda con un porcentaje de la empresa</td></tr>
+        <tr><td><b>Formas</b></td><td>Préstamo de un banco o <b>bono</b> (la empresa “trocea” el préstamo y lo vende a muchos inversores)</td><td><b>Acciones</b> (en una SA) o <b>participaciones</b> (en una SL)</td></tr>
+        <tr><td><b>Qué gana quien pone el dinero</b></td><td>Un interés fijo, pase lo que pase con el negocio</td><td>Una parte de los beneficios (<b>dividendos</b>) y del valor de la empresa si crece</td></tr>
+        <tr><td><b>Riesgo para quien pone el dinero</b></td><td>Menor: si la empresa quiebra, cobra antes que los socios</td><td>Mayor: si la empresa quiebra, puede perderlo todo</td></tr>
+        <tr><td><b>Para la empresa</b></td><td>No pierde control, pero tiene una obligación de pago</td><td>No tiene que devolverlo, pero cede propiedad y parte del control</td></tr>
+        <tr><td><b>Pan de Paz SL</b></td><td>Pide 1 M€ al banco al 5%: paga 50.000 € al año de intereses</td><td>Un inversor pone 1 M€ y se queda con el 25% de la panadería</td></tr>
+      </tbody>
+    </table></div>
+    <p>El <b>balance</b> de una empresa refleja exactamente esto: todo lo que tiene (<b>activo</b>: hornos, locales, caja) se ha pagado o con deuda (<b>pasivo</b>) o con dinero de los socios (<b>patrimonio neto</b>). Activo = deuda + patrimonio neto. Siempre.</p>
+    <p>Usar mucha deuda en relación con el capital se llama <b>apalancamiento</b>: multiplica la ganancia si el negocio va bien y la pérdida si va mal.</p>
+  </section>
+
+  <section id="b-empresa">
+    <h2>3. Qué es jurídicamente una empresa</h2>
+    <p>Casi todas las empresas son <b>sociedades de capital</b>: una persona jurídica distinta de sus dueños, con su propio patrimonio. Por eso, si la panadería quiebra, los socios pierden lo que pusieron, pero no su casa. Es la <b>responsabilidad limitada</b>.</p>
+    <ul>
+      <li><b>Sociedad Limitada (SL):</b> la mayoría de empresas españolas. Capital dividido en <b>participaciones</b>, que no se pueden vender libremente a cualquiera. Ideal para empresas familiares y startups. No puede cotizar en bolsa.</li>
+      <li><b>Sociedad Anónima (SA):</b> capital dividido en <b>acciones</b>, que se pueden transmitir con libertad. Es la forma de las grandes empresas y <b>la única que puede cotizar en bolsa</b>.</li>
+    </ul>
+    <h3>Los órganos de una sociedad</h3>
+    <ul>
+      <li><b>Junta General de socios o accionistas:</b> los dueños. Votan en proporción a lo que tienen: cuentas anuales, dividendos, nombramiento de consejeros, ampliaciones de capital, fusiones.</li>
+      <li><b>Consejo de administración (o administradores):</b> elegido por la junta. Dirige y supervisa la empresa y nombra al consejero delegado (CEO).</li>
+      <li><b>Equipo directivo:</b> el CEO y su equipo gestionan el día a día.</li>
+    </ul>
+    <h3>Cómo entra un socio nuevo: la ampliación de capital</h3>
+    <p>Cuando un inversor mete dinero en la empresa (no le compra acciones a otro socio, sino que pone dinero nuevo), la sociedad crea acciones nuevas: es una <b>ampliación de capital</b>. Se aprueba en junta, se formaliza ante <b>notario</b> y se inscribe en el <b>Registro Mercantil</b>. Los socios anteriores tienen ahora un porcentaje menor: es la <b>dilución</b>. Esto es exactamente lo que pasa en cada “ronda” de una startup.</p>
+    <div class="callout"><b>Comprar acciones no es lo mismo que invertir en la empresa.</b><span>Si compras acciones a otro socio, el dinero va al socio que vende, no a la empresa: es una <b>compraventa</b>. Si suscribes acciones nuevas, el dinero entra en la empresa: es una <b>ampliación</b>. Esta distinción aparece en casi todas las noticias.</span></div>
+  </section>
+
+  <section id="b-bolsa">
+    <h2>4. Empresas cotizadas y no cotizadas: qué implica salir a bolsa</h2>
+    <p>La <b>bolsa</b> es un mercado organizado donde cualquiera puede comprar y vender acciones de ciertas empresas, con precio público en cada momento. En España la gestiona <b>BME</b> (Bolsas y Mercados Españoles, hoy del grupo suizo SIX). El <b>IBEX 35</b> es un índice con las 35 más negociadas; existe además <b>BME Growth</b> para empresas más pequeñas.</p>
+    <h3>Las que no cotizan son la inmensa mayoría</h3>
+    <p>De los millones de empresas que hay en España, solo unas pocas centenas cotizan. Las demás son <b>empresas privadas</b> (o “no cotizadas”): la panadería de tu barrio, gigantes familiares como Mercadona o El Corte Inglés, casi todas las startups y las empresas que tiene un fondo de private equity. Sus acciones no tienen un precio público: solo se sabe cuánto valen cuando alguien las compra.</p>
+    <h3>Salir a bolsa (OPV)</h3>
+    <p>Salir a bolsa es pasar de privada a cotizada. Se hace normalmente con una <b>OPV</b> (oferta pública de venta: los socios actuales venden parte de sus acciones al público) o una <b>OPS</b> (oferta pública de suscripción: la empresa emite acciones nuevas y consigue dinero). A menudo se combinan.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Ventajas de cotizar</th><th>Obligaciones e inconvenientes</th></tr></thead>
+      <tbody>
+        <tr><td>Conseguir mucho dinero para crecer</td><td>Un <b>folleto</b> aprobado por la CNMV con toda la información de la empresa</td></tr>
+        <tr><td>Liquidez: los socios pueden vender cuando quieran (también los fondos que quieren salir)</td><td>Publicar resultados cada trimestre o semestre, auditados</td></tr>
+        <tr><td>Un precio público que sirve para pagar con acciones o para incentivar a empleados</td><td>Comunicar al mercado de inmediato cualquier <b>información privilegiada</b> que pueda mover el precio</td></tr>
+        <tr><td>Prestigio y visibilidad</td><td>Normas de buen gobierno: consejeros independientes, comisión de auditoría, transparencia en sueldos</td></tr>
+        <tr><td>—</td><td>Presión por los resultados a corto plazo, costes elevados y riesgo de <b>OPA</b> hostil (que alguien intente comprarla sin acuerdo del consejo)</td></tr>
+      </tbody>
+    </table></div>
+    <p>También se puede hacer el camino inverso: una <b>OPA de exclusión</b> o <i>delisting</i>, en la que alguien compra todas las acciones y la empresa deja de cotizar. Muchos fondos de private equity compran así empresas cotizadas.</p>
+    <h3>Mercado primario y secundario</h3>
+    <p>Cuando una empresa emite acciones o bonos nuevos y recibe el dinero, es el <b>mercado primario</b>. Cuando después esos títulos pasan de un inversor a otro (lo que ocurre cada día en bolsa), es el <b>mercado secundario</b>, y la empresa no recibe nada. Cuando compras acciones de Inditex, el dinero va a otro inversor, no a Inditex.</p>
+  </section>
+
+  <section id="b-mapa">
+    <h2>5. El mapa completo de jugadores</h2>
+    <div class="flow" role="img" aria-label="El dinero va de los ahorradores a los intermediarios y de ahí a empresas y Estados.">
+      <div class="node"><b>Quien tiene el dinero</b><span>Familias y particulares, empresas con caja, Estados con superávit (fondos soberanos)</span></div>
+      <div class="arr"><span>→</span>lo confían a</div>
+      <div class="node gp"><b>Intermediarios</b><span>Bancos, aseguradoras, fondos de pensiones, gestoras de fondos (cotizados y privados)</span></div>
+      <div class="arr"><span>→</span>lo invierten en</div>
+      <div class="node"><b>Quien lo necesita</b><span>Empresas (cotizadas y privadas), Estados, proyectos de infraestructura, familias (hipotecas)</span></div>
+    </div>
+    <h3>Los intermediarios, uno a uno</h3>
+    <ul>
+      <li><b>Bancos comerciales</b> (Santander, BBVA, CaixaBank): reciben depósitos y dan préstamos. Ganan con el <b>margen de intereses</b>: prestan más caro de lo que pagan por los depósitos. Muy regulados porque guardan el dinero de la gente.</li>
+      <li><b>Bancos de inversión</b> (Goldman Sachs, J.P. Morgan, Alantra, Rothschild): no guardan tus ahorros. <b>Asesoran</b> compras y ventas de empresas (M&A), ayudan a salir a bolsa y a emitir bonos y <b>colocan</b> esos títulos entre inversores. Cobran comisiones por operación.</li>
+      <li><b>Aseguradoras</b> (Mapfre, Mutua Madrileña, Allianz): cobran primas hoy y pagan siniestros en el futuro. Mientras tanto, invierten ese dinero, sobre todo en bonos.</li>
+      <li><b>Fondos y planes de pensiones:</b> ahorran durante décadas para pagar jubilaciones. Son de los mayores inversores del mundo, y los principales LPs de los fondos privados.</li>
+      <li><b>Gestoras de activos tradicionales</b> (BlackRock, Vanguard, Amundi, CaixaBank AM, azValor): gestionan fondos que invierten en bolsa y bonos para millones de ahorradores.</li>
+      <li><b>Gestoras alternativas</b> (EQT, KKR, Blackstone, Kfund): gestionan fondos que invierten en activos que no cotizan.</li>
+      <li><b>Fondos soberanos:</b> el ahorro de un Estado. Noruega invierte los ingresos de su petróleo; Singapur, Arabia Saudí o Qatar, igual.</li>
+      <li><b>Family offices:</b> estructuras que gestionan la fortuna de una familia rica (por ejemplo, Pontegadea, de la familia Ortega).</li>
+    </ul>
+    <h3>Los que asesoran y los que vigilan</h3>
+    <ul>
+      <li><b>Asesores:</b> despachos (contratos y regulación), Big4 (auditoría, due diligence, fiscal), consultoras (estrategia), notarios (dan fe pública de las operaciones) y agencias de rating (Moody’s, S&P y Fitch puntúan el riesgo de la deuda).</li>
+      <li><b>Supervisores:</b> la <b>CNMV</b> (mercados de valores y fondos), el <b>Banco de España</b> y el <b>BCE</b> (bancos), la <b>DGSFP</b> (seguros y pensiones), la <b>CNMC</b> (competencia) y, en Europa, la <b>ESMA</b>. En EE. UU., la <b>SEC</b>.</li>
+    </ul>
+  </section>
+
+  <section id="b-fondos">
+    <h2>6. Todos los tipos de fondos en una tabla</h2>
+    <p>Un fondo siempre es lo mismo, dinero de muchos gestionado por un profesional. Lo que cambia es <b>en qué invierte</b>, <b>cuánto tiempo queda atrapado el dinero</b> y <b>quién puede entrar</b>.</p>
+    <div class="tw"><table>
+      <thead><tr><th>Tipo</th><th>Qué compra</th><th>Liquidez</th><th>Riesgo y rentabilidad esperada</th><th>Quién invierte</th></tr></thead>
+      <tbody>
+        <tr><td><b>Monetario</b></td><td>Deuda a muy corto plazo</td><td>Diaria</td><td>Muy bajo; cerca de los tipos del BCE</td><td>Cualquiera; empresas con caja</td></tr>
+        <tr><td><b>Renta fija</b></td><td>Bonos de Estados y empresas</td><td>Diaria</td><td>Bajo–medio</td><td>Cualquiera; aseguradoras</td></tr>
+        <tr><td><b>Renta variable</b></td><td>Acciones cotizadas</td><td>Diaria</td><td>Alto a corto plazo; el mayor a largo</td><td>Cualquiera</td></tr>
+        <tr><td><b>Indexado / ETF</b></td><td>Copia un índice (S&P 500, MSCI World)</td><td>Diaria (el ETF cotiza como una acción)</td><td>El del mercado, con comisiones mínimas</td><td>Cualquiera</td></tr>
+        <tr><td><b>Mixto</b></td><td>Combina bonos y acciones</td><td>Diaria</td><td>Intermedio</td><td>Cualquiera</td></tr>
+        <tr><td><b>Plan de pensiones</b></td><td>Lo anterior, pensado para la jubilación</td><td>Solo se rescata en casos tasados</td><td>Según el plan</td><td>Particulares y empresas para sus empleados</td></tr>
+        <tr><td><b>Hedge fund</b></td><td>Cualquier cosa, con estrategias complejas (apostar a la baja, derivados, apalancamiento)</td><td>Mensual o trimestral</td><td>Variable; busca ganar en cualquier mercado</td><td>Grandes patrimonios e instituciones</td></tr>
+        <tr><td><b>Private equity</b></td><td>Empresas privadas, comprando el control</td><td>~10 años</td><td>Alta (15–20% anual buscado)</td><td>Pensiones, soberanos, aseguradoras, family offices</td></tr>
+        <tr><td><b>Venture capital</b></td><td>Participaciones minoritarias en startups</td><td>~10–12 años</td><td>Muy alto; pocas ganadoras pagan todo</td><td>Los mismos, y emprendedores de éxito</td></tr>
+        <tr><td><b>Infraestructuras</b></td><td>Activos esenciales (energía, residuos, fibra, autopistas)</td><td>10–15 años o más</td><td>Medio; ingresos muy estables</td><td>Pensiones y aseguradoras</td></tr>
+        <tr><td><b>Inmobiliario</b></td><td>Edificios (oficinas, logística, viviendas)</td><td>Años (o diaria si es una SOCIMI cotizada)</td><td>Medio</td><td>Instituciones; particulares vía SOCIMIs</td></tr>
+        <tr><td><b>Deuda privada</b></td><td>Préstamos directos a empresas</td><td>5–8 años</td><td>Medio; intereses altos</td><td>Aseguradoras y pensiones</td></tr>
+        <tr><td><b>Fondo de fondos / secundarios</b></td><td>Participaciones en otros fondos</td><td>Años</td><td>Diversificado</td><td>Instituciones que quieren diversificar o ganar liquidez</td></tr>
+      </tbody>
+    </table></div>
+    <p>Regla general: <b>cuanto más tiempo está el dinero atrapado y más difícil es saber cuánto vale lo que se compra, más rentabilidad se exige</b>. Es la “prima de iliquidez”.</p>
+  </section>
+
+  <section id="b-quien">
+    <h2>7. Quién invierte en qué, y por qué</h2>
+    <p>Cada inversor elige según tres cosas: <b>cuándo necesitará el dinero</b>, <b>cuánto riesgo puede asumir</b> y <b>cuánto dinero tiene</b>.</p>
+    <ul>
+      <li><b>Un particular:</b> puede necesitar su dinero en cualquier momento, así que usa fondos con liquidez diaria, planes de pensiones y depósitos. La ley (MiFID) lo considera “inversor minorista” y lo protege: muchos productos complejos están restringidos.</li>
+      <li><b>Un fondo de pensiones:</b> no pagará muchas de sus pensiones hasta dentro de 30 años, así que puede “encerrar” parte del dinero 10 años a cambio de más rentabilidad. Por eso es el gran cliente de EQT o KKR.</li>
+      <li><b>Una aseguradora:</b> sabe aproximadamente cuánto pagará cada año en siniestros, así que compra sobre todo bonos que vencen cuando los necesita, y algo de infraestructuras y deuda privada.</li>
+      <li><b>Un fondo soberano o un family office:</b> horizonte larguísimo y mucho dinero: invierte en todo, incluidos fondos privados, y a veces compra empresas directamente.</li>
+      <li><b>Un banco:</b> presta con el dinero de sus depositantes; su regulación le limita mucho el riesgo que puede asumir.</li>
+    </ul>
+    <p>La ley distingue entre <b>inversores profesionales</b> (instituciones y grandes patrimonios) y <b>minoristas</b>. Los fondos privados se dirigen casi siempre a profesionales; los minoristas solo pueden entrar con requisitos especiales. Esa frontera se está abriendo: es lo que significan los “fondos evergreen para patrimonios privados” de EQT o Blackstone.</p>
+  </section>
+
+  <section id="b-tx">
+    <h2>8. Cómo se relacionan entre sí: seis operaciones típicas</h2>
+    <ol class="steps">
+      <li><span><b>Compras acciones de Inditex en bolsa.</b> Mercado secundario: el dinero va a otro inversor. Te intermedia un banco o un bróker, que cobra una comisión. La CNMV vigila que el precio sea transparente.</span></li>
+      <li><span><b>Metes 1.000 € en un fondo indexado.</b> La gestora junta tu dinero con el de miles de personas y compra las acciones del índice. Te cobra una comisión anual pequeña. Tú eres partícipe del fondo, no accionista directo de esas empresas.</span></li>
+      <li><span><b>Telefónica emite un bono de 1.000 millones.</b> Mercado primario: varios bancos de inversión lo colocan entre aseguradoras y fondos de renta fija. Una agencia de rating le pone nota. Telefónica paga intereses cada año y devuelve el dinero al vencimiento.</span></li>
+      <li><span><b>Kfund invierte en una ronda de una startup.</b> Ampliación de capital: Kfund pone 2 millones y recibe acciones nuevas. Se firma una term sheet y un pacto de socios, se aprueba en junta y se eleva a público ante notario. Los fundadores se diluyen.</span></li>
+      <li><span><b>EQT y Blackstone compran Urbaser a Platinum Equity.</b> Compraventa privada (no cotiza): un fondo vende a otros dos. Los fondos compradores ponen dinero de sus LPs (pensiones, soberanos…) más deuda de bancos y fondos de deuda. Bancos de inversión asesoran a cada parte; despachos redactan el contrato (SPA) y el pacto de socios; Big4 hacen la due diligence; Competencia autoriza; se firma ante notario.</span></li>
+      <li><span><b>Una OPA sobre una empresa cotizada.</b> Alguien ofrece comprar las acciones a todos los accionistas a un precio. La CNMV debe autorizar el folleto de la OPA. Si el consejo de la empresa está de acuerdo es una OPA <b>amistosa</b>; si no, <b>hostil</b>. Un ejemplo reciente en España fue la OPA de BBVA sobre Sabadell (2024–2025), que no alcanzó la aceptación mínima.</span></li>
+    </ol>
+  </section>
+
+  <section id="b-ley">
+    <h2>9. La base legal: las normas detrás de cada cosa</h2>
+    <p>Esto es lo que más te diferencia de un estudiante solo de ADE. Las normas principales en España (muchas transponen directivas o aplican reglamentos europeos):</p>
+    <div class="tw"><table>
+      <thead><tr><th>Ámbito</th><th>Norma principal</th><th>Qué regula</th></tr></thead>
+      <tbody>
+        <tr><td><b>Sociedades</b></td><td>Ley de Sociedades de Capital (RDLeg. 1/2010)</td><td>SL y SA, junta, consejo, ampliaciones de capital, fusiones, deberes de los administradores</td></tr>
+        <tr><td><b>Contratos</b></td><td>Código Civil y Código de Comercio</td><td>La compraventa de acciones (SPA) y los pactos de socios son, en el fondo, contratos privados</td></tr>
+        <tr><td><b>Mercado de valores</b></td><td>Ley 6/2023 de los Mercados de Valores y de los Servicios de Inversión; MiFID II (UE)</td><td>Bolsas, bancos y brókeres que venden productos, protección del inversor</td></tr>
+        <tr><td><b>Salida a bolsa</b></td><td>Reglamento (UE) 2017/1129 de Folletos</td><td>El folleto que hay que publicar para ofrecer valores al público</td></tr>
+        <tr><td><b>Abuso de mercado</b></td><td>Reglamento (UE) 596/2014 (MAR)</td><td>Información privilegiada, uso indebido, manipulación de precios</td></tr>
+        <tr><td><b>OPAs</b></td><td>Real Decreto 1066/2007</td><td>Cuándo hay que lanzar una OPA, precio equitativo, plazos</td></tr>
+        <tr><td><b>Fondos cotizados</b></td><td>Ley 35/2003 de Instituciones de Inversión Colectiva; Directiva UCITS</td><td>Fondos de inversión y SICAV que se venden al público</td></tr>
+        <tr><td><b>Fondos privados</b></td><td>Ley 22/2014 de Entidades de Capital-Riesgo; Directiva AIFMD</td><td>Fondos de private equity y venture capital y sus gestoras</td></tr>
+        <tr><td><b>Pensiones</b></td><td>Ley de Planes y Fondos de Pensiones (RDLeg. 1/2002)</td><td>Planes de pensiones individuales y de empresa</td></tr>
+        <tr><td><b>Bancos</b></td><td>Ley 10/2014 de entidades de crédito; normas europeas de solvencia</td><td>Cuánto capital deben tener los bancos y cómo se les supervisa</td></tr>
+        <tr><td><b>Competencia</b></td><td>Ley 15/2007 de Defensa de la Competencia</td><td>Autorización de fusiones y compras que concentran un mercado (CNMC)</td></tr>
+        <tr><td><b>Inversión extranjera</b></td><td>Ley 19/2003 (régimen de control de inversiones exteriores)</td><td>Autorización previa para que extranjeros compren empresas en sectores estratégicos</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small muted">Es un mapa para orientarte, no una lista completa: cada ámbito tiene reglamentos y circulares de la CNMV o del Banco de España que lo desarrollan.</p>
+  </section>
+
+  <section id="b-noticia">
+    <h2>10. Cómo leer una noticia, frase a frase</h2>
+    <p><i>“Blackstone y EQT se hacen con Urbaser por unos 5.600 millones. Los fondos adquieren la compañía a Platinum Equity, que la compró en 2021, y se repartirán el capital al 50%. La operación, asesorada por varios bancos de inversión, está pendiente de la autorización de Competencia.”</i></p>
+    <ul>
+      <li><b>“Blackstone y EQT”:</b> gestoras de fondos privados (GPs). Compran con el dinero de sus LPs y con deuda.</li>
+      <li><b>“Urbaser”:</b> empresa no cotizada. El precio no sale de la bolsa, sino de una negociación privada.</li>
+      <li><b>“5.600 millones”:</b> suele ser el <i>valor de empresa</i> (lo que vale el negocio, incluida su deuda), no lo que cobra el vendedor en efectivo.</li>
+      <li><b>“a Platinum Equity, que la compró en 2021”:</b> otro fondo que vende tras unos años. Es una venta entre fondos (<i>secondary buyout</i>) y el final del ciclo de inversión de Platinum.</li>
+      <li><b>“al 50%”:</b> habrá un pacto de socios para decidir cómo se gobierna la empresa entre los dos.</li>
+      <li><b>“asesorada por bancos de inversión”:</b> detrás también hay despachos, Big4 y notarios.</li>
+      <li><b>“pendiente de Competencia”:</b> la CNMC o la Comisión Europea deben autorizarla antes del cierre.</li>
+    </ul>
+  </section>
+
+  <section id="b-dicc">
+    <h2>11. Diccionario de periódico</h2>
+    <div class="tw"><table>
+      <thead><tr><th>Término</th><th>Qué significa</th></tr></thead>
+      <tbody>
+        <tr><td><b>Capitalización bursátil</b></td><td>Lo que vale en bolsa una empresa cotizada: precio por acción × número de acciones</td></tr>
+        <tr><td><b>Valor de empresa (EV)</b></td><td>Capitalización (o valor del capital) + deuda neta. Lo que costaría comprar el negocio entero</td></tr>
+        <tr><td><b>Dividendo / recompra de acciones</b></td><td>Dos formas de devolver beneficios a los accionistas: pagarles o comprar acciones propias</td></tr>
+        <tr><td><b>Ampliación de capital / dilución</b></td><td>Emitir acciones nuevas a cambio de dinero / el porcentaje de los socios anteriores baja</td></tr>
+        <tr><td><b>OPV / OPS / OPA</b></td><td>Vender acciones al público / emitir acciones nuevas al público / ofrecer comprar las acciones de una cotizada</td></tr>
+        <tr><td><b>Exclusión de bolsa (delisting)</b></td><td>La empresa deja de cotizar, normalmente tras una OPA de exclusión</td></tr>
+        <tr><td><b>Información privilegiada</b></td><td>Información que movería el precio y que la cotizada debe publicar enseguida (antes, “hecho relevante”)</td></tr>
+        <tr><td><b>Bono / rentabilidad / rating</b></td><td>Préstamo troceado en títulos / lo que gana al año quien lo compra / nota de riesgo de una agencia</td></tr>
+        <tr><td><b>High yield</b></td><td>Bonos de empresas con más riesgo, que pagan más intereses</td></tr>
+        <tr><td><b>Prima de riesgo</b></td><td>Lo que paga España por su deuda a 10 años por encima de Alemania. Mide la confianza en el país</td></tr>
+        <tr><td><b>Fusión / adquisición (M&A)</b></td><td>Dos empresas se unen en una / una compra a otra</td></tr>
+        <tr><td><b>Spin-off / carve-out</b></td><td>Separar una división de una empresa para que sea independiente o venderla</td></tr>
+        <tr><td><b>MBO</b></td><td>Los propios directivos compran la empresa, normalmente con un fondo y deuda</td></tr>
+        <tr><td><b>Desinversión</b></td><td>Vender una participación o un negocio</td></tr>
+        <tr><td><b>SICAV</b></td><td>Sociedad que funciona como un fondo de inversión, usada por grandes patrimonios</td></tr>
+        <tr><td><b>SOCIMI</b></td><td>Sociedad cotizada que invierte en inmuebles para alquilar, con un régimen fiscal especial</td></tr>
+        <tr><td><b>Unicornio</b></td><td>Startup no cotizada valorada en más de 1.000 millones de dólares</td></tr>
+        <tr><td><b>Activos bajo gestión (AUM)</b></td><td>Todo el dinero que gestiona una gestora</td></tr>
+      </tbody>
+    </table></div>
+    <p>Los conceptos que salen cada semana en tu resumen se van guardando en la pestaña <a href="#glosario">Glosario</a>.</p>
+  </section>
+
+  <section id="b-refs">
+    <h2>12. Para seguir aprendiendo</h2>
+    <h3>Para empezar desde cero (en español)</h3>
+    <ul>
+      <li><a href="https://www.finanzasparatodos.es" target="_blank" rel="noopener"><b>Finanzas para Todos</b></a> (CNMV y Banco de España): explicaciones oficiales y sencillas de productos financieros, bolsa, fondos y deuda.</li>
+      <li><a href="https://www.cnmv.es" target="_blank" rel="noopener"><b>CNMV · sección del inversor</b></a>: guías sobre fondos, salidas a bolsa, OPAs y derechos del inversor. Y es el regulador al que se refieren las noticias.</li>
+      <li><b>Libro: <i>Un paseo aleatorio por Wall Street</i></b> (Burton Malkiel). El clásico para entender bolsa, fondos e indexación sin tecnicismos.</li>
+      <li><b>Libro: <i>El inversor inteligente</i></b> (Benjamin Graham). La base de la inversión en valor; lo que siguen azValor, Cobas o Magallanes.</li>
+    </ul>
+    <h3>Para entender los fondos privados y las operaciones</h3>
+    <ul>
+      <li><b>Libro: <i>Barbarians at the Gate</i></b> (Burrough y Helyar). La historia real de la compra de RJR Nabisco por KKR en 1988. Se lee como una novela y explica el LBO mejor que cualquier manual.</li>
+      <li><b>Libro: <i>Venture Deals</i></b> (Brad Feld y Jason Mendelson). Cómo funciona una ronda de venture capital, cláusula a cláusula. Perfecto para alguien de Derecho y ADE.</li>
+      <li><a href="https://www.bain.com/insights/topics/global-private-equity-report/" target="_blank" rel="noopener"><b>Bain · Global Private Equity Report</b></a> y <a href="https://www.mckinsey.com/industries/private-capital/our-insights" target="_blank" rel="noopener"><b>McKinsey · Global Private Markets Review</b></a>: informes anuales gratuitos sobre el estado del sector.</li>
+      <li><a href="https://www.investopedia.com" target="_blank" rel="noopener"><b>Investopedia</b></a>: para buscar cualquier término en inglés con ejemplos.</li>
+    </ul>
+    <h3>Podcasts</h3>
+    <ul>
+      <li><a href="https://www.bloomberg.com/oddlots" target="_blank" rel="noopener"><b>Odd Lots</b></a> (Bloomberg): economía y mercados explicados con calma por dos periodistas que preguntan lo que tú preguntarías.</li>
+      <li><b>Money Stuff: The Podcast</b> (Bloomberg, con Matt Levine): las operaciones y polémicas de la semana, con humor y mucho Derecho de sociedades.</li>
+      <li><a href="https://www.acquired.fm" target="_blank" rel="noopener"><b>Acquired</b></a>: la historia completa de grandes empresas y cómo se financiaron.</li>
+      <li><b>Capital Allocators</b> (Ted Seides): entrevistas a quienes gestionan el dinero de fondos de pensiones, soberanos y family offices, es decir, a los LPs. Para entender quién invierte en EQT y por qué.</li>
+      <li><b>Invest Like the Best</b> (Patrick O’Shaughnessy): entrevistas a inversores de todo tipo.</li>
+      <li><b>FT News Briefing</b> y <b>The Journal</b> (WSJ): 10–20 minutos diarios con lo más importante.</li>
+    </ul>
+    <h3>Newsletters</h3>
+    <ul>
+      <li><a href="https://www.bloomberg.com/account/newsletters/money-stuff" target="_blank" rel="noopener"><b>Money Stuff</b></a> (Matt Levine): la mejor forma de aprender finanzas y Derecho de sociedades leyendo noticias reales.</li>
+      <li><b>DealBook</b> (The New York Times): las grandes operaciones del día.</li>
+      <li><b>Expansión</b>, secciones de Mercados y Empresas, y <b>Cinco Días</b>: para seguir las operaciones en España.</li>
+    </ul>
+    <div class="callout"><b>Un orden razonable.</b><span>1) Esta guía y Finanzas para Todos. 2) <i>Un paseo aleatorio por Wall Street</i>. 3) La guía 2 sobre fondos. 4) <i>Barbarians at the Gate</i> y <i>Venture Deals</i>. Y, mientras tanto, cada semana tu resumen, Money Stuff y un episodio de Odd Lots.</span></div>
+  </section>
+</article>
+
+<article class="guide" id="g-inicio" style="scroll-margin-top:70px">
+  <div style="display:grid;gap:10px">
+    <span class="eyebrow">Guía 2 · Mercados privados</span>
     <h1>Cómo funcionan los fondos de inversión, y cómo gana dinero una firma como EQT</h1>
     <p class="lede">De un fondo indexado a una compra apalancada de 5.000 millones: quién pone el dinero, quién decide, cómo se reparten los beneficios y dónde encaja alguien con Derecho y ADE.</p>
   </div>
@@ -527,11 +797,11 @@ $("#g-q").addEventListener("input",renderGloss);
 
 /* routing */
 const VIEWS=["semana","glosario","guias","fuentes"];
-function route(){let h=(location.hash||"#semana").slice(1);if(/^g-/.test(h)){const t=document.getElementById(h);VIEWS.forEach(x=>{$("#v-"+x).hidden=x!=="guias"});document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#guias")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});if(t)t.scrollIntoView();return}const v=VIEWS.includes(h)?h:"semana";
+function route(){let h=(location.hash||"#semana").slice(1);if(/^[gb]-/.test(h)){const t=document.getElementById(h);VIEWS.forEach(x=>{$("#v-"+x).hidden=x!=="guias"});document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#guias")a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});if(t)t.scrollIntoView();return}const v=VIEWS.includes(h)?h:"semana";
   VIEWS.forEach(x=>{$("#v-"+x).hidden=x!==v});
   document.querySelectorAll("#nav a").forEach(a=>{if(a.getAttribute("href")==="#"+v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
   closeCard();}
-window.addEventListener("hashchange",()=>{route();if(!/^#g-/.test(location.hash))window.scrollTo(0,0)});route();
+window.addEventListener("hashchange",()=>{route();if(!/^#[gb]-/.test(location.hash))window.scrollTo(0,0)});route();
 
 /* data */
 function noData(msg){$("#w-body").innerHTML=`<div style="display:grid;gap:12px"><h1>No se pueden cargar los resúmenes</h1><p class="lede">${esc(msg)}</p></div>`;$("#g-list").innerHTML=`<li class="empty">${esc(msg)}</li>`}
